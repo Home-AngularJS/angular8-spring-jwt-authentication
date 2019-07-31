@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import {ApiService} from '../service/api.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-terminal',
@@ -12,10 +14,22 @@ export class TerminalComponent implements OnInit {
   selectedTerminal;
   terminalGroups;
 
-  constructor(public dataService: DataService) { }
+  constructor(private router: Router, private apiService: ApiService, public dataService: DataService) { }
 
   ngOnInit() {
-    this.terminals = this.dataService.getTerminals();
+    if (!window.localStorage.getItem('token')) {
+      this.router.navigate(['login']);
+      return;
+    }
+    this.terminals = this.dataService.getTerminals().content;
+
+    // this.apiService.getTerminals()
+    //   .subscribe( data => {
+    //     console.log(data)
+    //     const anyData: any = data
+    //     const terminals = anyData
+    //     this.terminals = terminals.content;
+    //   });
   }
 
   public selectTerminal(terminal){

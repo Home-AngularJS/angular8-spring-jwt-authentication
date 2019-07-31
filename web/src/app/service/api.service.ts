@@ -9,6 +9,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
   baseUrl: string = 'http://localhost:8090/users/';
+  terminalUrl = 'http://map1.mobo.cards:8093/api/v1/terminals';
 
   login(loginPayload) : Observable<ApiResponse> {
     return this.http.post<ApiResponse>('http://localhost:8090/' + 'token/generate-token', loginPayload);
@@ -16,6 +17,10 @@ export class ApiService {
 
   getUsers() : Observable<ApiResponse> {
     return this.http.get<ApiResponse>(this.baseUrl);
+  }
+
+  getTerminals(): Observable<any> {
+    return this.http.get<any>(this.terminalUrl);
   }
 
   getUserById(id: number): Observable<ApiResponse> {

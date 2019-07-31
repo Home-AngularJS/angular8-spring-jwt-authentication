@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-terminal-groups',
@@ -11,9 +12,13 @@ export class TerminalGroupsComponent implements OnInit {
   terminalGroups;
   selectedTerminalGroup;
 
-  constructor(public dataService: DataService) { }
+  constructor(private router: Router, public dataService: DataService) { }
 
   ngOnInit() {
+    if (!window.localStorage.getItem('token')) {
+      this.router.navigate(['login']);
+      return;
+    }
     this.terminalGroups = this.dataService.getTerminalGroups();
   }
 
