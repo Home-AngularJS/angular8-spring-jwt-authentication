@@ -1,0 +1,150 @@
+/* You can add global styles to this file, and also import other style files */
+/*@import "~bootstrap/dist/css/bootstrap.css";*/
+
+.bg-transenix {
+  background-color: #00275e !important;
+}
+
+a.bg-transenix:hover,
+a.bg-transenix:focus,
+button.bg-primary:hover,
+button.bg-primary:focus {
+  background-color: #00357d !important;
+}
+
+
+
+.list-group-transenix {
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem !important;
+  margin-bottom: -1px !important;
+  /*border: 1px solid rgba(0, 0, 0, 0.125) !important;*/
+}
+
+.list-group-transenix-action {
+  width: 100%;
+  color: #eee !important;
+  text-align: inherit;
+}
+
+.list-group-transenix-action:active {
+  color: #fff !important;
+  text-decoration: none;
+  background-color: #00357d !important;
+  cursor: default;
+}
+
+.list-group-transenix-action:focus {
+  color: #fff !important;
+  text-decoration: none;
+  background-color: #00357d !important;
+  cursor: default;
+}
+
+.list-group-transenix-action:hover,
+.list-group-transenix-action:focus {
+  color: #fff !important;
+  text-decoration: none;
+  background-color: #00357d !important;
+}
+
+
+
+.table-transenix {
+  border: solid #00275e 1px !important;
+  /*line-height: 1.0;*/
+}
+
+.table-transenix,
+.table-transenix > th,
+.table-transenix > td {
+  background-color: #fff !important;
+}
+
+.table-transenix th,
+.table-transenix td,
+.table-transenix thead th,
+.table-transenix tbody + tbody {
+  border-color: transparent !important;
+  vertical-align: top !important;
+}
+
+/*.table .thead-transenix td {*/
+  /*padding: .65rem !important;*/
+/*}*/
+
+.table .thead-transenix th {
+  color: #fff !important;
+  background-color: #00275e !important;
+  border-color: #00275e !important;
+}
+
+.table-transenix thead tr table tr:hover {
+  background-color: white !important;
+}
+
+.table-transenix tbody tr:hover {
+  background-color: rgba(121, 154, 200, 0.24) !important;
+}
+
+.table .tbody-transenix {
+  width: 580px;
+  max-height: 625px;
+  display: inline-block;
+  overflow: auto;
+  border-right: solid #00275e 1px;
+}
+
+.btn.btn-transenix {
+  color: #fff;
+  background-color: #00357d;
+  border-color: #00275e;
+}
+
+.btn.btn-transenix:hover {
+  color: #fff;
+  background-color: #00275e !important;
+  border-color: #00275e !important;
+}
+
+.btn.btn-transenix-sm {
+  color: #fff;
+  background-color: #00357d;
+  border-color: #00275e;
+  /*padding: .25rem .25rem !important;*/
+  padding: .2rem .25rem !important;
+  line-height: 0.5 !important;
+}
+
+.btn.btn-transenix-sm:hover {
+  color: #fff;
+  background-color: #00275e !important;
+  border-color: #00275e !important;
+}
+
+
+
+.card-header {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  color: #fff !important;
+  background-color: #00275e !important;
+  border-bottom: 1px solid #00275e !important;
+  text-align: left;
+  height: 50px;
+}
+
+
+
+.navbar.navbar-expand-md.bg-secondary {
+  background: url("/assets/img/home_header_center2.png") 30px repeat-x;
+}
+
+/*@media (min-width: 576px) {*/
+  /*.offset-sm-2 {*/
+    /*margin-left: 0;*/
+  /*}*/
+/*}*/
+
+
