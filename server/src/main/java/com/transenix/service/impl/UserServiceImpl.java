@@ -1,9 +1,9 @@
-package com.devglan.service.impl;
+package com.transenix.service.impl;
 
-import com.devglan.dao.UserDao;
-import com.devglan.model.User;
-import com.devglan.model.UserDto;
-import com.devglan.service.UserService;
+import com.transenix.dao.UserDao;
+import com.transenix.model.User;
+import com.transenix.model.UserDto;
+import com.transenix.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,7 +17,7 @@ import java.util.*;
 
 @Service(value = "userService")
 public class UserServiceImpl implements UserDetailsService, UserService {
-	
+
 	@Autowired
 	private UserDao userDao;
 

@@ -1,4 +1,4 @@
-package com.devglan.model;
+package com.transenix.model;
 
 import javax.persistence.*;
 

@@ -1,4 +1,4 @@
-package com.devglan.config;
+package com.transenix.config;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.SignatureException;
@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static com.devglan.model.Constants.HEADER_STRING;
-import static com.devglan.model.Constants.TOKEN_PREFIX;
+import static com.transenix.model.Constants.HEADER_STRING;
+import static com.transenix.model.Constants.TOKEN_PREFIX;
 
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 

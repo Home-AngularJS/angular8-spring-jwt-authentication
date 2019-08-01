@@ -1,6 +1,5 @@
-package com.devglan.config;
+package com.transenix.config;
 
-import com.devglan.model.User;
 import io.jsonwebtoken.*;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -16,9 +15,9 @@ import java.util.Date;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import static com.devglan.model.Constants.ACCESS_TOKEN_VALIDITY_SECONDS;
-import static com.devglan.model.Constants.AUTHORITIES_KEY;
-import static com.devglan.model.Constants.SIGNING_KEY;
+import static com.transenix.model.Constants.ACCESS_TOKEN_VALIDITY_SECONDS;
+import static com.transenix.model.Constants.AUTHORITIES_KEY;
+import static com.transenix.model.Constants.SIGNING_KEY;
 
 @Component
 public class TokenProvider implements Serializable {

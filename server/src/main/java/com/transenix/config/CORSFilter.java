@@ -1,4 +1,4 @@
-package com.devglan.config;
+package com.transenix.config;
 
 import java.io.IOException;
 

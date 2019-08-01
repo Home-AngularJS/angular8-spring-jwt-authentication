@@ -1,7 +1,7 @@
-package com.devglan.service;
+package com.transenix.service;
 
-import com.devglan.model.User;
-import com.devglan.model.UserDto;
+import com.transenix.model.User;
+import com.transenix.model.UserDto;
 
 import java.util.List;
 

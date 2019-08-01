@@ -1,4 +1,4 @@
-package com.devglan.model;
+package com.transenix.model;
 
 public class AuthToken {
 
