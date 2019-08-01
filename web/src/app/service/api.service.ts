@@ -13,7 +13,7 @@ export class ApiService {
   terminalUrl = 'http://map1.mobo.cards:8093/api/v1/terminals';
 
   login(loginPayload) : Observable<ApiResponse> {
-    return this.http.post<ApiResponse>('http://localhost:8090/' + 'token/generate-token', loginPayload);
+    // return this.http.post<ApiResponse>('http://localhost:8090/' + 'token/generate-token', loginPayload);
     return this.http.post<ApiResponse>('http://192.168.1.71:8090/' + 'token/generate-token', loginPayload);
   }
 
