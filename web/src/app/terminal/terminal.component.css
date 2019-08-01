@@ -2,3 +2,52 @@
   background-color: #fff !important;
   list-style-type:none !important;
 }
+
+.table thead th {
+   border-bottom: 0;
+}
+.table td, .table th {
+  padding: 10px 10px 17px 10px;
+  vertical-align: top;
+  border-top: 0;
+}
+
+.vertical-container,
+.horizontal-container {
+  min-height: 0 !important;
+}
+
+.content-container1 {
+  position: relative;
+  min-height: 0;
+  padding: 0px;
+}
+
+.action-container,
+.content-container1 {
+  position: relative;
+  overflow: auto;
+  height: 590px;
+  min-height: 0;
+  background-color: transparent;
+}
+
+.action-container {
+  /*padding: 16px;*/
+}
+
+
+.content-container2 {
+  position: relative;
+  min-height: 0;
+  /*padding: 8px;*/
+}
+
+.action-container,
+.content-container2 {
+  position: relative;
+  overflow: auto;
+  height: 720px;
+  min-height: 0;
+  background-color: transparent;
+}

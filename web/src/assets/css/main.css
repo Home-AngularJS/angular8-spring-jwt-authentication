@@ -84,7 +84,10 @@ button.bg-primary:focus {
   background-color: white !important;
 }
 
-.table-transenix tbody tr:hover {
+/*.table-transenix tbody tr:hover {*/
+  /*background-color: rgba(121, 154, 200, 0.24) !important;*/
+/*}*/
+.content-container1 table tr:hover {
   background-color: rgba(121, 154, 200, 0.24) !important;
 }
 
