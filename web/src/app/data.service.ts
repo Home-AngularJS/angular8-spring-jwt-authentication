@@ -778,7 +778,7 @@ export class DataService {
   //   this.terminals.push(terminal);
   // }
   public updateTerminal(terminal: {content, pageable, totalElements, last, totalPages, first, sort, numberOfElements, size, number, empty}){
-    this.terminals.push(terminal);
+
   }
 
   public getTerminalGroups():Array<{groupNumber, groupName, opPurchase, opReversal, opRefund, manual, pin, geoPosition, limitVisa, limitMc, limitProstir, visaAccepted, mcAccepted, prostirAccepted, receiptTemplate, allowedLanguages}>{

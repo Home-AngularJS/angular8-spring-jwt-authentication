@@ -1,5 +1,9 @@
-<app-header></app-header>
+<ng-template [ngIf]="isLoggedIn">
+  <app-header></app-header>
+</ng-template>
 
 <router-outlet></router-outlet>
 
-<app-footer></app-footer>
+<ng-template [ngIf]="isLoggedIn">
+  <app-footer></app-footer>
+</ng-template>

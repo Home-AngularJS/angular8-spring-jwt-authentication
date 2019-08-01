@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {ApiService} from "../service/api.service";
+import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,9 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   invalidLogin: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService, public app: AppComponent) {
+    this.app.setLoggedIn({'isLoggedIn':false});
+  }
 
   onSubmit() {
     if (this.loginForm.invalid) {
@@ -34,6 +37,7 @@ export class LoginComponent implements OnInit {
         const anyData: any = data
         const token = anyData.token
         window.localStorage.setItem('token', token);
+        this.app.setLoggedIn({'isLoggedIn': true});
         this.router.navigate(['home']);
         // } else {
         //   this.invalidLogin = true;

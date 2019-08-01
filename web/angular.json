@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular8-demo": {
+    "transenix": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular8-demo",
+            "outputPath": "dist/transenix",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,7 +28,10 @@
               "src/assets/css/sidebar.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -60,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular8-demo:build"
+            "browserTarget": "transenix:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular8-demo:build:production"
+              "browserTarget": "transenix:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular8-demo:build"
+            "browserTarget": "transenix:build"
           }
         },
         "test": {
@@ -109,15 +112,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular8-demo:serve"
+            "devServerTarget": "transenix:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular8-demo:serve:production"
+              "devServerTarget": "transenix:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "angular8-demo"
+  "defaultProject": "transenix"
 }

@@ -1,9 +1,26 @@
+html,
+body {
+  height: 100%;
+}
+
+#cover {
+  width: 100%;
+  /*margin-top: calc(10% - 0px);*/
+  margin-top: 10%;
+}
+
+#cover-caption {
+}
+
 .error{
   color: #FF0000;
 }
+
 .login-container {
   display: flex;
   flex-direction: column;
-  background-color: blanchedalmond;
-  margin: 2em auto auto;
+  margin: auto;
+  background: #d6d6d6;
+  /*background: #00275E;*/
+  padding: 1.0rem;
 }

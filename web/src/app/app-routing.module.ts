@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'terminal-groups', component: TerminalGroupsComponent} ,
   { path: 'terminal', component: TerminalComponent },
-  { path: 'transaction', component: TransactionComponent }
+  { path: 'transaction', component: TransactionComponent },
 ];
 
 // export const routing = RouterModule.forRoot(routes);
