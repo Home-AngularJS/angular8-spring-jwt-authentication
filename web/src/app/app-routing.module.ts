@@ -21,7 +21,6 @@ const routes: Routes = [
   { path: 'transaction', component: TransactionComponent },
 ];
 
-// export const routing = RouterModule.forRoot(routes);
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
