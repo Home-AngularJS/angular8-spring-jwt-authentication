@@ -8,11 +8,13 @@ import {ApiResponse} from "../model/api.response";
 export class ApiService {
 
   constructor(private http: HttpClient) { }
-  baseUrl: string = 'http://localhost:8090/users/';
+  // baseUrl: string = 'http://localhost:8090/users/';
+  baseUrl: string = 'http://192.168.1.71:8090/users/';
   terminalUrl = 'http://map1.mobo.cards:8093/api/v1/terminals';
 
   login(loginPayload) : Observable<ApiResponse> {
     return this.http.post<ApiResponse>('http://localhost:8090/' + 'token/generate-token', loginPayload);
+    return this.http.post<ApiResponse>('http://192.168.1.71:8090/' + 'token/generate-token', loginPayload);
   }
 
   getUsers() : Observable<ApiResponse> {
