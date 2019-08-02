@@ -21,15 +21,15 @@ export class TerminalComponent implements OnInit {
       this.router.navigate(['login']);
       return;
     }
-    this.terminals = this.dataService.getTerminals().content;
 
-    // this.apiService.getTerminals()
-    //   .subscribe( data => {
-    //     console.log(data)
-    //     const anyData: any = data
-    //     const terminals = anyData
-    //     this.terminals = terminals.content;
-    //   });
+    // this.terminals = this.dataService.getTerminals().content;
+    this.apiService.getTerminals()
+      .subscribe( data => {
+        console.log(data)
+        const anyData: any = data
+        const terminals = anyData
+        this.terminals = terminals.content;
+      });
   }
 
   public selectTerminal(terminal){

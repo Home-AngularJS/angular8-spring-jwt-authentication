@@ -10,8 +10,10 @@ export class ApiService {
   constructor(private http: HttpClient) { }
   // baseUrl: string = 'http://localhost:8090/users/';
   baseUrl: string = 'http://192.168.1.71:8090/users/';
-  terminalUrl = 'http://map1.mobo.cards:8093/api/v1/terminals';
-  serviceGroupsUrl = 'http://map1.mobo.cards:8093/api/v1/service-groups';
+  // terminalUrl = 'http://map1.mobo.cards:8093/api/v1/terminals';
+  terminalUrl = 'http://192.168.1.124:9000/api/v1/terminals';
+  // serviceGroupsUrl = 'http://map1.mobo.cards:8093/api/v1/service-groups';
+  serviceGroupsUrl = 'http://192.168.1.124:9000/api/v1/service-groups';
 
   login(loginPayload) : Observable<ApiResponse> {
     // return this.http.post<ApiResponse>('http://localhost:8090/' + 'token/generate-token', loginPayload);

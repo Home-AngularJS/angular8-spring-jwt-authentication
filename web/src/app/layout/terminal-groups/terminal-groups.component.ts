@@ -24,8 +24,14 @@ export class TerminalGroupsComponent implements OnInit {
       return;
     }
 
-    this.terminalGroups = this.dataService.getTerminalGroups();
-    // this.terminalGroups = this.apiService.getTerminalGroups();
+    // this.terminalGroups = this.dataService.getTerminalGroups();
+    this.apiService.getTerminalGroups()
+      .subscribe( data => {
+        console.log(data)
+        const anyData: any = data
+        const terminalGroups = anyData
+        this.terminalGroups = terminalGroups;
+      });
 
     this.dropdownList = [
       'UKR',
