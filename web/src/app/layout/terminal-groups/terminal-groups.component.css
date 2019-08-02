@@ -1,17 +1,30 @@
-@media (min-width: 1200px) {
-  .container {
-    /*max-width: 2000px;*/
-  }
+.table thead th {
+  border-bottom: 0;
 }
 
-.table .tbody-transenix {
-  width: 1650px;
-  /*width: 2000px;*/
-  min-height: 250px;
-  max-height: 625px;
-  display: inline-block;
-  overflow: auto;
-  border-right: solid #00275e 1px;
+.table td, .table th {
+  padding: 10px 10px 17px 10px;
+  vertical-align: top;
+  border-top: 0;
+}
+
+.horizontal-container {
+  width: 1400px;
+}
+.vertical-container {
+  height: 598px;
+}
+
+.vertical-container,
+.horizontal-container {
+  min-width: 0 !important;
+  min-height: 0 !important;
+}
+
+@media (min-width: 650px) {
+  .container {
+    max-width: 100%;
+  }
 }
 
 /*.multiselect-dropdown .dropdown-btn .selected-item span {*/
