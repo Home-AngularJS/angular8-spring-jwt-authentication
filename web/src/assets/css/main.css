@@ -13,7 +13,6 @@ button.bg-primary:focus {
 }
 
 
-
 .list-group-transenix {
   position: relative;
   display: block;
@@ -48,7 +47,6 @@ button.bg-primary:focus {
   text-decoration: none;
   background-color: #00357d !important;
 }
-
 
 
 .table-transenix {
@@ -87,17 +85,6 @@ button.bg-primary:focus {
 /*.table-transenix tbody tr:hover {*/
   /*background-color: rgba(121, 154, 200, 0.24) !important;*/
 /*}*/
-.content-container1 table tr:hover {
-  background-color: rgba(121, 154, 200, 0.24) !important;
-}
-
-.table .tbody-transenix {
-  width: 580px;
-  max-height: 625px;
-  display: inline-block;
-  overflow: auto;
-  border-right: solid #00275e 1px;
-}
 
 .btn.btn-transenix {
   color: #fff;
@@ -127,7 +114,6 @@ button.bg-primary:focus {
 }
 
 
-
 .card-header {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
@@ -138,16 +124,6 @@ button.bg-primary:focus {
   height: 50px;
 }
 
-
-
 .navbar.navbar-expand-md.bg-secondary {
   background: url("/assets/img/home_header_center2.png") 30px repeat-x;
 }
-
-/*@media (min-width: 576px) {*/
-  /*.offset-sm-2 {*/
-    /*margin-left: 0;*/
-  /*}*/
-/*}*/
-
-
