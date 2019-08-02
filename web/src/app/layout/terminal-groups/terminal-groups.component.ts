@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../service/data.service';
 import {Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+
 import {ApiService} from '../../service/api.service';
+import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-terminal-groups',
@@ -15,8 +18,9 @@ export class TerminalGroupsComponent implements OnInit {
   dropdownList = [];
   selectedItems = [];
   dropdownSettings = {};
+  editForm: FormGroup;
 
-  constructor(private router: Router, private apiService: ApiService, public dataService: DataService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService, public dataService: DataService) { }
 
   ngOnInit() {
     if (!window.localStorage.getItem('token')) {
@@ -40,6 +44,11 @@ export class TerminalGroupsComponent implements OnInit {
       itemsShowLimit: 2,
       noDataAvailablePlaceholderText: 'нет данных'
     };
+
+    this.editForm = this.formBuilder.group({
+      groupNumber: ['', Validators.required],
+      groupName: ['', Validators.required]
+    });
 
     /**
      * PROD. Profile
@@ -68,6 +77,23 @@ export class TerminalGroupsComponent implements OnInit {
 
   onSelectAll(items: any) {
     console.log(items);
+  }
+
+  onSubmit() {
+    this.apiService.updateServiceGroup(this.editForm.value)
+      .pipe(first())
+      .subscribe(
+        data => {
+          console.log(data);
+          if (data.status === 200) {
+            alert('Updated successfully!');
+          } else {
+            alert(data.message);
+          }
+        },
+        error => {
+          alert(error);
+        });
   }
 }
 

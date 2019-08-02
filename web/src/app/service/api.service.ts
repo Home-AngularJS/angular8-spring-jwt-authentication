@@ -59,6 +59,12 @@ export class ApiService {
     return this.http.get<any>(this.serviceGroupsUrl);
   }
 
+  updateServiceGroup(anyTerminalGroup: any): Observable<any> {
+    console.log(anyTerminalGroup);
+    const terminalGroup = anyTerminalGroup;
+    return this.http.put<any>(this.serviceGroupsUrl + '/' + terminalGroup.groupNumber, terminalGroup);
+  }
+
   /**
    * Transaction API
    */

@@ -679,6 +679,33 @@ export class DataService {
     "empty": false
   };
 
+  panMaskeds = [
+    {
+      "id": 1,
+      "templateMasked": "************NNNN"
+    },
+    {
+      "id": 2,
+      "templateMasked": "NNNN************"
+    },
+    {
+      "id": 3,
+      "templateMasked": "NNNN********NNNN"
+    }
+    ];
+
+  allowedLanguages = [
+    {
+      "languageId": "UKR"
+    },
+    {
+      "languageId": "RUS"
+    },
+    {
+      "languageId": "ENG"
+    }
+  ];
+
   constructor(private http: HttpClient) { }
 
   public findAllTerminals():{content, pageable, totalElements, last, totalPages, first, sort, numberOfElements, size, number, empty}{
@@ -703,6 +730,14 @@ export class DataService {
 
   public findAllTransactions():{content, pageable, last, totalPages, totalElements, first, sort, numberOfElements, size, number, empty} {
     return this.transactions;
+  }
+
+  public getPanMaskeds():Array<{id, templateMasked}> {
+    return this.panMaskeds;
+  }
+
+  public getAllowedLanguages():Array<{languageId}> {
+    return this.allowedLanguages;
   }
 }
 

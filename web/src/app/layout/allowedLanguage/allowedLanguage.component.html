@@ -24,7 +24,7 @@
     <table class="table" border="1" style="width:0;">
       <thead style="background-color:#00275e; border-color:#00275e; color:#fff; width:0;">
       <tr>
-        <th>Транзакции</th>
+        <th>Языки приложений</th>
       </tr>
       </thead>
       <tbody>
@@ -35,20 +35,9 @@
               <table>
                 <tr>
                   <td>
-                    <table width="1705" border="0">
+                    <table width="355" border="0">
                       <tr>
-                        <th width="185">Номер транзакции</th>
-                        <th width="90">Сумма</th>
-                        <th width="125">Доп сумма</th>
-                        <th width="100">Валюта</th>
-                        <th width="150">Тип операции</th>
-                        <th width="150">Маска карты</th>
-                        <th width="200">Дата/Время</th>
-                        <th width="145">Форм Фактор</th>
-                        <th width="180">Код авторизации</th>
-                        <th width="130">Код ответа</th>
-                        <th width="150">РРН</th>
-                        <th width="100">Статус</th>
+                        <th width="355">Идентификатор</th>
                       </tr>
                     </table>
                   </td>
@@ -57,22 +46,11 @@
                   <td>
                     <div class="vertical-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="100%">
                       <perfect-scrollbar class="scroll-container" fxFlex="auto">
-                        <table class="table table-striped" width="1705" border="0">
+                        <table class="table table-striped" width="355" border="">
                           <tbody>
-                          <ng-container *ngFor="let transaction of transactions.content">
+                          <ng-container *ngFor="let allowedLanguage of allowedLanguages">
                             <tr class="found">
-                              <td width="185">{{ transaction.transactionId }}</td>
-                              <td width="90">{{ transaction.amount }}</td>
-                              <td width="125">{{ transaction.amountOther }}</td>
-                              <td width="100">{{ transaction.currency }}</td>
-                              <td width="150">{{ transaction.operation }}</td>
-                              <td width="150">{{ transaction.panMasked }}</td>
-                              <td width="200">{{ transaction.transactionDate }}</td>
-                              <td width="145">{{ transaction.formFactor }}</td>
-                              <td width="180">{{ transaction.approvalCode }}</td>
-                              <td width="130">{{ transaction.responseCode }}</td>
-                              <td width="150">{{ transaction.rrn }}</td>
-                              <td width="100">{{ transaction.statusCode }}</td>
+                              <td width="355">{{ allowedLanguage.languageId }}</td>
                             </tr>
                           </ng-container>
                           </tbody>

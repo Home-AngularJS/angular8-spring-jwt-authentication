@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TerminalGroupsComponent } from './terminal-groups.component';
+import { PanMaskedComponent } from './panMasked.component';
 
-describe('TerminalGroupsComponent', () => {
-  let component: TerminalGroupsComponent;
-  let fixture: ComponentFixture<TerminalGroupsComponent>;
+describe('PanMaskedComponent', () => {
+  let component: PanMaskedComponent;
+  let fixture: ComponentFixture<PanMaskedComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TerminalGroupsComponent ]
+      declarations: [ PanMaskedComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TerminalGroupsComponent);
+    fixture = TestBed.createComponent(PanMaskedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

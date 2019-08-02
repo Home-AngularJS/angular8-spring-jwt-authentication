@@ -14,7 +14,7 @@ export class EditUserComponent implements OnInit {
 
   user: User;
   editForm: FormGroup;
-  constructor(private formBuilder: FormBuilder,private router: Router, private apiService: ApiService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService) { }
 
   ngOnInit() {
     let userId = window.localStorage.getItem("editUserId");
@@ -26,11 +26,7 @@ export class EditUserComponent implements OnInit {
     }
 
     this.editForm = this.formBuilder.group({
-      id: [''],
       username: ['', Validators.required],
-      // firstName: ['', Validators.required],
-      // lastName: ['', Validators.required],
-      age: ['', Validators.required],
       salary: ['', Validators.required]
     });
 

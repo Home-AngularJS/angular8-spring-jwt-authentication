@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TerminalGroupsComponent } from './terminal-groups.component';
+import { AllowedLanguageComponent } from './allowedLanguage.component';
 
-describe('TerminalGroupsComponent', () => {
-  let component: TerminalGroupsComponent;
-  let fixture: ComponentFixture<TerminalGroupsComponent>;
+describe('AllowedLanguageComponent', () => {
+  let component: AllowedLanguageComponent;
+  let fixture: ComponentFixture<AllowedLanguageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TerminalGroupsComponent ]
+      declarations: [ AllowedLanguageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TerminalGroupsComponent);
+    fixture = TestBed.createComponent(AllowedLanguageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
