@@ -13,3 +13,13 @@
   overflow: auto;
   border-right: solid #00275e 1px;
 }
+
+/*.multiselect-dropdown .dropdown-btn .selected-item span {*/
+  /*border: 1px solid #00275e;*/
+  /*background: #fff;*/
+  /*color: #000;*/
+/*}*/
+
+/*.multiselect-dropdown .dropdown-btn .selected-item span a {*/
+  /*color: #00275e;*/
+/*}*/

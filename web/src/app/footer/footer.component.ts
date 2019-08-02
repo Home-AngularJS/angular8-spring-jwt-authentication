@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+  copyright:string;
+
   constructor() { }
 
   ngOnInit() {
+    this.copyright = '© Copyright 2019. Card Technologies & Systems 2019.';
   }
 
 }
