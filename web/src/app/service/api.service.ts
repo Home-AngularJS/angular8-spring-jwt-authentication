@@ -11,6 +11,7 @@ export class ApiService {
   // baseUrl: string = 'http://localhost:8090/users/';
   baseUrl: string = 'http://192.168.1.71:8090/users/';
   terminalUrl = 'http://map1.mobo.cards:8093/api/v1/terminals';
+  serviceGroupsUrl = 'http://map1.mobo.cards:8093/api/v1/service-groups';
 
   login(loginPayload) : Observable<ApiResponse> {
     // return this.http.post<ApiResponse>('http://localhost:8090/' + 'token/generate-token', loginPayload);
@@ -23,6 +24,10 @@ export class ApiService {
 
   getTerminals(): Observable<any> {
     return this.http.get<any>(this.terminalUrl);
+  }
+
+  getTerminalGroups(): Observable<any> {
+    return this.http.get<any>(this.serviceGroupsUrl);
   }
 
   getUserById(id: number): Observable<ApiResponse> {

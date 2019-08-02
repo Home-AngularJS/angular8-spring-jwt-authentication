@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../data.service';
 import {Router} from '@angular/router';
+import {ApiService} from '../../service/api.service';
 
 @Component({
   selector: 'app-terminal-groups',
@@ -15,7 +16,7 @@ export class TerminalGroupsComponent implements OnInit {
   selectedItems = [];
   dropdownSettings = {};
 
-  constructor(private router: Router, public dataService: DataService) { }
+  constructor(private router: Router, private apiService: ApiService, public dataService: DataService) { }
 
   ngOnInit() {
     if (!window.localStorage.getItem('token')) {
@@ -24,6 +25,7 @@ export class TerminalGroupsComponent implements OnInit {
     }
 
     this.terminalGroups = this.dataService.getTerminalGroups();
+    // this.terminalGroups = this.apiService.getTerminalGroups();
 
     this.dropdownList = [
       'UKR',
