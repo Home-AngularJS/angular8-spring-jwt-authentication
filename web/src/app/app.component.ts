@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
 })
 export class AppComponent implements OnInit {
 
-  isLoggedIn;
+  isLoggedIn = {'isLoggedIn':false};
 
   constructor(private router: Router) { }
 

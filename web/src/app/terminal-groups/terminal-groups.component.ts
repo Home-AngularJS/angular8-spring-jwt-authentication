@@ -11,6 +11,9 @@ export class TerminalGroupsComponent implements OnInit {
 
   terminalGroups;
   selectedTerminalGroup;
+  dropdownList = [];
+  selectedItems = [];
+  dropdownSettings = {};
 
   constructor(private router: Router, public dataService: DataService) { }
 
@@ -19,11 +22,35 @@ export class TerminalGroupsComponent implements OnInit {
       this.router.navigate(['login']);
       return;
     }
+
     this.terminalGroups = this.dataService.getTerminalGroups();
+
+    this.dropdownList = [
+      'UKR',
+      'RUS',
+      'ENG'
+    ];
+    this.selectedItems = [
+      'UKR',
+      'RUS',
+      'ENG'
+    ];
+    this.dropdownSettings = {
+      itemsShowLimit: 2,
+      noDataAvailablePlaceholderText: 'нет данных'
+    };
   }
 
   public selectTerminalGroup(terminalGroup){
     this.selectedTerminalGroup = terminalGroup;
+  }
+
+  onItemSelect(item: any) {
+    console.log(item);
+  }
+
+  onSelectAll(items: any) {
+    console.log(items);
   }
 }
 

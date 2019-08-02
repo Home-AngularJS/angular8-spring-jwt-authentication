@@ -512,34 +512,34 @@ export class DataService {
         }
       ]
     },
-    {
-      "groupNumber": 2,
-      "groupName": "Taxi",
-      "opPurchase": "Y",
-      "opReversal": "N",
-      "opRefund": "N",
-      "manual": "N",
-      "pin": "N",
-      "geoPosition": "Y",
-      "limitVisa": 100000,
-      "limitMc": 50000,
-      "limitProstir": 100000,
-      "visaAccepted": "Y",
-      "mcAccepted": "Y",
-      "prostirAccepted": "Y",
-      "receiptTemplate": 2,
-      "allowedLanguages": [
-        {
-          "languageId": "RUS"
-        },
-        {
-          "languageId": "ENG"
-        },
-        {
-          "languageId": "GEO"
-        }
-      ]
-    }
+    // {
+    //   "groupNumber": 2,
+    //   "groupName": "Taxi",
+    //   "opPurchase": "Y",
+    //   "opReversal": "N",
+    //   "opRefund": "N",
+    //   "manual": "N",
+    //   "pin": "N",
+    //   "geoPosition": "Y",
+    //   "limitVisa": 100000,
+    //   "limitMc": 50000,
+    //   "limitProstir": 100000,
+    //   "visaAccepted": "Y",
+    //   "mcAccepted": "Y",
+    //   "prostirAccepted": "Y",
+    //   "receiptTemplate": 2,
+    //   "allowedLanguages": [
+    //     {
+    //       "languageId": "RUS"
+    //     },
+    //     {
+    //       "languageId": "ENG"
+    //     },
+    //     {
+    //       "languageId": "GEO"
+    //     }
+    //   ]
+    // }
   ];
 
   transactions = {
