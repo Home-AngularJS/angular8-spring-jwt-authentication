@@ -24,7 +24,7 @@ export class TransactionComponent implements OnInit {
     /**
      * PROD. Profile
      */
-    // this.apiService.getTransactions()
+    // this.apiService.findAllTransactions()
     //   .subscribe( data => {
     //     console.log(data)
     //     const anyData: any = data
@@ -32,7 +32,7 @@ export class TransactionComponent implements OnInit {
     //     this.transactions = transactions.content;
     //   });
 
-    this.apiService.getTerminalGroups()
+    this.apiService.findAllServiceGroups()
       .subscribe( data => {
         console.log(data)
         const anyData: any = data
@@ -43,7 +43,7 @@ export class TransactionComponent implements OnInit {
     /**
      * DEV. Profile
      */
-    this.transactions = this.dataService.getTransactions();
-    // this.terminalGroups = this.dataService.getTerminalGroups();
+    this.transactions = this.dataService.findAllTransactions();
+    // this.terminalGroups = this.dataService.findAllServiceGroups();
   }
 }

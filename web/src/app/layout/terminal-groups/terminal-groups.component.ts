@@ -44,7 +44,7 @@ export class TerminalGroupsComponent implements OnInit {
     /**
      * PROD. Profile
      */
-    this.apiService.getTerminalGroups()
+    this.apiService.findAllServiceGroups()
       .subscribe( data => {
         console.log(data)
         const anyData: any = data
@@ -55,7 +55,7 @@ export class TerminalGroupsComponent implements OnInit {
     /**
      * DEV. Profile
      */
-    // this.terminalGroups = this.dataService.getTerminalGroups();
+    this.terminalGroups = this.dataService.findAllServiceGroups();
   }
 
   public selectTerminalGroup(terminalGroup){

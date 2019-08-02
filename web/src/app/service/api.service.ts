@@ -48,21 +48,21 @@ export class ApiService {
   /**
    * Terminal API
    */
-  getTerminals(): Observable<any> {
+  findAllTerminals(): Observable<any> {
     return this.http.get<any>(this.terminalUrl);
   }
 
   /**
    * Service-Group API
    */
-  getTerminalGroups(): Observable<any> {
+  findAllServiceGroups(): Observable<any> {
     return this.http.get<any>(this.serviceGroupsUrl);
   }
 
   /**
    * Transaction API
    */
-  getTransactions(): Observable<any> {
+  findAllTransactions(): Observable<any> {
     return this.http.get<any>(this.transactionUrl);
   }
 }
