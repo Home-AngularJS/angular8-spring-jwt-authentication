@@ -28,11 +28,15 @@
 }
 
 /*.multiselect-dropdown .dropdown-btn .selected-item span {*/
-  /*border: 1px solid #00275e;*/
-  /*background: #fff;*/
-  /*color: #000;*/
+  /*border: 1px solid #00275e !important;*/
+  /*background: #fff !important;*/
+  /*color: #000 !important;*/
 /*}*/
 
 /*.multiselect-dropdown .dropdown-btn .selected-item span a {*/
-  /*color: #00275e;*/
+  /*color: #00275e !important;*/
+/*}*/
+
+/*.multiselect-dropdown .dropdown-btn {*/
+   /*border: 0 !important;*/
 /*}*/
