@@ -8,8 +8,8 @@ import { TerminalComponent } from './layout/terminal/terminal.component';
 import { TerminalGroupsComponent } from './layout/terminal-groups/terminal-groups.component';
 import { TransactionComponent } from './layout/transaction/transaction.component';
 import { HomeComponent } from './layout/home/home.component';
-import {PanMaskedComponent} from './layout/panMasked/panMasked.component';
-import {AllowedLanguageComponent} from './layout/allowedLanguage/allowedLanguage.component';
+import {PanMaskedComponent} from './layout/pan-masked/pan-masked.component';
+import {AllowedLanguageComponent} from './layout/allowed-language/allowed-language.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },

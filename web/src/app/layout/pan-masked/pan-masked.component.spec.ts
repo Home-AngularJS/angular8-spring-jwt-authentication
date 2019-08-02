@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AllowedLanguageComponent } from './allowedLanguage.component';
+import { PanMaskedComponent } from './pan-masked.component';
 
-describe('AllowedLanguageComponent', () => {
-  let component: AllowedLanguageComponent;
-  let fixture: ComponentFixture<AllowedLanguageComponent>;
+describe('PanMaskedComponent', () => {
+  let component: PanMaskedComponent;
+  let fixture: ComponentFixture<PanMaskedComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AllowedLanguageComponent ]
+      declarations: [ PanMaskedComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AllowedLanguageComponent);
+    fixture = TestBed.createComponent(PanMaskedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

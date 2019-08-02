@@ -5,8 +5,8 @@ import {ApiService} from '../../service/api.service';
 
 @Component({
   selector: 'app-allowed-language',
-  templateUrl: './allowedLanguage.component.html',
-  styleUrls: ['./allowedLanguage.component.css']
+  templateUrl: './allowed-language.component.html',
+  styleUrls: ['./allowed-language.component.css']
 })
 export class AllowedLanguageComponent implements OnInit {
 
