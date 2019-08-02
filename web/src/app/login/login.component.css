@@ -23,4 +23,5 @@ body {
   background: #d6d6d6;
   /*background: #00275E;*/
   padding: 1.0rem;
+  border-radius: 10px;
 }
