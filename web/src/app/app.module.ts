@@ -7,16 +7,16 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListUserComponent } from './user/list-user/list-user.component';
+import { ListUserComponent } from './layout/user/list-user/list-user.component';
 import { LoginComponent } from './login/login.component';
-import { AddUserComponent } from './user/add-user/add-user.component';
-import { EditUserComponent } from './user/edit-user/edit-user.component';
-import { TerminalGroupsComponent } from './terminal-groups/terminal-groups.component';
-import { TerminalComponent } from './terminal/terminal.component';
-import { TransactionComponent } from './transaction/transaction.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { HomeComponent } from './home/home.component';
+import { AddUserComponent } from './layout/user/add-user/add-user.component';
+import { EditUserComponent } from './layout/user/edit-user/edit-user.component';
+import { TerminalGroupsComponent } from './layout/terminal-groups/terminal-groups.component';
+import { TerminalComponent } from './layout/terminal/terminal.component';
+import { TransactionComponent } from './layout/transaction/transaction.component';
+import { HeaderComponent } from './layout/components/header/header.component';
+import { FooterComponent } from './layout/components/footer/footer.component';
+import { HomeComponent } from './layout/home/home.component';
 import { ApiService } from "./service/api.service";
 import { TokenInterceptor } from "./core/interceptor";
 

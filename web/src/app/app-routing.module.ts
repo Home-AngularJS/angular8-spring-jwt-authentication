@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from "./login/login.component";
-import { AddUserComponent } from "./user/add-user/add-user.component";
-import { ListUserComponent } from "./user/list-user/list-user.component";
-import { EditUserComponent } from "./user/edit-user/edit-user.component";
-import { TerminalComponent } from './terminal/terminal.component';
-import { TerminalGroupsComponent } from './terminal-groups/terminal-groups.component';
-import { TransactionComponent } from './transaction/transaction.component';
-import { HomeComponent } from './home/home.component';
+import { AddUserComponent } from "./layout/user/add-user/add-user.component";
+import { ListUserComponent } from "./layout/user/list-user/list-user.component";
+import { EditUserComponent } from "./layout/user/edit-user/edit-user.component";
+import { TerminalComponent } from './layout/terminal/terminal.component';
+import { TerminalGroupsComponent } from './layout/terminal-groups/terminal-groups.component';
+import { TransactionComponent } from './layout/transaction/transaction.component';
+import { HomeComponent } from './layout/home/home.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
