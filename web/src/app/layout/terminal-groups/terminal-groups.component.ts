@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../data.service';
+import { DataService } from '../../service/data.service';
 import {Router} from '@angular/router';
 import {ApiService} from '../../service/api.service';
 
@@ -24,7 +24,26 @@ export class TerminalGroupsComponent implements OnInit {
       return;
     }
 
-    // this.terminalGroups = this.dataService.getTerminalGroups();
+    this.dropdownList = [
+      'UKR',
+      'RUS',
+      'ENG'
+    ];
+
+    this.selectedItems = [
+      'UKR',
+      'RUS',
+      'ENG'
+    ];
+
+    this.dropdownSettings = {
+      itemsShowLimit: 2,
+      noDataAvailablePlaceholderText: 'нет данных'
+    };
+
+    /**
+     * PROD. Profile
+     */
     this.apiService.getTerminalGroups()
       .subscribe( data => {
         console.log(data)
@@ -33,20 +52,10 @@ export class TerminalGroupsComponent implements OnInit {
         this.terminalGroups = terminalGroups;
       });
 
-    this.dropdownList = [
-      'UKR',
-      'RUS',
-      'ENG'
-    ];
-    this.selectedItems = [
-      'UKR',
-      'RUS',
-      'ENG'
-    ];
-    this.dropdownSettings = {
-      itemsShowLimit: 2,
-      noDataAvailablePlaceholderText: 'нет данных'
-    };
+    /**
+     * DEV. Profile
+     */
+    // this.terminalGroups = this.dataService.getTerminalGroups();
   }
 
   public selectTerminalGroup(terminalGroup){

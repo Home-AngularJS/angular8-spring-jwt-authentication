@@ -1,17 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Observable} from "rxjs/index";
-import {ApiResponse} from './model/api.response';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-
-  // private baseUrl = 'http://map1.mobo.cards:8093/api/v1/terminals';
-  private terminalUrl = 'http://map1.mobo.cards:8093/api/v1/terminals';
-  private groupUrl = 'http://map1.mobo.cards:8093/api/v1/service-groups';
-  private transactionUrl = 'http://map1.mobo.cards:8093/api/v1/transactions';
 
   terminals = {
     "content": [
@@ -688,29 +681,17 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  // public getTerminals():Array<{terminalId, groupNumber, opPurchase, opReversal, opRefund, manual, pin, geoPosition, limitVisa, limitMc, limitProstir, visaAccepted, mcAccepted, prostirAccepted, receiptTemplate, configChanged, merchant, allowedLanguages}>{
-  //   return this.terminals;
-  // }
   public getTerminals():{content, pageable, totalElements, last, totalPages, first, sort, numberOfElements, size, number, empty}{
     return this.terminals;
   }
-  // getTerminals(): Observable<any> {
-  //   return this.http.get<any>(this.terminalUrl);
-  // }
 
-  // public updateTerminal(terminal: {terminalId, groupNumber, opPurchase, opReversal, opRefund, manual, pin, geoPosition, limitVisa, limitMc, limitProstir, visaAccepted, mcAccepted, prostirAccepted, receiptTemplate, configChanged, merchant, allowedLanguages}){
-  //   this.terminals.push(terminal);
-  // }
   public updateTerminal(terminal: {content, pageable, totalElements, last, totalPages, first, sort, numberOfElements, size, number, empty}){
-
+    //   this.terminals.push(terminal);
   }
 
   public getTerminalGroups():Array<{groupNumber, groupName, opPurchase, opReversal, opRefund, manual, pin, geoPosition, limitVisa, limitMc, limitProstir, visaAccepted, mcAccepted, prostirAccepted, receiptTemplate, allowedLanguages}>{
     return this.terminalGroups;
   }
-  // getTerminalGroups(): Observable<any> {
-  //   return this.http.get(this.groupUrl);
-  // }
 
   // public createTerminalGroup(terminalGroup: {groupNumber, groupName, opPurchase, opReversal, opRefund, manual, pin, geoPosition, limitVisa, limitMc, limitProstir, visaAccepted, mcAccepted, prostirAccepted, receiptTemplate, allowedLanguages}){
   //   this.terminals.push(terminalGroup);
@@ -719,9 +700,6 @@ export class DataService {
   public getTransactions():{content, pageable, last, totalPages, totalElements, first, sort, numberOfElements, size, number, empty} {
     return this.transactions;
   }
-  // getTransactions(): Observable<any> {
-  //   return this.http.get(this.transactionUrl);
-  // }
 }
 
 /**

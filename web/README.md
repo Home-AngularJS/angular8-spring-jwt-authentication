@@ -1,23 +1,20 @@
-# Angular8Demo
+# TRANSENIX
+
+## Development server
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.6.
 
-## Other Angular Resources
+Run `npm start` for a dev local server.
 
-[Spring Boot Angular 8](https://www.devglan.com/spring-boot/spring-boot-angular-8-example)
+Run `ng serve --proxy-config proxy.conf.json` for a dev local server & use proxy to remote api.
 
-[Angular 7 CRUD Example](https://www.devglan.com/angular/angular-7-crud-example)
+Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-[Angular 6 CRUD](https://www.devglan.com/angular/angular-6-example)
+Run `ng serve --host 0.0.0.0` for a dev remote server.
 
-[Typescript Tutorial](https://www.devglan.com/angular/typescript-tutorial)
-
-[Angular Multiple File Upload](https://www.devglan.com/angular/angular-multiple-file-upload)
-
-[Angular Universal Server Side Rendering](https://www.devglan.com/angular/angular-universal-server-side-rendering)
-
-[Spring Boot Angular Captcha](https://www.devglan.com/angular/spring-boot-angular-captcha)
-
-[Deploying Angular App on Nginx](https://www.devglan.com/angular/deploy-angular-app-nginx)
+Navigate to `http://192.168.1.124:4200/`. The app will automatically reload if you change any of the source files.
 
 
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.

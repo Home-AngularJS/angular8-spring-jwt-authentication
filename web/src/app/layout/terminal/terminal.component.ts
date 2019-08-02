@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../data.service';
+import { DataService } from '../../service/data.service';
 import {ApiService} from '../../service/api.service';
 import {Router} from '@angular/router';
 
@@ -22,7 +22,9 @@ export class TerminalComponent implements OnInit {
       return;
     }
 
-    // this.terminals = this.dataService.getTerminals().content;
+    /**
+     * PROD. Profile
+     */
     this.apiService.getTerminals()
       .subscribe( data => {
         console.log(data)
@@ -30,6 +32,11 @@ export class TerminalComponent implements OnInit {
         const terminals = anyData
         this.terminals = terminals.content;
       });
+
+    /**
+     * DEV. Profile
+     */
+    // this.terminals = this.dataService.getTerminals().content;
   }
 
   public selectTerminal(terminal){
@@ -37,9 +44,10 @@ export class TerminalComponent implements OnInit {
   }
 
   public selectTerminalGroup(){
+    this.terminalGroups = this.dataService.getTerminalGroups();
+
     // for (let i = 0; i < this.terminalGroups.length; i++) {
     //   if (this.terminalGroups[i].groupNumber==groupNumber) this.selectedTerminalGroup = this.terminalGroups[i];
     // }
-    this.terminalGroups = this.dataService.getTerminalGroups();
   }
 }

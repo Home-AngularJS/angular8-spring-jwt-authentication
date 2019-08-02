@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
         const token = anyData.token
         window.localStorage.setItem('token', token);
         this.app.setLoggedIn({'isLoggedIn': true});
-        this.router.navigate(['home']);
+        this.router.navigate(['']); // home
         // } else {
         //   this.invalidLogin = true;
         //   alert(data.message);
