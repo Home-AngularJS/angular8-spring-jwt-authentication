@@ -19,7 +19,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    //@Secured({"ROLE_ADMIN", "ROLE_USER"})
+//    @Secured({"ROLE_ADMIN", "ROLE_USER"})
 //    @PreAuthorize("hasRole('ADMIN')")
     @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     @RequestMapping(value="/users", method = RequestMethod.GET)
@@ -29,8 +29,8 @@ public class UserController {
                 .collect(Collectors.toList());
     }
 
-    //@Secured("ROLE_USER")
-//    @PreAuthorize("hasRole('USER')")
+//    @Secured("ROLE_USER")
+//    @PreAuthorize("hasRole('ADMIN')")
     @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
     public UserDto getOne(@PathVariable(value = "id") Long id){
@@ -38,12 +38,40 @@ public class UserController {
         return new UserDto(u.getId(), u.getUsername(), u.getPassword(), u.getAge(), u.getSalary());
     }
 
-
     @RequestMapping(value="/signup", method = RequestMethod.POST)
     public User saveUser(@RequestBody UserDto user){
-        return userService.save(user);
+      return userService.save(user);
+  }
+
+//    @Secured("ROLE_USER")
+//    @PreAuthorize("hasRole('ADMIN')")
+  @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+  @RequestMapping(value="/users", method = RequestMethod.POST)
+  public UserDto addUser(@RequestBody UserDto userDto){
+    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+    System.out.println(userDto);
+    System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+    User u = userService.save(userDto);
+    return new UserDto(u.getId(), u.getUsername(), u.getPassword(), u.getAge(), u.getSalary());
+  }
+
+//    @Secured("ROLE_USER")
+//    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    @RequestMapping(value="/users", method = RequestMethod.PUT)
+    public UserDto updateUser(@RequestBody UserDto userDto){
+      System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+      System.out.println(userDto);
+      System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+      User u = userService.update(userDto);
+      return new UserDto(u.getId(), u.getUsername(), u.getPassword(), u.getAge(), u.getSalary());
     }
 
-
-
+//    @Secured("ROLE_USER")
+    @PreAuthorize("hasRole('ADMIN')")
+//    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    @RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE)
+    public void deleteUser(@PathVariable(value = "id") Long id){
+      userService.delete(id);
+    }
 }

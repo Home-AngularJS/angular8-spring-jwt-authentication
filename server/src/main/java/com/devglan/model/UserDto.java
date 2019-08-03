@@ -57,4 +57,15 @@ public class UserDto {
     public void setSalary(long salary) {
         this.salary = salary;
     }
+
+  @Override
+  public String toString() {
+    return "UserDto{" +
+      "id=" + id +
+      ", username='" + username + '\'' +
+      ", password='" + password + '\'' +
+      ", age=" + age +
+      ", salary=" + salary +
+      '}';
+  }
 }

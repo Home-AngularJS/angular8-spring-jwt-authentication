@@ -27,7 +27,7 @@ export class ApiService {
   }
 
   updateUser(user: User): Observable<ApiResponse> {
-    return this.http.put<ApiResponse>(this.baseUrl + user.id, user);
+    return this.http.put<ApiResponse>(this.baseUrl, user);
   }
 
   deleteUser(id: number): Observable<ApiResponse> {
