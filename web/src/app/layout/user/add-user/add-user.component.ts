@@ -19,8 +19,8 @@ export class AddUserComponent implements OnInit {
       id: [],
       username: ['', Validators.required],
       password: ['', Validators.required],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+      // firstName: ['', Validators.required],
+      // lastName: ['', Validators.required],
       age: ['', Validators.required],
       salary: ['', Validators.required]
     });
@@ -29,9 +29,13 @@ export class AddUserComponent implements OnInit {
 
   onSubmit() {
     this.apiService.createUser(this.addForm.value)
-      .subscribe( data => {
+      .subscribe(
+        data => {
         this.router.navigate(['list-user']);
-      });
+      },
+        error => {
+          alert( JSON.stringify(error) );
+        });
   }
 
 }

@@ -30,7 +30,10 @@ export class TransactionComponent implements OnInit {
     //     const anyData: any = data
     //     const transactions = anyData
     //     this.transactions = transactions.content;
-    //   });
+    //     },
+    //     error => {
+    //       alert( JSON.stringify(error) );
+    //     });
 
     this.apiService.findAllServiceGroups()
       .subscribe( data => {
@@ -38,7 +41,10 @@ export class TransactionComponent implements OnInit {
         const anyData: any = data
         const terminalGroups = anyData
         this.terminalGroups = terminalGroups;
-      });
+        },
+        error => {
+          alert( JSON.stringify(error) );
+        });
 
     /**
      * DEV. Profile

@@ -7,8 +7,8 @@ import {ApiResponse} from "../model/api.response";
 @Injectable()
 export class ApiService {
 
-  baseUrl: string = 'http://192.168.1.71:8090';                                 // http://localhost:8090
-  userUrl: string = 'http://192.168.1.71:8090/users/';                          // http://localhost:8090/users
+  baseUrl: string = 'http://localhost:8090';                                    // http://192.168.1.71:8090
+  userUrl: string = 'http://localhost:8090/users';                              // http://192.168.1.71:8090/users
   terminalUrl: string = 'http://192.168.1.124:9000/api/v1/terminals';           // http://map1.mobo.cards:8093/api/v1/terminals
   serviceGroupsUrl: string = 'http://192.168.1.124:9000/api/v1/service-groups'; // http://map1.mobo.cards:8093/api/v1/service-groups
   transactionUrl: string = 'http://192.168.1.124:9000/api/v1/transactions';     // http://map1.mobo.cards:8093/api/v1/transactions
@@ -38,7 +38,7 @@ export class ApiService {
   }
 
   updateUser(user: User): Observable<ApiResponse> {
-    return this.http.put<ApiResponse>(this.userUrl + '/' + user.id, user);
+    return this.http.put<ApiResponse>(this.userUrl, user);
   }
 
   deleteUser(id: number): Observable<ApiResponse> {

@@ -31,7 +31,10 @@ export class TerminalComponent implements OnInit {
         const anyData: any = data
         const terminals = anyData
         this.terminals = terminals.content;
-      });
+        },
+        error => {
+          alert( JSON.stringify(error) );
+        });
 
     /**
      * DEV. Profile

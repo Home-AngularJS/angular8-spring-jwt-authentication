@@ -59,12 +59,15 @@ export class TerminalGroupsComponent implements OnInit {
         const anyData: any = data
         const terminalGroups = anyData
         this.terminalGroups = terminalGroups;
-      });
+        },
+        error => {
+          alert( JSON.stringify(error) );
+        });
 
     /**
      * DEV. Profile
      */
-    this.terminalGroups = this.dataService.findAllServiceGroups();
+    // this.terminalGroups = this.dataService.findAllServiceGroups();
   }
 
   public selectTerminalGroup(terminalGroup){

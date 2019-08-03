@@ -14,19 +14,25 @@ export class EditUserComponent implements OnInit {
 
   user: User;
   editForm: FormGroup;
+
   constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService) { }
 
   ngOnInit() {
     let userId = window.localStorage.getItem("editUserId");
 
-    if(!userId) {
+    if (!userId) {
       alert("Invalid action.")
       this.router.navigate(['list-user']);
       return;
     }
 
     this.editForm = this.formBuilder.group({
+      id: [''],
       username: ['', Validators.required],
+      password: [''],
+      // firstName: ['', Validators.required],
+      // lastName: ['', Validators.required],
+      age: ['', Validators.required],
       salary: ['', Validators.required]
     });
 
@@ -45,16 +51,15 @@ export class EditUserComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          if(data.status === 200) {
-            alert('User updated successfully.');
+          // if (data.status === 200) {
+          //   alert('User updated successfully.');
             this.router.navigate(['list-user']);
-          }else {
-            alert(data.message);
-          }
+          // } else {
+          //   alert(data.message);
+          // }
         },
         error => {
-          alert(error);
+          alert( JSON.stringify(error) );
         });
   }
-
 }
