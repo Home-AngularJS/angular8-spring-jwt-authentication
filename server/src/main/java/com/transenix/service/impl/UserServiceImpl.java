@@ -11,9 +11,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import java.util.*;
-
 
 @Service(value = "userService")
 public class UserServiceImpl implements UserDetailsService, UserService {
@@ -35,7 +33,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	private Set<SimpleGrantedAuthority> getAuthority(User user) {
         Set<SimpleGrantedAuthority> authorities = new HashSet<>();
 		user.getRoles().forEach(role -> {
-			//authorities.add(new SimpleGrantedAuthority(role.getName()));
+//			      authorities.add(new SimpleGrantedAuthority(role.getName()));
             authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getName()));
 		});
 		return authorities;
@@ -64,12 +62,20 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	}
 
 	@Override
-    public User save(UserDto user) {
-	    User newUser = new User();
-	    newUser.setUsername(user.getUsername());
-	    newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
-		newUser.setAge(user.getAge());
-		newUser.setSalary(user.getSalary());
-        return userDao.save(newUser);
-    }
+  public User save(UserDto user) {
+    User newUser = new User();
+    newUser.setUsername(user.getUsername());
+    newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
+    newUser.setAge(user.getAge());
+    newUser.setSalary(user.getSalary());
+    return userDao.save(newUser);
+  }
+
+  @Override
+  public User update(UserDto userDto) {
+    User user = findById(userDto.getId());
+    user.setAge(userDto.getAge());
+    user.setSalary(userDto.getSalary());
+    return userDao.save(user);
+  }
 }
