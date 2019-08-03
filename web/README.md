@@ -26,3 +26,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
    │                                      │
    ╰──────────────────────────────────────╯
 
+```text
+> npm i npm
+> npm install jquery --save
+```
+

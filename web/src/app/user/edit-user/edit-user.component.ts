@@ -50,15 +50,15 @@ export class EditUserComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          if (data.status === 200) {
-            alert('User updated successfully.');
+          // if (data.status === 200) {
+          //   alert('User updated successfully.');
             this.router.navigate(['list-user']);
-          } else {
-            alert(data.message);
-          }
+          // } else {
+          //   alert(data.message);
+          // }
         },
         error => {
-          alert(error);
+          alert( JSON.stringify(error) );
         });
   }
 }
