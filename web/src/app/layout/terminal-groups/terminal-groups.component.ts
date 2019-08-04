@@ -19,6 +19,7 @@ export class TerminalGroupsComponent implements OnInit {
   selectedItems = [];
   dropdownSettings = {};
   editForm: FormGroup;
+  takeChoices: any;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService, public dataService: DataService) { }
 
@@ -27,6 +28,8 @@ export class TerminalGroupsComponent implements OnInit {
       this.router.navigate(['login']);
       return;
     }
+
+    this.takeChoices = this.dataService.getTakeChoices();
 
     this.dropdownList = [
       'UKR',
@@ -41,13 +44,27 @@ export class TerminalGroupsComponent implements OnInit {
     ];
 
     this.dropdownSettings = {
-      itemsShowLimit: 2,
+      itemsShowLimit: 1,
       noDataAvailablePlaceholderText: 'нет данных'
     };
 
     this.editForm = this.formBuilder.group({
       groupNumber: ['', Validators.required],
-      groupName: ['', Validators.required]
+      groupName: ['', Validators.required],
+      opPurchase: [''],
+      opReversal: [''],
+      opRefund: [''],
+      manual: [''],
+      pin: [''],
+      geoPosition: [''],
+      limitVisa: [''],
+      limitMc: [''],
+      limitProstir: [''],
+      visaAccepted: [''],
+      mcAccepted: [''],
+      prostirAccepted: [''],
+      receiptTemplate: [''],
+      allowedLanguages: ['']
     });
 
     /**
@@ -70,8 +87,10 @@ export class TerminalGroupsComponent implements OnInit {
     this.terminalGroups = this.dataService.findAllServiceGroups();
   }
 
-  public selectTerminalGroup(terminalGroup){
+  public selectTerminalGroup(terminalGroup) {
     this.selectedTerminalGroup = terminalGroup;
+    console.log(terminalGroup)
+    this.editForm.setValue(terminalGroup);
   }
 
   onItemSelect(item: any) {
@@ -87,15 +106,15 @@ export class TerminalGroupsComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          console.log(data);
-          if (data.status === 200) {
-            alert('Updated successfully!');
-          } else {
-            alert(data.message);
-          }
+          // if (data.status === 200) {
+          //   alert('User updated successfully.');
+          this.router.navigate(['terminal-groups']);
+          // } else {
+          //   alert(data.message);
+          // }
         },
         error => {
-          alert(error);
+          alert( JSON.stringify(error) );
         });
   }
 }
