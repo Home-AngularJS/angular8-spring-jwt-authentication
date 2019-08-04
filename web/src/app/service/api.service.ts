@@ -52,6 +52,12 @@ export class ApiService {
     return this.http.get<any>(this.terminalUrl);
   }
 
+  updateTerminal(anyTerminal: any): Observable<any> {
+    console.log(anyTerminal);
+    const terminal = anyTerminal;
+    return this.http.put<any>(this.terminalUrl, terminal);
+  }
+
   /**
    * Service-Group API
    */

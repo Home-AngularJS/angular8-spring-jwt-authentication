@@ -11,7 +11,7 @@ export class DataService {
       {
         "terminalId": "cb22bb62",
         "groupNumber": 1,
-        "opPurchase": "Y",
+        "opPurchase": "N",
         "opReversal": "Y",
         "opRefund": "Y",
         "manual": "Y",
@@ -26,7 +26,7 @@ export class DataService {
         "receiptTemplate": 1,
         "configChanged": "N",
         "merchant": {
-          "merchantId": "0d385b77-13e3-4453-ac32-acace7e2c7ac",
+          "merchantId": "d7f08eab-544a-4b69-a7e8-a2e90f7d79fe",
           "merchantName": "COFEE SHOP VESELKA",
           "merchantLocation": "25-A PRORIZNA ST.",
           "taxId": 1235847895,

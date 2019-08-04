@@ -24,16 +24,16 @@ export class TransactionComponent implements OnInit {
     /**
      * PROD. Profile
      */
-    // this.apiService.findAllTransactions()
-    //   .subscribe( data => {
-    //     console.log(data)
-    //     const anyData: any = data
-    //     const transactions = anyData
-    //     this.transactions = transactions.content;
-    //     },
-    //     error => {
-    //       alert( JSON.stringify(error) );
-    //     });
+    this.apiService.findAllTransactions()
+      .subscribe( data => {
+        console.log(data)
+        const anyData: any = data
+        const transactions = anyData
+        this.transactions = transactions.content;
+        },
+        error => {
+          alert( JSON.stringify(error) );
+        });
 
     this.apiService.findAllServiceGroups()
       .subscribe( data => {

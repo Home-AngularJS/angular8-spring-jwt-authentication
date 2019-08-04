@@ -1,39 +1,65 @@
-<div class="col-md-auto user-container">
-  <h2 class="text-center">Edit User</h2>
-  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+<div class="d-flex" id="wrapper" style="margin: 70px 0px 10px 10px;">
 
-    <div class="form-group">
-      <label for="id">ID:</label>
-      <input type="text" formControlName="id" placeholder="id" name="id" class="form-control" id="id" readonly="true">
+  <!-- Sidebar -->
+  <div class="bg-transenix border-right" id="sidebar-wrapper">
+    <div class="list-group list-group-flush">
+      <a class="nav-link" routerLink="/home" class="list-group-transenix list-group-transenix-action bg-transenix">Организация</a>
+      <a class="nav-link" routerLink="/terminal" class="list-group-transenix list-group-transenix-action bg-transenix">Терминал</a>
+      <a class="nav-link" routerLink="/terminal-groups" class="list-group-transenix list-group-transenix-action bg-transenix">Группы терминалов</a>
+      <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Лимиты</a>
+      <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Диапазоны приема PAN</a>
+      <a class="nav-link" routerLink="/allowed-language" class="list-group-transenix list-group-transenix-action bg-transenix">Языки приложений</a>
+      <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Шаблон чека</a>
+      <a class="nav-link" routerLink="/pan-masked" class="list-group-transenix list-group-transenix-action bg-transenix">Шаблон карты</a>
+      <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Ключи безопасности</a>
+      <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Расписание</a>
+      <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Коды активации</a>
+      <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Банки</a>
     </div>
+  </div>
+  <!-- /Sidebar -->
 
-    <div class="form-group">
-      <label for="username">User Name:</label>
-      <input type="text" formControlName="username" placeholder="username" name="username" class="form-control" id="username" readonly="true">
-    </div>
+  <!-- Container: Selected Item -->
+  <div class="col-md-auto user-container">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+      <table cellpadding="5">
+        <tbody>
+        <tr>
+          <td><label for="id">ID:</label></td>
+          <td><input type="text" formControlName="id" placeholder="id" name="id" class="form-control" id="id" readonly="true"></td>
+        </tr>
+        <tr>
+          <td><label for="username">User Name:</label></td>
+          <td><input type="text" formControlName="username" placeholder="username" name="username" class="form-control" id="username" readonly="true"></td>
+        </tr>
+        <!--<div class="form-group">-->
+        <!--<label for="firstName">First Name:</label>-->
+        <!--<input formControlName="firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName">-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+        <!--<label for="lastName">Last Name:</label>-->
+        <!--<input formControlName="lastName" placeholder="Last name" name="lastName" class="form-control" id="lastName">-->
+        <!--</div>-->
+        <input type="hidden" formControlName="password" placeholder="password" name="password" class="form-control" id="password">
+        <tr>
+          <td><label for="age">Age:</label></td>
+          <td><input type="number" formControlName="age" placeholder="age" name="age" class="form-control" id="age"></td>
+        </tr>
+        <tr>
+          <td><label for="salary">Salary:</label></td>
+          <td><input type="number" formControlName="salary" placeholder="salary" name="salary" class="form-control" id="salary"></td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="2" align="center"><button class="btn btn-transenix">Сохранить</button></td>
+        </tr>
+        </tfoot>
+      </table>
+      </div>
+    </form>
+  </div>
+  <!-- /Container: Selected Item -->
 
-    <!--<div class="form-group">-->
-      <!--<label for="firstName">First Name:</label>-->
-      <!--<input formControlName="firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName">-->
-    <!--</div>-->
-
-    <!--<div class="form-group">-->
-      <!--<label for="lastName">Last Name:</label>-->
-      <!--<input formControlName="lastName" placeholder="Last name" name="lastName" class="form-control" id="lastName">-->
-    <!--</div>-->
-
-    <input type="hidden" formControlName="password" placeholder="password" name="password" class="form-control" id="password">
-
-    <div class="form-group">
-      <label for="age">Age:</label>
-      <input type="number" formControlName="age" placeholder="age" name="age" class="form-control" id="age">
-    </div>
-
-    <div class="form-group">
-      <label for="salary">Salary:</label>
-      <input type="number" formControlName="salary" placeholder="salary" name="salary" class="form-control" id="salary">
-    </div>
-
-    <button class="btn btn-info">Update</button>
-  </form>
 </div>

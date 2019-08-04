@@ -1,34 +1,56 @@
-<div class="col-md-auto user-container">
-  <h2 style="margin: auto">List Users</h2>
+<div class="d-flex" id="wrapper" style="margin: 70px 0px 10px 10px;">
 
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th class="hidden">Id</th>
-      <!--<th>FirstName</th>-->
-      <!--<th>LastName</th>-->
-      <th>UserName</th>
-      <th>Password</th>
-      <th>Age</th>
-      <th>Salary</th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let user of users">
-      <td class="hidden">{{user.id}}</td>
-      <!--<td>{{user.firstName}}</td>-->
-      <!--<td>{{user.lastName}}</td>-->
-      <td>{{user.username}}</td>
-      <td class="hidden">{{user.password}}</td>
-      <td>{{user.age}}</td>
-      <td>{{user.salary}}</td>
-      <td>
-        <button class="btn btn-info" (click)="editUser(user)">Edit</button>
-        <button class="btn btn-danger" (click)="deleteUser(user)" style="margin-left: 20px;">Delete</button></td>
-    </tr>
-    </tbody>
-  </table>
+  <!-- Sidebar -->
+  <div class="bg-transenix border-right" id="sidebar-wrapper">
+    <div class="list-group list-group-flush">
+      <a class="nav-link" routerLink="/home" class="list-group-transenix list-group-transenix-action bg-transenix">Организация</a>
+      <a class="nav-link" routerLink="/terminal" class="list-group-transenix list-group-transenix-action bg-transenix">Терминал</a>
+      <a class="nav-link" routerLink="/terminal-groups" class="list-group-transenix list-group-transenix-action bg-transenix">Группы терминалов</a>
+      <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Лимиты</a>
+      <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Диапазоны приема PAN</a>
+      <a class="nav-link" routerLink="/allowed-language" class="list-group-transenix list-group-transenix-action bg-transenix">Языки приложений</a>
+      <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Шаблон чека</a>
+      <a class="nav-link" routerLink="/pan-masked" class="list-group-transenix list-group-transenix-action bg-transenix">Шаблон карты</a>
+      <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Ключи безопасности</a>
+      <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Расписание</a>
+      <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Коды активации</a>
+      <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Банки</a>
+    </div>
+  </div>
+  <!-- /Sidebar -->
 
-  <button class="btn btn-success" style="width:100px" (click)="addUser()">Add User</button>
+  <!-- Container: Selected Item -->
+  <div class="col-md-auto user-container">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th class="hidden">Id</th>
+        <!--<th>FirstName</th>-->
+        <!--<th>LastName</th>-->
+        <th>UserName</th>
+        <th>Password</th>
+        <th>Age</th>
+        <th>Salary</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td class="hidden">{{user.id}}</td>
+        <!--<td>{{user.firstName}}</td>-->
+        <!--<td>{{user.lastName}}</td>-->
+        <td>{{user.username}}</td>
+        <td class="hidden">{{user.password}}</td>
+        <td>{{user.age}}</td>
+        <td>{{user.salary}}</td>
+        <td>
+          <button class="btn btn-info" (click)="editUser(user)">Edit</button>
+          <button class="btn btn-danger" (click)="deleteUser(user)" style="margin-left: 20px;">Delete</button></td>
+      </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-success" style="width:100px" (click)="addUser()">Add User</button>
+  </div>
+  <!-- /Container: Selected Item -->
+
 </div>
