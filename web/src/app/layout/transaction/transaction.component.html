@@ -1,94 +1,71 @@
-<div class="d-flex" id="wrapper" style="margin: 70px 0px 10px 10px;">
-
-  <!-- Sidebar -->
-  <div class="bg-transenix border-right" id="sidebar-wrapper">
-    <div class="list-group list-group-flush">
-      <a class="nav-link" routerLink="/home" class="list-group-transenix list-group-transenix-action bg-transenix">Организация</a>
-      <a class="nav-link" routerLink="/terminal" class="list-group-transenix list-group-transenix-action bg-transenix">Терминал</a>
-      <a class="nav-link" routerLink="/terminal-groups" class="list-group-transenix list-group-transenix-action bg-transenix">Группы терминалов</a>
-      <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Лимиты</a>
-      <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Диапазоны приема PAN</a>
-      <a class="nav-link" routerLink="/allowed-language" class="list-group-transenix list-group-transenix-action bg-transenix">Языки приложений</a>
-      <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Шаблон чека</a>
-      <a class="nav-link" routerLink="/pan-masked" class="list-group-transenix list-group-transenix-action bg-transenix">Шаблон карты</a>
-      <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Ключи безопасности</a>
-      <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Расписание</a>
-      <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Коды активации</a>
-      <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Банки</a>
-    </div>
-  </div>
-  <!-- /Sidebar -->
-
-  <!-- Container: List Items -->
-  <div class="container">
-    <table class="table" border="1" style="width:0;">
-      <thead style="background-color:#00275e; border-color:#00275e; color:#fff; width:0;">
-      <tr>
-        <th>Транзакции</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>
-          <div class="horizontal-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="100%">
-            <perfect-scrollbar class="scroll-container" fxFlex="auto">
-              <table>
-                <tr>
-                  <td>
-                    <table width="1705" border="0">
-                      <tr>
-                        <th width="185">Номер транзакции</th>
-                        <th width="90">Сумма</th>
-                        <th width="125">Доп сумма</th>
-                        <th width="100">Валюта</th>
-                        <th width="150">Тип операции</th>
-                        <th width="150">Маска карты</th>
-                        <th width="200">Дата/Время</th>
-                        <th width="145">Форм Фактор</th>
-                        <th width="180">Код авторизации</th>
-                        <th width="130">Код ответа</th>
-                        <th width="150">РРН</th>
-                        <th width="100">Статус</th>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="vertical-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="100%">
-                      <perfect-scrollbar class="scroll-container" fxFlex="auto">
-                        <table class="table table-striped" width="1705" border="0">
-                          <tbody>
-                          <ng-container *ngFor="let transaction of transactions.content">
-                            <tr class="found">
-                              <td width="185">{{ transaction.transactionId }}</td>
-                              <td width="90">{{ transaction.amount }}</td>
-                              <td width="125">{{ transaction.amountOther }}</td>
-                              <td width="100">{{ transaction.currency }}</td>
-                              <td width="150">{{ transaction.operation }}</td>
-                              <td width="150">{{ transaction.panMasked }}</td>
-                              <td width="200">{{ transaction.transactionDate }}</td>
-                              <td width="145">{{ transaction.formFactor }}</td>
-                              <td width="180">{{ transaction.approvalCode }}</td>
-                              <td width="130">{{ transaction.responseCode }}</td>
-                              <td width="150">{{ transaction.rrn }}</td>
-                              <td width="100">{{ transaction.statusCode }}</td>
-                            </tr>
-                          </ng-container>
-                          </tbody>
-                        </table>
-                      </perfect-scrollbar>
-                    </div>
-                  </td>
-                </tr>
-              </table>
-            </perfect-scrollbar>
-          </div>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-  <!-- /Container: List Items -->
-
+<!-- Container: List Items -->
+<div class="container">
+  <table class="table" border="1" style="width:0;">
+    <thead style="background-color:#00275e; border-color:#00275e; color:#fff; width:0;">
+    <tr>
+      <th>Транзакции</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <div class="horizontal-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="100%">
+          <perfect-scrollbar class="scroll-container" fxFlex="auto">
+            <table>
+              <tr>
+                <td>
+                  <table width="1705" border="0">
+                    <tr>
+                      <th width="185">Номер транзакции</th>
+                      <th width="90">Сумма</th>
+                      <th width="125">Доп сумма</th>
+                      <th width="100">Валюта</th>
+                      <th width="150">Тип операции</th>
+                      <th width="150">Маска карты</th>
+                      <th width="200">Дата/Время</th>
+                      <th width="145">Форм Фактор</th>
+                      <th width="180">Код авторизации</th>
+                      <th width="130">Код ответа</th>
+                      <th width="150">РРН</th>
+                      <th width="100">Статус</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="vertical-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="100%">
+                    <perfect-scrollbar class="scroll-container" fxFlex="auto">
+                      <table class="table table-striped" width="1705" border="0">
+                        <tbody>
+                        <ng-container *ngFor="let transaction of transactions.content">
+                          <tr class="found">
+                            <td width="185">{{ transaction.transactionId }}</td>
+                            <td width="90">{{ transaction.amount }}</td>
+                            <td width="125">{{ transaction.amountOther }}</td>
+                            <td width="100">{{ transaction.currency }}</td>
+                            <td width="150">{{ transaction.operation }}</td>
+                            <td width="150">{{ transaction.panMasked }}</td>
+                            <td width="200">{{ transaction.transactionDate }}</td>
+                            <td width="145">{{ transaction.formFactor }}</td>
+                            <td width="180">{{ transaction.approvalCode }}</td>
+                            <td width="130">{{ transaction.responseCode }}</td>
+                            <td width="150">{{ transaction.rrn }}</td>
+                            <td width="100">{{ transaction.statusCode }}</td>
+                          </tr>
+                        </ng-container>
+                        </tbody>
+                      </table>
+                    </perfect-scrollbar>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </perfect-scrollbar>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
+<!-- /Container: List Items -->

@@ -1,167 +1,141 @@
-<div class="d-flex" id="wrapper" style="margin: 70px 0px 10px 10px;">
+<!--<ng-multiselect-dropdown [placeholder]="'Не выбрано'"-->
+  <!--[data]="dropdownList"-->
+  <!--[(ngModel)]="selectedItems"-->
+  <!--[settings]="dropdownSettings"-->
+  <!--(onSelect)="onItemSelect($event)"-->
+  <!--(onSelectAll)="onSelectAll($event)">-->
+<!--</ng-multiselect-dropdown>-->
 
-  <!--<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">-->
-    <div class="bg-transenix border-right" id="sidebar-wrapper">
-      <div class="list-group list-group-flush">
-        <a class="nav-link" routerLink="/home" class="list-group-transenix list-group-transenix-action bg-transenix">Организация</a>
-        <a class="nav-link" routerLink="/terminal" class="list-group-transenix list-group-transenix-action bg-transenix">Терминал</a>
-        <a class="nav-link" routerLink="/terminal-groups" class="list-group-transenix list-group-transenix-action bg-transenix">Группы терминалов</a>
-        <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Лимиты</a>
-        <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Диапазоны приема PAN</a>
-        <a class="nav-link" routerLink="/allowed-language" class="list-group-transenix list-group-transenix-action bg-transenix">Языки приложений</a>
-        <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Шаблон чека</a>
-        <a class="nav-link" routerLink="/pan-masked" class="list-group-transenix list-group-transenix-action bg-transenix">Шаблон карты</a>
-        <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Ключи безопасности</a>
-        <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Расписание</a>
-        <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Коды активации</a>
-        <a href="#" class="list-group-transenix list-group-transenix-action bg-transenix">Банки</a>
-      </div>
-    </div>
-  <!--</nav>-->
-
-
-  <!--<ng-multiselect-dropdown [placeholder]="'Не выбрано'"-->
-    <!--[data]="dropdownList"-->
-    <!--[(ngModel)]="selectedItems"-->
-    <!--[settings]="dropdownSettings"-->
-    <!--(onSelect)="onItemSelect($event)"-->
-    <!--(onSelectAll)="onSelectAll($event)">-->
-  <!--</ng-multiselect-dropdown>-->
-
-  <!--&lt;!&ndash;<div class="horizontal-container" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="stretch" fxFlex="100%">&ndash;&gt;-->
-    <!--&lt;!&ndash;<div class="vertical-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="100%">&ndash;&gt;-->
-      <!--<div class="content-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="auto">-->
-        <!--<perfect-scrollbar class="scroll-container" fxFlex="auto">-->
-          <!--Scroll<br>-->
-          <!--me!<br>-->
-          <!--<br>-->
-          <!--I<br>-->
-          <!--am<br>-->
-          <!--an<br>-->
-          <!--example<br>-->
-          <!--content<br>-->
-          <!--text<br>-->
-          <!--for<br>-->
-          <!--this<br>-->
-          <!--really<br>-->
-          <!--cooooooooooooooooooooooooooooooooooooooooooooooooool<br>-->
-          <!--scrollable<br>-->
-          <!--area<br>-->
-          <!--in<br>-->
-          <!--this<br>-->
-          <!--example<br>-->
-          <!--app<br>-->
-          <!--which<br>-->
-          <!--is<br>-->
-          <!--using<br>-->
-          <!--the<br>-->
-          <!--angular2<br>-->
-          <!--perfect<br>-->
-          <!--scrollbar<br>-->
-          <!--library<br>-->
-        <!--</perfect-scrollbar>-->
-      <!--</div>-->
-    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="horizontal-container" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="stretch" fxFlex="100%">&ndash;&gt;-->
+  <!--&lt;!&ndash;<div class="vertical-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="100%">&ndash;&gt;-->
+    <!--<div class="content-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="auto">-->
+      <!--<perfect-scrollbar class="scroll-container" fxFlex="auto">-->
+        <!--Scroll<br>-->
+        <!--me!<br>-->
+        <!--<br>-->
+        <!--I<br>-->
+        <!--am<br>-->
+        <!--an<br>-->
+        <!--example<br>-->
+        <!--content<br>-->
+        <!--text<br>-->
+        <!--for<br>-->
+        <!--this<br>-->
+        <!--really<br>-->
+        <!--cooooooooooooooooooooooooooooooooooooooooooooooooool<br>-->
+        <!--scrollable<br>-->
+        <!--area<br>-->
+        <!--in<br>-->
+        <!--this<br>-->
+        <!--example<br>-->
+        <!--app<br>-->
+        <!--which<br>-->
+        <!--is<br>-->
+        <!--using<br>-->
+        <!--the<br>-->
+        <!--angular2<br>-->
+        <!--perfect<br>-->
+        <!--scrollbar<br>-->
+        <!--library<br>-->
+      <!--</perfect-scrollbar>-->
+    <!--</div>-->
   <!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
 
 
-  <!--<table class="table table-striped w-auto">-->
-    <!--<thead>-->
-    <!--<tr>-->
-      <!--<th>#</th>-->
-      <!--<th>Name</th>-->
-      <!--<th>Surname</th>-->
-      <!--<th>Country</th>-->
-      <!--<th>City</th>-->
-      <!--<th>Position</th>-->
-      <!--<th>Age</th>-->
-    <!--</tr>-->
-    <!--</thead>-->
-    <!--<tbody>-->
-    <!--<tr class="table-info">-->
-      <!--<th scope="row">1</th>-->
-      <!--<td>Kate</td>-->
-      <!--<td>Moss</td>-->
-      <!--<td>USA</td>-->
-      <!--<td>New York City</td>-->
-      <!--<td>Web Designer</td>-->
-      <!--<td>23</td>-->
-    <!--</tr>-->
-    <!--<tr>-->
-      <!--<th scope="row">2</th>-->
-      <!--<td>Anna</td>-->
-      <!--<td>Wintour</td>-->
-      <!--<td>United Kingdom</td>-->
-      <!--<td>London</td>-->
-      <!--<td>Frontend Developer</td>-->
-      <!--<td>36</td>-->
-    <!--</tr>-->
-    <!--<tr class="table-info">-->
-      <!--<th scope="row">3</th>-->
-      <!--<td>Tom</td>-->
-      <!--<td>Bond</td>-->
-      <!--<td>Spain</td>-->
-      <!--<td>Madrid</td>-->
-      <!--<td>Photographer</td>-->
-      <!--<td>25</td>-->
-    <!--</tr>-->
-    <!--<tr>-->
-      <!--<th scope="row">4</th>-->
-      <!--<td>Jerry</td>-->
-      <!--<td>Horwitz</td>-->
-      <!--<td>Italy</td>-->
-      <!--<td>Bari</td>-->
-      <!--<td>Editor-in-chief</td>-->
-      <!--<td>41</td>-->
-    <!--</tr>-->
-    <!--<tr class="table-info">-->
-      <!--<th scope="row">5</th>-->
-      <!--<td>Janis</td>-->
-      <!--<td>Joplin</td>-->
-      <!--<td>Poland</td>-->
-      <!--<td>Warsaw</td>-->
-      <!--<td>Video Maker</td>-->
-      <!--<td>39</td>-->
-    <!--</tr>-->
-    <!--<tr>-->
-      <!--<th scope="row">6</th>-->
-      <!--<td>Gary</td>-->
-      <!--<td>Winogrand</td>-->
-      <!--<td>Germany</td>-->
-      <!--<td>Berlin</td>-->
-      <!--<td>Photographer</td>-->
-      <!--<td>37</td>-->
-    <!--</tr>-->
-    <!--<tr class="table-info">-->
-      <!--<th scope="row">7</th>-->
-      <!--<td>Angie</td>-->
-      <!--<td>Smith</td>-->
-      <!--<td>USA</td>-->
-      <!--<td>San Francisco</td>-->
-      <!--<td>Teacher</td>-->
-      <!--<td>52</td>-->
-    <!--</tr>-->
-    <!--<tr>-->
-      <!--<th scope="row">8</th>-->
-      <!--<td>John</td>-->
-      <!--<td>Mattis</td>-->
-      <!--<td>France</td>-->
-      <!--<td>Paris</td>-->
-      <!--<td>Actor</td>-->
-      <!--<td>28</td>-->
-    <!--</tr>-->
-    <!--<tr class="table-info">-->
-      <!--<th scope="row">9</th>-->
-      <!--<td>Otto</td>-->
-      <!--<td>Morris</td>-->
-      <!--<td>Germany</td>-->
-      <!--<td>Munich</td>-->
-      <!--<td>Singer</td>-->
-      <!--<td>35</td>-->
-    <!--</tr>-->
-    <!--</tbody>-->
-  <!--</table>-->
-
-
-
-</div>
+<!--<table class="table table-striped w-auto">-->
+  <!--<thead>-->
+  <!--<tr>-->
+    <!--<th>#</th>-->
+    <!--<th>Name</th>-->
+    <!--<th>Surname</th>-->
+    <!--<th>Country</th>-->
+    <!--<th>City</th>-->
+    <!--<th>Position</th>-->
+    <!--<th>Age</th>-->
+  <!--</tr>-->
+  <!--</thead>-->
+  <!--<tbody>-->
+  <!--<tr class="table-info">-->
+    <!--<th scope="row">1</th>-->
+    <!--<td>Kate</td>-->
+    <!--<td>Moss</td>-->
+    <!--<td>USA</td>-->
+    <!--<td>New York City</td>-->
+    <!--<td>Web Designer</td>-->
+    <!--<td>23</td>-->
+  <!--</tr>-->
+  <!--<tr>-->
+    <!--<th scope="row">2</th>-->
+    <!--<td>Anna</td>-->
+    <!--<td>Wintour</td>-->
+    <!--<td>United Kingdom</td>-->
+    <!--<td>London</td>-->
+    <!--<td>Frontend Developer</td>-->
+    <!--<td>36</td>-->
+  <!--</tr>-->
+  <!--<tr class="table-info">-->
+    <!--<th scope="row">3</th>-->
+    <!--<td>Tom</td>-->
+    <!--<td>Bond</td>-->
+    <!--<td>Spain</td>-->
+    <!--<td>Madrid</td>-->
+    <!--<td>Photographer</td>-->
+    <!--<td>25</td>-->
+  <!--</tr>-->
+  <!--<tr>-->
+    <!--<th scope="row">4</th>-->
+    <!--<td>Jerry</td>-->
+    <!--<td>Horwitz</td>-->
+    <!--<td>Italy</td>-->
+    <!--<td>Bari</td>-->
+    <!--<td>Editor-in-chief</td>-->
+    <!--<td>41</td>-->
+  <!--</tr>-->
+  <!--<tr class="table-info">-->
+    <!--<th scope="row">5</th>-->
+    <!--<td>Janis</td>-->
+    <!--<td>Joplin</td>-->
+    <!--<td>Poland</td>-->
+    <!--<td>Warsaw</td>-->
+    <!--<td>Video Maker</td>-->
+    <!--<td>39</td>-->
+  <!--</tr>-->
+  <!--<tr>-->
+    <!--<th scope="row">6</th>-->
+    <!--<td>Gary</td>-->
+    <!--<td>Winogrand</td>-->
+    <!--<td>Germany</td>-->
+    <!--<td>Berlin</td>-->
+    <!--<td>Photographer</td>-->
+    <!--<td>37</td>-->
+  <!--</tr>-->
+  <!--<tr class="table-info">-->
+    <!--<th scope="row">7</th>-->
+    <!--<td>Angie</td>-->
+    <!--<td>Smith</td>-->
+    <!--<td>USA</td>-->
+    <!--<td>San Francisco</td>-->
+    <!--<td>Teacher</td>-->
+    <!--<td>52</td>-->
+  <!--</tr>-->
+  <!--<tr>-->
+    <!--<th scope="row">8</th>-->
+    <!--<td>John</td>-->
+    <!--<td>Mattis</td>-->
+    <!--<td>France</td>-->
+    <!--<td>Paris</td>-->
+    <!--<td>Actor</td>-->
+    <!--<td>28</td>-->
+  <!--</tr>-->
+  <!--<tr class="table-info">-->
+    <!--<th scope="row">9</th>-->
+    <!--<td>Otto</td>-->
+    <!--<td>Morris</td>-->
+    <!--<td>Germany</td>-->
+    <!--<td>Munich</td>-->
+    <!--<td>Singer</td>-->
+    <!--<td>35</td>-->
+  <!--</tr>-->
+  <!--</tbody>-->
+<!--</table>-->
