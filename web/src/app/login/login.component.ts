@@ -43,7 +43,10 @@ export class LoginComponent implements OnInit {
         //   this.invalidLogin = true;
         //   alert(data.message);
         // }
-      });
+         },
+         error => {
+           alert( JSON.stringify(error) );
+         });
   }
 
   ngOnInit() {

@@ -16,6 +16,7 @@ export class TerminalComponent implements OnInit {
   selectedTerminal;
   terminalGroups;
   selectedTerminalForm: FormGroup;
+  takeChoices: any;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService, public dataService: DataService) { }
 
@@ -24,6 +25,8 @@ export class TerminalComponent implements OnInit {
       this.router.navigate(['login']);
       return;
     }
+
+    this.takeChoices = this.dataService.getTakeChoices();
 
     this.selectedTerminalForm = this.formBuilder.group({
       terminalId: ['', Validators.required],

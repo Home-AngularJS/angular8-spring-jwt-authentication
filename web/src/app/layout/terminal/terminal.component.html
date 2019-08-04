@@ -117,11 +117,9 @@
                       <label for="opPurchase">Прием оплаты</label>
                     </td>
                     <td>
-                      <select formControlName="opPurchase" name="opPurchase" class="form-control" id="opPurchase" aria-describedby="idHelp" style="width: 100%; padding: 8px;">
-                        <option [ngValue]="null" disabled>Choose your terminal's</option>
-                        <option *ngFor="let opPurchase of [{'key':'Y', 'value':'Да'}, {'key':'N', 'value':'Нет'}]" [ngValue]="opPurchase" [selected]="opPurchase.key==selectedTerminal.opPurchase">
-                          {{ opPurchase.value }}
-                        </option>
+                      <select formControlName="opPurchase" name="opPurchase" class="custom-select" id="opPurchase" aria-describedby="idHelp" style="width: 100%; padding: 8px;">
+                        <option [ngValue]="null" disabled>Не выбрано</option>
+                        <option *ngFor="let opPurchase of takeChoices" [ngValue]="opPurchase.key">{{opPurchase.value}}</option>
                       </select>
                     </td>
                   </tr>
@@ -130,11 +128,9 @@
                       <label for="opReversal">Отмена транзакции</label>
                     </td>
                     <td>
-                      <select formControlName="opReversal" name="opReversal" class="form-control" id="opReversal" aria-describedby="idHelp" style="width: 100%; padding: 8px;">
-                        <option [ngValue]="null" disabled>Choose your terminal's</option>
-                        <option *ngFor="let opReversal of [{'key':'Y', 'value':'Да'}, {'key':'N', 'value':'Нет'}]" [ngValue]="opReversal" [selected]="opReversal.key==selectedTerminal.opReversal">
-                          {{ opReversal.value }}
-                        </option>
+                      <select formControlName="opReversal" name="opReversal" class="custom-select" id="opReversal" aria-describedby="idHelp" style="width: 100%; padding: 8px;">
+                        <option [ngValue]="null" disabled>Не выбрано</option>
+                        <option *ngFor="let opReversal of takeChoices" [ngValue]="opReversal.key">{{opReversal.value}}</option>
                       </select>
                     </td>
                   </tr>
@@ -143,11 +139,9 @@
                       <label for="opRefund">Возврат транзакции</label>
                     </td>
                     <td>
-                      <select formControlName="opRefund" name="opRefund" class="form-control" id="opRefund" aria-describedby="idHelp" style="width: 100%; padding: 8px;">
-                        <option [ngValue]="null" disabled>Choose your terminal's</option>
-                        <option *ngFor="let opRefund of [{'key':'Y', 'value':'Да'}, {'key':'N', 'value':'Нет'}]" [ngValue]="opRefund" [selected]="opRefund.key==selectedTerminal.opRefund">
-                          {{ opRefund.value }}
-                        </option>
+                      <select formControlName="opRefund" name="opRefund" class="custom-select" id="opRefund" aria-describedby="idHelp" style="width: 100%; padding: 8px;">
+                        <option [ngValue]="null" disabled>Не выбрано</option>
+                        <option *ngFor="let opRefund of takeChoices" [ngValue]="opRefund.key">{{opRefund.value}}</option>
                       </select>
                     </td>
                   </tr>
@@ -156,11 +150,9 @@
                       <label for="manual">Ручной ввод карты</label>
                     </td>
                     <td>
-                      <select formControlName="manual" name="manual" class="form-control" id="manual" aria-describedby="idHelp" style="width: 100%; padding: 8px;">
-                        <option [ngValue]="null" disabled>Choose your terminal's</option>
-                        <option *ngFor="let manual of [{'key':'Y', 'value':'Да'}, {'key':'N', 'value':'Нет'}]" [ngValue]="manual" [selected]="manual.key==selectedTerminal.manual">
-                          {{ manual.value }}
-                        </option>
+                      <select formControlName="manual" name="manual" class="custom-select" id="manual" aria-describedby="idHelp" style="width: 100%; padding: 8px;">
+                        <option [ngValue]="null" disabled>Не выбрано</option>
+                        <option *ngFor="let manual of takeChoices" [ngValue]="manual.key">{{manual.value}}</option>
                       </select>
                     </td>
                   </tr>
@@ -169,11 +161,9 @@
                       <label for="pin">Ввод ПИН-кода</label>
                     </td>
                     <td>
-                      <select formControlName="pin" name="pin" class="form-control" id="pin" aria-describedby="idHelp" style="width: 100%; padding: 8px;">
-                        <option [ngValue]="null" disabled>Choose your terminal's</option>
-                        <option *ngFor="let pin of [{'key':'Y', 'value':'Да'}, {'key':'N', 'value':'Нет'}]" [ngValue]="pin" [selected]="pin.key==selectedTerminal.pin">
-                          {{ pin.value }}
-                        </option>
+                      <select formControlName="pin" name="pin" class="custom-select" id="pin" aria-describedby="idHelp" style="width: 100%; padding: 8px;">
+                        <option [ngValue]="null" disabled>Не выбрано</option>
+                        <option *ngFor="let pin of takeChoices" [ngValue]="pin.key">{{pin.value}}</option>
                       </select>
                     </td>
                   </tr>
@@ -182,11 +172,9 @@
                       <label for="geoPosition">Определение геопозиции</label>
                     </td>
                     <td>
-                      <select formControlName="geoPosition" name="geoPosition" class="form-control" id="geoPosition" aria-describedby="idHelp" style="width: 100%; padding: 8px;">
-                        <option [ngValue]="null" disabled>Choose your terminal's</option>
-                        <option *ngFor="let geoPosition of [{'key':'Y', 'value':'Да'}, {'key':'N', 'value':'Нет'}]" [ngValue]="geoPosition" [selected]="geoPosition.key==selectedTerminal.geoPosition">
-                          {{ geoPosition.value }}
-                        </option>
+                      <select formControlName="geoPosition" name="geoPosition" class="custom-select" id="geoPosition" aria-describedby="idHelp" style="width: 100%; padding: 8px;">
+                        <option [ngValue]="null" disabled>Не выбрано</option>
+                        <option *ngFor="let geoPosition of takeChoices" [ngValue]="geoPosition.key">{{geoPosition.value}}</option>
                       </select>
                     </td>
                   </tr>
@@ -219,11 +207,9 @@
                       <label for="visaAccepted">Прием карт Visa</label>
                     </td>
                     <td>
-                      <select formControlName="visaAccepted" name="visaAccepted" class="form-control" id="visaAccepted" aria-describedby="idHelp" style="width: 100%; padding: 8px;">
-                        <option [ngValue]="null" disabled>Choose your terminal's</option>
-                        <option *ngFor="let visaAccepted of [{'key':'Y', 'value':'Да'}, {'key':'N', 'value':'Нет'}]" [ngValue]="visaAccepted" [selected]="visaAccepted.key==selectedTerminal.visaAccepted">
-                          {{ visaAccepted.value }}
-                        </option>
+                      <select formControlName="visaAccepted" name="visaAccepted" class="custom-select" id="visaAccepted" aria-describedby="idHelp" style="width: 100%; padding: 8px;">
+                        <option [ngValue]="null" disabled>Не выбрано</option>
+                        <option *ngFor="let visaAccepted of takeChoices" [ngValue]="visaAccepted.key">{{visaAccepted.value}}</option>
                       </select>
                     </td>
                   </tr>
@@ -232,11 +218,9 @@
                       <label for="mcAccepted">Прием карт MasterCard</label>
                     </td>
                     <td>
-                      <select formControlName="mcAccepted" name="mcAccepted" class="form-control" id="mcAccepted" aria-describedby="idHelp" style="width: 100%; padding: 8px;">
-                        <option [ngValue]="null" disabled>Choose your terminal's</option>
-                        <option *ngFor="let mcAccepted of [{'key':'Y', 'value':'Да'}, {'key':'N', 'value':'Нет'}]" [ngValue]="mcAccepted" [selected]="mcAccepted.key==selectedTerminal.mcAccepted">
-                          {{ mcAccepted.value }}
-                        </option>
+                      <select formControlName="mcAccepted" name="mcAccepted" class="custom-select" id="mcAccepted" aria-describedby="idHelp" style="width: 100%; padding: 8px;">
+                        <option [ngValue]="null" disabled>Не выбрано</option>
+                        <option *ngFor="let mcAccepted of takeChoices" [ngValue]="mcAccepted.key">{{mcAccepted.value}}</option>
                       </select>
                     </td>
                   </tr>
@@ -245,11 +229,9 @@
                       <label for="prostirAccepted">Прием карт Prostir</label>
                     </td>
                     <td>
-                      <select formControlName="prostirAccepted" name="prostirAccepted" class="form-control" id="prostirAccepted" aria-describedby="idHelp" style="width: 100%; padding: 8px;">
-                        <option [ngValue]="null" disabled>Choose your terminal's</option>
-                        <option *ngFor="let prostirAccepted of [{'key':'Y', 'value':'Да'}, {'key':'N', 'value':'Нет'}]" [ngValue]="prostirAccepted" [selected]="prostirAccepted.key==selectedTerminal.prostirAccepted">
-                          {{ prostirAccepted.value }}
-                        </option>
+                      <select formControlName="prostirAccepted" name="prostirAccepted" class="custom-select" id="prostirAccepted" aria-describedby="idHelp" style="width: 100%; padding: 8px;">
+                        <option [ngValue]="null" disabled>Не выбрано</option>
+                        <option *ngFor="let prostirAccepted of takeChoices" [ngValue]="prostirAccepted.key">{{prostirAccepted.value}}</option>
                       </select>
                     </td>
                   </tr>

@@ -29,6 +29,7 @@
         <!--<th>LastName</th>-->
         <th>UserName</th>
         <th>Password</th>
+        <th>City</th>
         <th>Age</th>
         <th>Salary</th>
         <th></th>
@@ -41,6 +42,11 @@
         <!--<td>{{user.lastName}}</td>-->
         <td>{{user.username}}</td>
         <td class="hidden">{{user.password}}</td>
+        <td>
+          <div *ngFor="let city of cities">
+            <div *ngIf="city.key === user.city"> {{ city.value }} </div>
+          </div>
+        </td>
         <td>{{user.age}}</td>
         <td>{{user.salary}}</td>
         <td>

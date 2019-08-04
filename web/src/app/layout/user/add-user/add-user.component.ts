@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {ApiService} from "../../../service/api.service";
+import {DataService} from '../../../service/data.service';
 
 @Component({
   selector: 'app-add-user',
@@ -10,21 +11,24 @@ import {ApiService} from "../../../service/api.service";
 })
 export class AddUserComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder,private router: Router, private apiService: ApiService) { }
-
   addForm: FormGroup;
+  cities: any;
+
+  constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService, public dataService: DataService) { }
 
   ngOnInit() {
+    this.cities = this.dataService.getCities();
+
     this.addForm = this.formBuilder.group({
       id: [],
       username: ['', Validators.required],
       password: ['', Validators.required],
       // firstName: ['', Validators.required],
       // lastName: ['', Validators.required],
-      age: ['', Validators.required],
-      salary: ['', Validators.required]
+      city: [''],
+      age: [''],
+      salary: ['']
     });
-
   }
 
   onSubmit() {

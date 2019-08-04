@@ -6,6 +6,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataService {
 
+  cities: any = [
+    {'key':'Kiev', 'value':'Киев'},
+    {'key':'Florida', 'value':'Флорида'},
+    {'key':'South Dakota', 'value':'Северная Дакота'},
+    {'key':'Tennessee', 'value':'Тунис'},
+    {'key':'Michigan', 'value':'Мечиган'}
+  ];
+
+  takeChoices: any = [
+    {'key':'Y', 'value':'Да'},
+    {'key':'N', 'value':'Нет'}
+  ];
+
   terminals = {
     "content": [
       {
@@ -738,6 +751,14 @@ export class DataService {
 
   public getAllowedLanguages():Array<{languageId}> {
     return this.allowedLanguages;
+  }
+
+  public getCities():Array<{key, value}> {
+    return this.cities;
+  }
+
+  public getTakeChoices():Array<{key, value}> {
+    return this.takeChoices;
   }
 }
 

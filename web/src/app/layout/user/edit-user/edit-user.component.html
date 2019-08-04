@@ -43,6 +43,15 @@
         <!--</div>-->
         <input type="hidden" formControlName="password" placeholder="password" name="password" class="form-control" id="password">
         <tr>
+          <td><label for="city">City:</label></td>
+          <td>
+            <select formControlName="city" name="city" class="custom-select" id="city">
+              <option [ngValue]="null" disabled>Choose your city</option>
+              <option *ngFor="let city of cities" [ngValue]="city.key">{{city.value}}</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
           <td><label for="age">Age:</label></td>
           <td><input type="number" formControlName="age" placeholder="age" name="age" class="form-control" id="age"></td>
         </tr>

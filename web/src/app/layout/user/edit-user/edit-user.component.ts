@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {first} from "rxjs/operators";
 import {User} from "../../../model/user.model";
 import {ApiService} from "../../../service/api.service";
+import {DataService} from '../../../service/data.service';
 
 @Component({
   selector: 'app-edit-user',
@@ -14,8 +15,9 @@ export class EditUserComponent implements OnInit {
 
   user: User;
   editForm: FormGroup;
+  cities: any;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService, public dataService: DataService) { }
 
   ngOnInit() {
     let userId = window.localStorage.getItem("editUserId");
@@ -26,12 +28,15 @@ export class EditUserComponent implements OnInit {
       return;
     }
 
+    this.cities = this.dataService.getCities();
+
     this.editForm = this.formBuilder.group({
       id: ['', Validators.required],
       username: [''],
       password: [''],
       // firstName: ['', Validators.required],
       // lastName: ['', Validators.required],
+      city: [''],
       age: [''],
       salary: ['']
     });
