@@ -21,6 +21,7 @@ import { HeaderComponent } from './layout/components/header/header.component';
 import { FooterComponent } from './layout/components/footer/footer.component';
 import { HomeComponent } from './layout/home/home.component';
 import { ApiService } from "./service/api.service";
+import {SidebarComponent} from './layout/components/sidebar/sidebar.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true
@@ -40,6 +41,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AllowedLanguageComponent,
     HeaderComponent,
     FooterComponent,
+    SidebarComponent,
     HomeComponent
   ],
   imports: [
