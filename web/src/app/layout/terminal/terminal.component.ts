@@ -15,7 +15,7 @@ export class TerminalComponent implements OnInit {
   terminals;
   selectedTerminal;
   terminalGroups;
-  selectedTerminalForm: FormGroup;
+  editForm: FormGroup;
   takeChoices: any;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService, public dataService: DataService) { }
@@ -28,7 +28,7 @@ export class TerminalComponent implements OnInit {
 
     this.takeChoices = this.dataService.getTakeChoices();
 
-    this.selectedTerminalForm = this.formBuilder.group({
+    this.editForm = this.formBuilder.group({
       terminalId: ['', Validators.required],
       groupNumber: ['', Validators.required],
       configChanged: [''],
@@ -72,7 +72,7 @@ export class TerminalComponent implements OnInit {
   public selectTerminal(terminal) {
     this.selectedTerminal = terminal;
     console.log(terminal)
-    this.selectedTerminalForm.setValue(terminal);
+    this.editForm.setValue(terminal);
   }
 
   public selectTerminalGroup() {
@@ -84,7 +84,7 @@ export class TerminalComponent implements OnInit {
   }
 
   onSubmit() {
-    this.apiService.updateTerminal(this.selectedTerminalForm.value)
+    this.apiService.updateTerminal(this.editForm.value)
       .pipe(first())
       .subscribe(
         data => {
