@@ -18,6 +18,8 @@ public class User {
     @JsonIgnore
     private String password;
     @Column
+    private String city;
+    @Column
     private long salary;
     @Column
     private int age;
@@ -50,6 +52,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getCity() {
+      return city;
+    }
+
+    public void setCity(String city) {
+      this.city = city;
     }
 
     public long getSalary() {

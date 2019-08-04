@@ -5,15 +5,17 @@ public class UserDto {
     private long id;
     private String username;
     private String password;
+    private String city;
     private int age;
     private long salary;
 
     public UserDto() {}
 
-    public UserDto(long id, String username, String password, int age, long salary) {
+    public UserDto(long id, String username, String password, String city, int age, long salary) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.city = city;
         this.age = age;
         this.salary = salary;
     }
@@ -42,7 +44,15 @@ public class UserDto {
         this.password = password;
     }
 
-    public int getAge() {
+    public String getCity() {
+      return city;
+    }
+
+    public void setCity(String city) {
+      this.city = city;
+    }
+
+  public int getAge() {
         return age;
     }
 
@@ -64,6 +74,7 @@ public class UserDto {
       "id=" + id +
       ", username='" + username + '\'' +
       ", password='" + password + '\'' +
+      ", city='" + city + '\'' +
       ", age=" + age +
       ", salary=" + salary +
       '}';

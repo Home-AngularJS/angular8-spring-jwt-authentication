@@ -23,7 +23,7 @@ public class UserController {
     @RequestMapping(value="/users", method = RequestMethod.GET)
     public List<UserDto> listUser(){
         return userService.findAll().stream()
-                .map(u -> new UserDto(u.getId(), u.getUsername(), u.getPassword(), u.getAge(), u.getSalary()))
+                .map(u -> new UserDto(u.getId(), u.getUsername(), u.getPassword(), u.getCity(), u.getAge(), u.getSalary()))
                 .collect(Collectors.toList());
     }
 
@@ -33,7 +33,7 @@ public class UserController {
     @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
     public UserDto getOne(@PathVariable(value = "id") Long id){
         User u = userService.findById(id);
-        return new UserDto(u.getId(), u.getUsername(), u.getPassword(), u.getAge(), u.getSalary());
+        return new UserDto(u.getId(), u.getUsername(), u.getPassword(), u.getCity(), u.getAge(), u.getSalary());
     }
 
     @RequestMapping(value="/signup", method = RequestMethod.POST)
@@ -50,7 +50,7 @@ public class UserController {
     System.out.println(userDto);
     System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
     User u = userService.save(userDto);
-    return new UserDto(u.getId(), u.getUsername(), u.getPassword(), u.getAge(), u.getSalary());
+    return new UserDto(u.getId(), u.getUsername(), u.getPassword(), u.getCity(), u.getAge(), u.getSalary());
   }
 
 //    @Secured("ROLE_USER")
@@ -62,7 +62,7 @@ public class UserController {
       System.out.println(userDto);
       System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
       User u = userService.update(userDto);
-      return new UserDto(u.getId(), u.getUsername(), u.getPassword(), u.getAge(), u.getSalary());
+      return new UserDto(u.getId(), u.getUsername(), u.getPassword(), u.getCity(), u.getAge(), u.getSalary());
     }
 
 //    @Secured("ROLE_USER")

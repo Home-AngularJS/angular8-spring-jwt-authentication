@@ -10,8 +10,8 @@
 -- Online Bcrypt Hash Generator
 -- https://www.devglan.com/online-tools/bcrypt-hash-generator
 
-INSERT INTO user2 (id, username, password, salary, age) VALUES (1, 'user1', '$2a$04$3UAxUaM8HcGfNra4uES3ieIv.TYQ52hu3audfluRrnWmkGlqEA/tW', 3456, 33); -- ( user1 | user1 )
-INSERT INTO user2 (id, username, password, salary, age) VALUES (2, 'admin', '$2a$04$aaCw/KASTXL3SVe.7ETZjeb.Ei/NEG1T9C.9yzhvXTugPnOKAS4Ba', 7823, 23); -- ( admin | admin )
+INSERT INTO user2 (id, username, password, city, age, salary) VALUES (1, 'admin', '$2a$04$aaCw/KASTXL3SVe.7ETZjeb.Ei/NEG1T9C.9yzhvXTugPnOKAS4Ba', 'Kiev', 10, 100); -- ( admin | admin )
+INSERT INTO user2 (id, username, password, city, age, salary) VALUES (2, 'user1', '$2a$04$3UAxUaM8HcGfNra4uES3ieIv.TYQ52hu3audfluRrnWmkGlqEA/tW', 'South Dakota', 2, 20);    -- ( user1 | user1 )
 
 INSERT INTO role2 (id, description, name) VALUES (1, 'Admin role', 'ADMIN');
 INSERT INTO role2 (id, description, name) VALUES (2, 'User role', 'USER');

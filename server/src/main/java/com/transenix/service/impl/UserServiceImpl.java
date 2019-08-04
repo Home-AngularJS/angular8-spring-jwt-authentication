@@ -66,6 +66,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     User newUser = new User();
     newUser.setUsername(user.getUsername());
     newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
+    newUser.setCity(user.getCity());
     newUser.setAge(user.getAge());
     newUser.setSalary(user.getSalary());
     return userDao.save(newUser);
@@ -74,6 +75,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
   @Override
   public User update(UserDto userDto) {
     User user = findById(userDto.getId());
+    user.setCity(userDto.getCity());
     user.setAge(userDto.getAge());
     user.setSalary(userDto.getSalary());
     return userDao.save(user);
