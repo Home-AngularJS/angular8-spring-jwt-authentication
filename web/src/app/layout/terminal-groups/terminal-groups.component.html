@@ -14,24 +14,23 @@
             <table>
               <tr>
                 <td>
-                  <table width="1790" border="0">
+                  <table width="1515" border="0">
                     <tr>
-                      <th width="40"></th>
-                      <th width="100">Номер группы</th>
-                      <th width="150">Наименование группы</th>
-                      <th width="110">Операции оплаты</th>
-                      <th width="110">Отмена операции</th>
-                      <th width="110">Возврат операции</th>
-                      <th width="90">Ручной ввод</th>
-                      <th width="90">ПИН код</th>
-                      <th width="120">Геопозиция</th>
-                      <th width="110">Лимит VISA</th>
-                      <th width="110">Лимит MasterCard</th>
-                      <th width="110">Лимит Prostir</th>
-                      <th width="90">Карты Visa</th>
-                      <th width="110">Карты MasterCard</th>
-                      <th width="90">Карты Prostir</th>
-                      <th width="90">Шаблон чека</th>
+                      <th width="80">Номер группы</th>
+                      <th width="130">Наименование группы</th>
+                      <th width="95">Операции оплаты</th>
+                      <th width="95">Отмена операции</th>
+                      <th width="95">Возврат операции</th>
+                      <th width="75">Ручной ввод</th>
+                      <th width="55">ПИН код</th>
+                      <th width="110">Геопозиция</th>
+                      <th width="100">Лимит VISA</th>
+                      <th width="100">Лимит MasterCard</th>
+                      <th width="100">Лимит Prostir</th>
+                      <th width="70">Карты Visa</th>
+                      <th width="100">Карты MasterCard</th>
+                      <th width="70">Карты Prostir</th>
+                      <th width="80">Шаблон чека</th>
                       <th width="160">Язык</th>
                     </tr>
                   </table>
@@ -41,64 +40,61 @@
                 <td>
                   <div class="vertical-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="100%">
                     <perfect-scrollbar class="scroll-container" fxFlex="auto">
-                      <table class="table table-striped" width="1790" border="0">
+                      <table class="table table-striped" width="1515" border="0">
                         <tbody>
                         <ng-container *ngFor="let terminalGroup of terminalGroups">
-                          <tr class="found">
-                            <td width="40">
-                              <button class="btn btn-transenix-sm" (click)="selectTerminalGroup(terminalGroup)">+</button>
-                            </td>
-                            <td width="100">{{ terminalGroup.groupNumber }}</td>
-                            <td width="150">{{ terminalGroup.groupName }}</td>
-                            <td width="110">
+                          <tr class="found" (click)="selectTerminalGroup(terminalGroup)">
+                            <td width="80">{{ terminalGroup.groupNumber }}</td>
+                            <td width="130">{{ terminalGroup.groupName }}</td>
+                            <td width="95">
                               <div *ngFor="let takeChoice of takeChoices">
                                 <div *ngIf="takeChoice.key === terminalGroup.opPurchase"> {{ takeChoice.value }} </div>
                               </div>
                             </td>
-                            <td width="110">
+                            <td width="95">
                               <div *ngFor="let takeChoice of takeChoices">
                                 <div *ngIf="takeChoice.key === terminalGroup.opReversal"> {{ takeChoice.value }} </div>
                               </div>
                             </td>
-                            <td width="110">
+                            <td width="95">
                               <div *ngFor="let takeChoice of takeChoices">
                                 <div *ngIf="takeChoice.key === terminalGroup.opRefund"> {{ takeChoice.value }} </div>
                               </div>
                             </td>
-                            <td width="90">
+                            <td width="75">
                               <div *ngFor="let takeChoice of takeChoices">
                                 <div *ngIf="takeChoice.key === terminalGroup.manual"> {{ takeChoice.value }} </div>
                               </div>
                             </td>
-                            <td width="90">
+                            <td width="55">
                               <div *ngFor="let takeChoice of takeChoices">
                                 <div *ngIf="takeChoice.key === terminalGroup.pin"> {{ takeChoice.value }} </div>
                               </div>
                             </td>
-                            <td width="120">
+                            <td width="110">
                               <div *ngFor="let takeChoice of takeChoices">
                                 <div *ngIf="takeChoice.key === terminalGroup.geoPosition"> {{ takeChoice.value }} </div>
                               </div>
                             </td>
-                            <td width="110">{{ terminalGroup.limitVisa }}</td>
-                            <td width="110">{{ terminalGroup.limitMc }}</td>
-                            <td width="110">{{ terminalGroup.limitProstir }}</td>
-                            <td width="90">
+                            <td width="100">{{ terminalGroup.limitVisa }}</td>
+                            <td width="100">{{ terminalGroup.limitMc }}</td>
+                            <td width="100">{{ terminalGroup.limitProstir }}</td>
+                            <td width="70">
                               <div *ngFor="let takeChoice of takeChoices">
                                 <div *ngIf="takeChoice.key === terminalGroup.visaAccepted"> {{ takeChoice.value }} </div>
                               </div>
                             </td>
-                            <td width="110">
+                            <td width="100">
                               <div *ngFor="let takeChoice of takeChoices">
                                 <div *ngIf="takeChoice.key === terminalGroup.mcAccepted"> {{ takeChoice.value }} </div>
                               </div>
                             </td>
-                            <td width="90">
+                            <td width="70">
                               <div *ngFor="let takeChoice of takeChoices">
                                 <div *ngIf="takeChoice.key === terminalGroup.prostirAccepted"> {{ takeChoice.value }} </div>
                               </div>
                             </td>
-                            <td width="90">
+                            <td width="80">
                               <div *ngFor="let receiptTemplate of [1,2,3,4,5,6,7,8,9,10]">
                                 <div *ngIf="receiptTemplate === terminalGroup.receiptTemplate"> {{ receiptTemplate }} </div>
                               </div>

@@ -14,14 +14,13 @@
             <table>
               <tr>
                 <td>
-                  <table width="870" border="0">
+                  <table width="650" border="0">
                     <tr>
-                      <th width="40"></th>
-                      <th width="190"><nobr>Номер терминала</nobr></th>
-                      <th width="240"><nobr>Наименование торговца</nobr></th>
-                      <th width="150"><nobr>Организация</nobr></th>
-                      <th width="160"><nobr>Номер группы</nobr></th>
-                      <th width="90"><nobr>Банк</nobr></th>
+                      <th width="100">Номер терминала</th>
+                      <th width="200">Наименование торговца</th>
+                      <th width="150">Организация</th>
+                      <th width="80">Номер группы</th>
+                      <th width="90">Банк</th>
                     </tr>
                   </table>
                 </td>
@@ -30,15 +29,14 @@
                 <td>
                   <div class="vertical-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="100%">
                     <perfect-scrollbar class="scroll-container" fxFlex="auto">
-                      <table class="table table-striped" width="870" border="0">
+                      <table class="table table-striped" width="650" border="0">
                         <tbody>
                         <ng-container *ngFor="let terminal of terminals">
-                          <tr class="found">
-                            <td width="40"><button class="btn btn-transenix-sm" (click)="selectTerminal(terminal)">+</button></td>
-                            <td width="190">{{ terminal.terminalId }}</td>
-                            <td width="240">{{ terminal.merchant.merchantName }}</td>
+                          <tr class="found" (click)="selectTerminal(terminal)">
+                            <td width="100">{{ terminal.terminalId }}</td>
+                            <td width="200">{{ terminal.merchant.merchantName }}</td>
                             <td width="150"></td> <!--<td width="150">{{ terminal.merchant.legal_name }}</td>-->
-                            <td width="160">{{ terminal.groupNumber }}</td>
+                            <td width="80">{{ terminal.groupNumber }}</td>
                             <td width="90">Aval</td>
                           </tr>
                         </ng-container>

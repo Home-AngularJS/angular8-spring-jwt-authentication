@@ -694,15 +694,15 @@ export class DataService {
 
   panMaskeds = [
     {
-      "id": 1,
+      "id": "001",
       "templateMasked": "************NNNN"
     },
     {
-      "id": 2,
+      "id": "002",
       "templateMasked": "NNNN************"
     },
     {
-      "id": 3,
+      "id": "003",
       "templateMasked": "NNNN********NNNN"
     }
     ];

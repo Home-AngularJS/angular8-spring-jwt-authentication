@@ -8,6 +8,12 @@
   border-top: 0;
 }
 
+.table .table-striped tr.found:hover {
+  background-color: rgba(121, 154, 200, 0.24) !important;
+  cursor: pointer;
+}
+
+
 .horizontal-container {
   width: 670px;
 }
