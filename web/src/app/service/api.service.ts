@@ -7,11 +7,23 @@ import { ApiResponse } from "../model/api.response";
 @Injectable()
 export class ApiService {
 
-  baseUrl: string = 'http://192.168.1.124:9000';                                // http://localhost:8090  // http://192.168.1.71:8090
-  userUrl: string = 'http://192.168.1.71:8090/users';                           // http://localhost:8090/users
-  terminalUrl: string = 'http://192.168.1.124:9000/api/v1/terminals';           // http://map1.mobo.cards:8093/api/v1/terminals
-  serviceGroupsUrl: string = 'http://192.168.1.124:9000/api/v1/service-groups'; // http://map1.mobo.cards:8093/api/v1/service-groups
-  transactionUrl: string = 'http://192.168.1.124:9000/api/v1/transactions';     // http://map1.mobo.cards:8093/api/v1/transactions
+  /**
+   * @House
+   */
+  baseUrl: string = 'http://map1.mobo.cards:8093';
+  userUrl: string = 'http://map1.mobo.cards:8093/users';
+  terminalUrl: string = 'http://map1.mobo.cards:8093/api/v1/terminals';
+  serviceGroupsUrl: string = 'http://map1.mobo.cards:8093/api/v1/service-groups';
+  transactionUrl: string = 'http://map1.mobo.cards:8093/api/v1/transactions';
+
+  /**
+   * @CTS
+   */
+  // baseUrl: string = 'http://192.168.1.124:9000';                                // http://localhost:8090  // http://192.168.1.71:8090
+  // userUrl: string = 'http://192.168.1.71:8090/users';                           // http://localhost:8090/users
+  // terminalUrl: string = 'http://192.168.1.124:9000/api/v1/terminals';           // http://map1.mobo.cards:8093/api/v1/terminals
+  // serviceGroupsUrl: string = 'http://192.168.1.124:9000/api/v1/service-groups'; // http://map1.mobo.cards:8093/api/v1/service-groups
+  // transactionUrl: string = 'http://192.168.1.124:9000/api/v1/transactions';     // http://map1.mobo.cards:8093/api/v1/transactions
 
   constructor(private http: HttpClient) { }
 
@@ -57,6 +69,12 @@ export class ApiService {
     console.log(anyTerminal);
     const terminal = anyTerminal;
     return this.http.put<any>(this.terminalUrl + '/' + terminal.terminalId, terminal);
+  }
+
+  createTerminal(anyTerminal: any): Observable<any> {
+    console.log(anyTerminal);
+    const terminal = anyTerminal;
+    return this.http.post<any>(this.terminalUrl, terminal);
   }
 
   /**

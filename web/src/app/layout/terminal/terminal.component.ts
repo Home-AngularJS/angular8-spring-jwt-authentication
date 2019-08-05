@@ -17,7 +17,7 @@ export class TerminalComponent implements OnInit {
   terminalGroups;
   editForm: FormGroup;
   takeChoices: any;
-  newTerminal: any;
+  // newTerminal: any;
   selectedTerminalGroup;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService, public dataService: DataService) { }
@@ -30,33 +30,33 @@ export class TerminalComponent implements OnInit {
 
     this.takeChoices = this.dataService.getTakeChoices();
 
-    this.newTerminal = {
-      "terminalId": null,
-      "groupNumber": null,
-      "opPurchase": null,
-      "opReversal": null,
-      "opRefund": null,
-      "manual": null,
-      "pin": null,
-      "geoPosition": null,
-      "limitVisa": null,
-      "limitMc": null,
-      "limitProstir": null,
-      "visaAccepted": null,
-      "mcAccepted": null,
-      "prostirAccepted": null,
-      "receiptTemplate": null,
-      "configChanged": null,
-      "dateTimeInit": null,
-      "merchant": {},
-      "allowedLanguages": []
-    };
+    // this.newTerminal = {
+    //   "terminalId": null,
+    //   "groupNumber": null,
+    //   "opPurchase": null,
+    //   "opReversal": null,
+    //   "opRefund": null,
+    //   "manual": null,
+    //   "pin": null,
+    //   "geoPosition": null,
+    //   "limitVisa": null,
+    //   "limitMc": null,
+    //   "limitProstir": null,
+    //   "visaAccepted": null,
+    //   "mcAccepted": null,
+    //   "prostirAccepted": null,
+    //   "receiptTemplate": null,
+    //   "configChanged": null,
+    //   "dateTimeInit": null,
+    //   "allowedLanguages": []
+    // };
 
     this.editForm = this.formBuilder.group({
       terminalId: ['', Validators.required],
       groupNumber: ['', Validators.required],
       configChanged: [''],
       dateTimeInit: [''],
+      legal_name: [''],
       geoPosition: [''],
       limitMc: [''],
       limitProstir: [''],
@@ -70,7 +70,12 @@ export class TerminalComponent implements OnInit {
       prostirAccepted: [''],
       receiptTemplate: [''],
       visaAccepted: [''],
-      merchant: [''],
+      merchantId: [''],
+      merchantName: [''],
+      merchantLocation: [''],
+      taxId: [''],
+      mcc: [''],
+      acquirerId: [''],
       allowedLanguages: ['']
     });
 
@@ -107,8 +112,70 @@ export class TerminalComponent implements OnInit {
 
   public selectTerminal(terminal) {
     this.selectedTerminal = terminal;
-    console.log(terminal)
-    this.editForm.setValue(terminal);
+
+    console.log(terminal);
+    const entity: any = {
+      "terminalId": terminal.terminalId,
+      "groupNumber": terminal.groupNumber,
+      "configChanged": terminal.configChanged,
+      "dateTimeInit": terminal.dateTimeInit,
+      "legal_name": null,
+      "geoPosition": terminal.geoPosition,
+      "limitMc": terminal.limitMc,
+      "limitProstir": terminal.limitProstir,
+      "limitVisa": terminal.limitVisa,
+      "manual": terminal.manual,
+      "mcAccepted": terminal.mcAccepted,
+      "opPurchase": terminal.opPurchase,
+      "opRefund": terminal.opRefund,
+      "opReversal": terminal.opRefund,
+      "pin": terminal.pin,
+      "prostirAccepted": terminal.prostirAccepted,
+      "receiptTemplate": terminal.receiptTemplate,
+      "visaAccepted": terminal.visaAccepted,
+      "merchantId": terminal.merchant.merchantId,
+      "merchantName": terminal.merchant.merchantName,
+      "merchantLocation": terminal.merchant.merchantLocation,
+      "taxId": terminal.merchant.taxId,
+      "mcc": terminal.merchant.mcc,
+      "acquirerId": terminal.merchant.acquirerId,
+      "allowedLanguages": null
+    };
+    console.log(entity);
+
+    this.editForm.setValue(entity);
+  }
+
+  public createTerminal() {
+    const entity: any = {
+      "terminalId": null,
+      "groupNumber": null,
+      "configChanged": null,
+      "dateTimeInit": null,
+      "legal_name": null,
+      "geoPosition": null,
+      "limitMc": null,
+      "limitProstir": null,
+      "limitVisa": null,
+      "manual": null,
+      "mcAccepted": null,
+      "opPurchase": null,
+      "opRefund": null,
+      "opReversal": null,
+      "pin": null,
+      "prostirAccepted": null,
+      "receiptTemplate": null,
+      "visaAccepted": null,
+      "merchantId": null,
+      "merchantName": null,
+      "merchantLocation": null,
+      "taxId": null,
+      "mcc": null,
+      "acquirerId": null,
+      "allowedLanguages": []
+    };
+
+    this.editForm.setValue(entity);
   }
 
   public selectTerminalGroupByNumber(groupNumber) {
@@ -123,29 +190,87 @@ export class TerminalComponent implements OnInit {
   }
 
   onSubmit() {
-    this.apiService.updateTerminal(this.editForm.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          // if (data.status === 200) {
-          //   alert('User updated successfully.');
-          location.reload();
-          // } else {
-          //   alert(data.message);
-          // }
-        },
-        error => {
-          alert( JSON.stringify(error) );
-        });
+    console.log(this.editForm.value);
+    const dto = {
+      "terminalId": this.editForm.value.terminalId,
+      "groupNumber": this.editForm.value.groupNumber,
+      "opPurchase": this.editForm.value.opPurchase,
+      "opReversal": this.editForm.value.opReversal,
+      "opRefund": this.editForm.value.opRefund,
+      "manual": this.editForm.value.manual,
+      "pin": this.editForm.value.pin,
+      "geoPosition": this.editForm.value.geoPosition,
+      "limitVisa": this.editForm.value.limitVisa,
+      "limitMc": this.editForm.value.limitMc,
+      "limitProstir": this.editForm.value.limitProstir,
+      "visaAccepted": this.editForm.value.visaAccepted,
+      "mcAccepted": this.editForm.value.mcAccepted,
+      "prostirAccepted": this.editForm.value.prostirAccepted,
+      "receiptTemplate": this.editForm.value.receiptTemplate,
+      "configChanged": this.editForm.value.configChanged,
+      "dateTimeInit": this.editForm.value.dateTimeInit,
+      "merchant": {
+        "merchantId": this.editForm.value.merchantId,
+        "merchantName": this.editForm.value.merchantName,
+        "merchantLocation": this.editForm.value.merchantLocation,
+        "taxId": this.editForm.value.taxId,
+        "mcc": this.editForm.value.mcc,
+        "acquirerId": this.editForm.value.acquirerId
+      },
+      "allowedLanguages": [
+        {
+          "languageId": "UKR"
+        }
+      ]
+    };
+    console.log(dto);
+
+    /*
+     * if (dto.terminalId != null) {
+     *    this.apiService.updateTerminal(dto)
+     * } else {
+     *     this.apiService.createTerminal(dto)
+     * }
+     */
+    if (dto.terminalId != null) {
+      this.apiService.updateTerminal(dto)
+        .pipe(first())
+        .subscribe(
+          data => {
+            // if (data.status === 200) {
+            location.reload(); // updated successfully.
+            // } else {
+            //   alert(data.message);
+            // }
+          },
+          error => {
+            alert( JSON.stringify(error) );
+          });
+    } else {
+      this.apiService.createTerminal(dto)
+        .pipe(first())
+        .subscribe(
+          data => {
+            // if (data.status === 200) {
+            location.reload(); // updated successfully.
+            // } else {
+            //   alert(data.message);
+            // }
+          },
+          error => {
+            alert( JSON.stringify(error) );
+          });
+    }
+
   }
 
   public pageRefresh() {
     location.reload();
   }
 
-  public createTerminal() {
-    this.selectedTerminal = this.newTerminal;
-    console.log(this.newTerminal)
-    this.editForm.setValue(this.newTerminal);
-  }
+  // public createTerminal() {
+  //   this.selectedTerminal = this.newTerminal;
+  //   console.log(this.newTerminal)
+  //   this.editForm.setValue(this.newTerminal);
+  // }
 }

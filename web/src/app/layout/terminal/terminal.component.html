@@ -257,8 +257,7 @@
                     <label for="legal_name">Организация</label>
                   </td>
                   <td>
-                    <!--<input type="text" value="{{ selectedTerminal.merchant.legal_name }}" name="legal_name" class="form-control" id="legal_name" aria-describedby="idHelp" placeholder="Enter your terminal's">-->
-                    <input type="text" value="{{ selectedTerminal.merchant.legal_name }}" name="legal_name" class="form-control" id="legal_name" aria-describedby="idHelp">
+                    <input type="text" formControlName="legal_name" name="legal_name" class="form-control" id="legal_name" aria-describedby="idHelp">
                   </td>
                 </tr>
                 <tr>
@@ -266,7 +265,7 @@
                     <label for="merchantName">Наименование торговца</label>
                   </td>
                   <td>
-                    <input type="text" value="{{ selectedTerminal.merchant.merchantName }}" name="merchantName" class="form-control" id="merchantName" aria-describedby="idHelp" placeholder="Enter your terminal's">
+                    <input type="text" formControlName="merchantName" name="merchantName" class="form-control" id="merchantName" aria-describedby="idHelp" placeholder="Enter your terminal's">
                   </td>
                 </tr>
                 <tr>
@@ -274,7 +273,7 @@
                     <label for="taxId">ИНН</label>
                   </td>
                   <td>
-                    <input type="text" value="{{ selectedTerminal.merchant.taxId }}" name="taxId" class="form-control" id="taxId" aria-describedby="idHelp" placeholder="Enter your terminal's">
+                    <input type="text" formControlName="taxId" name="taxId" class="form-control" id="taxId" aria-describedby="idHelp" placeholder="Enter your terminal's">
                   </td>
                 </tr>
                 <tr>
@@ -282,7 +281,7 @@
                     <label for="mcc">mcc</label>
                   </td>
                   <td>
-                    <input type="text" value="{{ selectedTerminal.merchant.mcc }}" name="mcc" class="form-control" id="mcc" aria-describedby="idHelp" placeholder="Enter your terminal's">
+                    <input type="text" formControlName="mcc" name="mcc" class="form-control" id="mcc" aria-describedby="idHelp" placeholder="Enter your terminal's">
                   </td>
                 </tr>
                 <tr>
@@ -290,7 +289,7 @@
                     <label for="acquirerId">acquirerId</label>
                   </td>
                   <td>
-                    <input type="text" value="{{ selectedTerminal.merchant.acquirerId }}" name="acquirerId" class="form-control" id="acquirerId" aria-describedby="idHelp" placeholder="Enter your terminal's">
+                    <input type="text" formControlName="acquirerId" name="acquirerId" class="form-control" id="acquirerId" aria-describedby="idHelp" placeholder="Enter your terminal's">
                   </td>
                 </tr>
               </table>
