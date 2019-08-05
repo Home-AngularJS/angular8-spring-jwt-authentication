@@ -32,6 +32,7 @@ export class TerminalComponent implements OnInit {
       terminalId: ['', Validators.required],
       groupNumber: ['', Validators.required],
       configChanged: [''],
+      dateTimeInit: [''],
       geoPosition: [''],
       limitMc: [''],
       limitProstir: [''],
@@ -84,6 +85,9 @@ export class TerminalComponent implements OnInit {
   }
 
   onSubmit() {
+
+    console.log(this.editForm.value)
+
     this.apiService.updateTerminal(this.editForm.value)
       .pipe(first())
       .subscribe(

@@ -1,5 +1,16 @@
 <!-- Container: List Items -->
 <div class="container">
+  <div style="padding-bottom: 5px;">
+    <table>
+      <tr>
+        <td><button (click)="selectTerminalGroup(null)">&#x2714;</button></td>
+        <td><button (click)="selectTerminalGroup(null)" title="Обновить">&#x21bb;</button></td>
+        <td><button (click)="selectTerminalGroup(null)" title="Отфильтровать">&fnof;</button></td>
+        <td><button (click)="selectTerminalGroup(null)" title="Создать">+</button></td>
+      </tr>
+    </table>
+  </div>
+
   <table class="table" border="1" style="width:0;">
     <thead style="background-color:#00275e; border-color:#00275e; color:#fff; width:0;">
     <tr>
@@ -123,7 +134,7 @@
 <!-- /Container: List Items -->
 
 <!-- Container: Selected Item -->
-<div class="card text-center" style="position: absolute; margin-left: 723px; height: 783px; margin-top: -799px; border: solid #00275e 1px;" *ngIf="selectedTerminalGroup">
+<div class="card text-center" style="position: absolute; margin-left: 723px; height: 748px; margin-top: -765px; border: solid #00275e 1px;" *ngIf="selectedTerminalGroup">
   <div class="card-header card-header">
     <table width="350">
       <tr>

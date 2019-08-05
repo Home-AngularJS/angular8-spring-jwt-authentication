@@ -18,13 +18,20 @@
   cursor: pointer;
 }
 
+/*.table .table-striped tr.found:active,*/
+/*.table .table-striped tr.found:checked,*/
+/*.table .table-striped tr.found:focus {*/
+  /*background-color: rgba(121, 154, 200, 0.24) !important;*/
+  /*cursor: pointer;*/
+/*}*/
+
 
 .horizontal-container {
   width: 670px;
 }
 
 .vertical-container {
-  height: 640px;
+  height: 607px;
 }
 
 .vertical-container,
@@ -67,9 +74,11 @@
 
 .form-control {
   height: calc(1.0em + .75rem + 2px);
+  font-size: 0.8rem;
 }
 
 .custom-select {
   height: 30px;
   line-height: 0.8;
+  font-size: 0.8rem;
 }

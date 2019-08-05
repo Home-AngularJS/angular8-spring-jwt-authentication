@@ -84,7 +84,7 @@ export class TerminalGroupsComponent implements OnInit {
     /**
      * DEV. Profile
      */
-    // this.terminalGroups = this.dataService.findAllServiceGroups();
+    this.terminalGroups = this.dataService.findAllServiceGroups();
   }
 
   public selectTerminalGroup(terminalGroup) {
