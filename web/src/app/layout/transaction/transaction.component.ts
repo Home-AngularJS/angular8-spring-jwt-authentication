@@ -52,4 +52,9 @@ export class TransactionComponent implements OnInit {
     this.transactions = this.dataService.findAllTransactions();
     // this.terminalGroups = this.dataService.findAllServiceGroups();
   }
+
+  public pageRefresh() {
+    location.reload();
+  }
+
 }

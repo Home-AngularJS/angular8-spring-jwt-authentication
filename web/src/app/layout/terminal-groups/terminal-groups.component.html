@@ -3,10 +3,10 @@
   <div style="padding-bottom: 5px;">
     <table>
       <tr>
-        <td><button (click)="selectTerminalGroup(null)">&#x2714;</button></td>
-        <td><button (click)="selectTerminalGroup(null)" title="Обновить">&#x21bb;</button></td>
-        <td><button (click)="selectTerminalGroup(null)" title="Отфильтровать">&fnof;</button></td>
-        <td><button (click)="selectTerminalGroup(null)" title="Создать">+</button></td>
+        <td><button disabled>&#x2714;</button></td>
+        <td><button (click)="pageRefresh()" title="Обновить">&#x21bb;</button></td>
+        <td><button (click)="selectTerminal(null)" title="Отфильтровать">&fnof;</button></td>
+        <td><button (click)="createTerminalGroup()" title="Создать">+</button></td>
       </tr>
     </table>
   </div>
@@ -54,7 +54,7 @@
                       <table class="table table-striped" width="1515" border="0">
                         <tbody>
                         <ng-container *ngFor="let terminalGroup of terminalGroups">
-                          <tr class="found" (click)="selectTerminalGroup(terminalGroup)">
+                          <tr class="found" (dblclick)="selectTerminalGroup(terminalGroup)">
                             <td width="80">{{ terminalGroup.groupNumber }}</td>
                             <td width="130">{{ terminalGroup.groupName }}</td>
                             <td width="95">
@@ -291,7 +291,6 @@
                     </select>
                   </td>
                 </tr>
-
                 <tr>
                   <td align="right">
                     <label for="receiptTemplate">Шаблон чека</label>

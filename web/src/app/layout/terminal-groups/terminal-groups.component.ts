@@ -20,6 +20,8 @@ export class TerminalGroupsComponent implements OnInit {
   dropdownSettings = {};
   editForm: FormGroup;
   takeChoices: any;
+  newTerminalGroup: any;
+
 
   constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService, public dataService: DataService) { }
 
@@ -46,6 +48,25 @@ export class TerminalGroupsComponent implements OnInit {
     this.dropdownSettings = {
       itemsShowLimit: 1,
       noDataAvailablePlaceholderText: 'нет данных'
+    };
+
+    this.newTerminalGroup = {
+      "groupNumber": null,
+      "groupName": null,
+      "opPurchase": null,
+      "opReversal": null,
+      "opRefund": null,
+      "manual": null,
+      "pin": null,
+      "geoPosition": null,
+      "limitVisa": null,
+      "limitMc": null,
+      "limitProstir": null,
+      "visaAccepted": null,
+      "mcAccepted": null,
+      "prostirAccepted": null,
+      "receiptTemplate": null,
+      "allowedLanguages": []
     };
 
     this.editForm = this.formBuilder.group({
@@ -84,7 +105,7 @@ export class TerminalGroupsComponent implements OnInit {
     /**
      * DEV. Profile
      */
-    this.terminalGroups = this.dataService.findAllServiceGroups();
+    // this.terminalGroups = this.dataService.findAllServiceGroups();
   }
 
   public selectTerminalGroup(terminalGroup) {
@@ -108,7 +129,7 @@ export class TerminalGroupsComponent implements OnInit {
         data => {
           // if (data.status === 200) {
           //   alert('User updated successfully.');
-          this.router.navigate(['terminal-groups']);
+          location.reload();
           // } else {
           //   alert(data.message);
           // }
@@ -116,6 +137,16 @@ export class TerminalGroupsComponent implements OnInit {
         error => {
           alert( JSON.stringify(error) );
         });
+  }
+
+  public pageRefresh() {
+    location.reload();
+  }
+
+  public createTerminalGroup() {
+    this.selectedTerminalGroup = this.newTerminalGroup;
+    console.log(this.newTerminalGroup)
+    this.editForm.setValue(this.newTerminalGroup);
   }
 }
 

@@ -17,6 +17,8 @@ export class TerminalComponent implements OnInit {
   terminalGroups;
   editForm: FormGroup;
   takeChoices: any;
+  newTerminal: any;
+  selectedTerminalGroup;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService, public dataService: DataService) { }
 
@@ -27,6 +29,28 @@ export class TerminalComponent implements OnInit {
     }
 
     this.takeChoices = this.dataService.getTakeChoices();
+
+    this.newTerminal = {
+      "terminalId": null,
+      "groupNumber": null,
+      "opPurchase": null,
+      "opReversal": null,
+      "opRefund": null,
+      "manual": null,
+      "pin": null,
+      "geoPosition": null,
+      "limitVisa": null,
+      "limitMc": null,
+      "limitProstir": null,
+      "visaAccepted": null,
+      "mcAccepted": null,
+      "prostirAccepted": null,
+      "receiptTemplate": null,
+      "configChanged": null,
+      "dateTimeInit": null,
+      "merchant": {},
+      "allowedLanguages": []
+    };
 
     this.editForm = this.formBuilder.group({
       terminalId: ['', Validators.required],
@@ -64,6 +88,17 @@ export class TerminalComponent implements OnInit {
           alert( JSON.stringify(error) );
         });
 
+    this.apiService.findAllServiceGroups()
+      .subscribe( data => {
+          console.log(data)
+          const anyData: any = data
+          const terminalGroups = anyData
+          this.terminalGroups = terminalGroups;
+        },
+        error => {
+          alert( JSON.stringify(error) );
+        });
+
     /**
      * DEV. Profile
      */
@@ -76,25 +111,25 @@ export class TerminalComponent implements OnInit {
     this.editForm.setValue(terminal);
   }
 
-  public selectTerminalGroup() {
-    this.terminalGroups = this.dataService.findAllServiceGroups();
+  public selectTerminalGroupByNumber(groupNumber) {
+    for (let i = 0; i < this.terminalGroups.length; i++) {
+      console.log(JSON.stringify(this.terminalGroups[i]));
+      if (this.terminalGroups[i].groupNumber==groupNumber) this.selectedTerminalGroup = this.terminalGroups[i];
+    }
+  }
 
-    // for (let i = 0; i < this.terminalGroups.length; i++) {
-    //   if (this.terminalGroups[i].groupNumber==groupNumber) this.selectedTerminalGroup = this.terminalGroups[i];
-    // }
+  public closeTerminalGroupByNumber() {
+    this.selectedTerminalGroup = null;
   }
 
   onSubmit() {
-
-    console.log(this.editForm.value)
-
     this.apiService.updateTerminal(this.editForm.value)
       .pipe(first())
       .subscribe(
         data => {
           // if (data.status === 200) {
           //   alert('User updated successfully.');
-          this.router.navigate(['terminal']);
+          location.reload();
           // } else {
           //   alert(data.message);
           // }
@@ -102,5 +137,15 @@ export class TerminalComponent implements OnInit {
         error => {
           alert( JSON.stringify(error) );
         });
+  }
+
+  public pageRefresh() {
+    location.reload();
+  }
+
+  public createTerminal() {
+    this.selectedTerminal = this.newTerminal;
+    console.log(this.newTerminal)
+    this.editForm.setValue(this.newTerminal);
   }
 }

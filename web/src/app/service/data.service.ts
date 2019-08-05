@@ -38,6 +38,7 @@ export class DataService {
         "prostirAccepted": "Y",
         "receiptTemplate": 1,
         "configChanged": "N",
+        "dateTimeInit": "2019-08-05T15:30:25.799Z",
         "merchant": {
           "merchantId": "d7f08eab-544a-4b69-a7e8-a2e90f7d79fe",
           "merchantName": "COFEE SHOP VESELKA",
