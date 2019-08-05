@@ -38,6 +38,7 @@
 @media (min-width: 241px) {
   #sidebar-wrapper {
     margin-left: 0;
+    margin-top: -7px;
     height: 783px;
     max-width: 241px;
   }

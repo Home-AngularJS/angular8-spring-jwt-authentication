@@ -18,4 +18,8 @@
     display: flex !important;
     padding-top: 20px;
   }
+
+  .navbar-nav {
+    padding-left: 25px;
+  }
 }

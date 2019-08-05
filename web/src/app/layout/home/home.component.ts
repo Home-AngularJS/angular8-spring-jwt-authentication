@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['login']);
       return;
     }
-    //
+
     // this.dropdownList = [
     //   'Mumbai',
     //   'Bangaluru',
@@ -38,11 +38,11 @@ export class HomeComponent implements OnInit {
     // };
   }
 
-  // onItemSelect(item: any) {
-  //   console.log(item);
-  // }
-  //
-  // onSelectAll(items: any) {
-  //   console.log(items);
-  // }
+  onItemSelect(item: any) {
+    console.log(item);
+  }
+
+  onSelectAll(items: any) {
+    console.log(items);
+  }
 }

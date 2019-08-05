@@ -16,12 +16,12 @@
                 <td>
                   <table width="870" border="0">
                     <tr>
+                      <th width="40"></th>
                       <th width="190"><nobr>Номер терминала</nobr></th>
                       <th width="240"><nobr>Наименование торговца</nobr></th>
                       <th width="150"><nobr>Организация</nobr></th>
                       <th width="160"><nobr>Номер группы</nobr></th>
                       <th width="90"><nobr>Банк</nobr></th>
-                      <th width="40"></th>
                     </tr>
                   </table>
                 </td>
@@ -34,12 +34,12 @@
                         <tbody>
                         <ng-container *ngFor="let terminal of terminals">
                           <tr class="found">
+                            <td width="40"><button class="btn btn-transenix-sm" (click)="selectTerminal(terminal)">+</button></td>
                             <td width="190">{{ terminal.terminalId }}</td>
                             <td width="240">{{ terminal.merchant.merchantName }}</td>
                             <td width="150"></td> <!--<td width="150">{{ terminal.merchant.legal_name }}</td>-->
                             <td width="160">{{ terminal.groupNumber }}</td>
                             <td width="90">Aval</td>
-                            <td width="40"><button class="btn btn-transenix-sm" (click)="selectTerminal(terminal)">+</button></td>
                           </tr>
                         </ng-container>
                         </tbody>
@@ -59,9 +59,14 @@
 <!-- /Container: List Items -->
 
 <!-- Container: Selected Item -->
-<div class="card text-center" style="position: absolute; height: 783px; margin-left: 725px; margin-top: -800px; border: solid #00275e 1px;" *ngIf="selectedTerminal">
+<div class="card text-center" style="position: absolute; margin-left: 723px; height: 783px; margin-top: -799px; border: solid #00275e 1px;" *ngIf="selectedTerminal">
   <div class="card-header card-header">
-    {{selectedTerminal.merchant.merchantName}}
+    <table width="350">
+      <tr>
+        <td align="left">{{selectedTerminal.merchant.merchantName}}</td>
+        <td align="right"><button (click)="selectTerminal(null)">X</button></td>
+      </tr>
+    </table>
   </div>
 
   <div class="content-container-card" fxLayout="column" fxLayoutAlign="stretch" fxFlex="auto">
@@ -71,12 +76,12 @@
 
           <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
-              <table width="540" cellpadding="2">
+              <table width="340" cellpadding="2">
                 <tr>
                   <td align="right" width="180">
                     <label for="terminalId">Номер терминала</label>
                   </td>
-                  <td width="330">
+                  <td width="130">
                     <!--<input type="text" formControlName="terminalId" name="terminalId" class="form-control" id="terminalId" aria-describedby="idHelp" placeholder="Enter your terminal's">-->
                     <input type="text" formControlName="terminalId" name="terminalId" class="form-control" id="terminalId" aria-describedby="idHelp" readonly="true">
                   </td>
@@ -273,7 +278,7 @@
                 <!--</tr>-->
               </table>
             </div>
-            <div style="text-align: right; padding-right: 35px;">
+            <div style="text-align: right;">
               <button class="btn btn-transenix">Сохранить</button>
             </div>
           </form>
