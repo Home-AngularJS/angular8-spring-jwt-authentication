@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {User} from "../model/user.model";
-import {Observable} from "rxjs/index";
-import {ApiResponse} from "../model/api.response";
+import { User } from "../model/user.model";
+import { Observable } from "rxjs/index";
+import { ApiResponse } from "../model/api.response";
 
 @Injectable()
 export class ApiService {
 
-  baseUrl: string = 'http://localhost:8090';                                    // http://192.168.1.71:8090
-  userUrl: string = 'http://localhost:8090/users';                              // http://192.168.1.71:8090/users
+  baseUrl: string = 'http://192.168.1.71:8090';                                 // http://localhost:8090
+  userUrl: string = 'http://192.168.1.71:8090/users';                           // http://localhost:8090/users
   terminalUrl: string = 'http://192.168.1.124:9000/api/v1/terminals';           // http://map1.mobo.cards:8093/api/v1/terminals
   serviceGroupsUrl: string = 'http://192.168.1.124:9000/api/v1/service-groups'; // http://map1.mobo.cards:8093/api/v1/service-groups
   transactionUrl: string = 'http://192.168.1.124:9000/api/v1/transactions';     // http://map1.mobo.cards:8093/api/v1/transactions
@@ -18,14 +18,14 @@ export class ApiService {
   /**
    * Authentication
    */
-  login(loginPayload) : Observable<ApiResponse> {
+  login(loginPayload): Observable<ApiResponse> {
     return this.http.post<ApiResponse>(this.baseUrl + '/' + 'token/generate-token', loginPayload);
   }
 
   /**
    * User API
    */
-  getUsers() : Observable<ApiResponse> {
+  getUsers(): Observable<ApiResponse> {
     return this.http.get<ApiResponse>(this.userUrl);
   }
 
@@ -55,7 +55,7 @@ export class ApiService {
   updateTerminal(anyTerminal: any): Observable<any> {
     console.log(anyTerminal);
     const terminal = anyTerminal;
-    return this.http.put<any>(this.terminalUrl, terminal);
+    return this.http.put<any>(this.terminalUrl + '/' + terminal.terminalId, terminal);
   }
 
   /**
@@ -68,7 +68,7 @@ export class ApiService {
   updateServiceGroup(anyTerminalGroup: any): Observable<any> {
     console.log(anyTerminalGroup);
     const terminalGroup = anyTerminalGroup;
-    return this.http.put<any>(this.serviceGroupsUrl, terminalGroup);
+    return this.http.put<any>(this.serviceGroupsUrl + '/' + terminalGroup.groupNumber, terminalGroup);
   }
 
   /**

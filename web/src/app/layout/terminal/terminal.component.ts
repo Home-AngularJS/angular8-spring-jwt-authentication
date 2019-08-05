@@ -66,7 +66,7 @@ export class TerminalComponent implements OnInit {
     /**
      * DEV. Profile
      */
-    this.terminals = this.dataService.findAllTerminals().content;
+    // this.terminals = this.dataService.findAllTerminals().content;
   }
 
   public selectTerminal(terminal) {

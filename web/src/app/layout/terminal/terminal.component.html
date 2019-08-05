@@ -77,7 +77,8 @@
                     <label for="terminalId">Номер терминала</label>
                   </td>
                   <td width="330">
-                    <input type="text" formControlName="terminalId" name="terminalId" class="form-control" id="terminalId" aria-describedby="idHelp" placeholder="Enter your terminal's">
+                    <!--<input type="text" formControlName="terminalId" name="terminalId" class="form-control" id="terminalId" aria-describedby="idHelp" placeholder="Enter your terminal's">-->
+                    <input type="text" formControlName="terminalId" name="terminalId" class="form-control" id="terminalId" aria-describedby="idHelp" readonly="true">
                   </td>
                 </tr>
                 <tr>
@@ -85,7 +86,11 @@
                     <label for="groupNumber">Номер группы</label>
                   </td>
                   <td>
-                    <input type="text" formControlName="groupNumber" name="groupNumber" class="form-control" id="groupNumber" aria-describedby="idHelp" placeholder="Enter your terminal's">
+                    <!--<select formControlName="groupNumber" name="groupNumber" class="custom-select" id="groupNumber" aria-describedby="idHelp" style="width: 100%; padding: 8px;">-->
+                      <!--<option [ngValue]="null" disabled>Не выбрано</option>-->
+                      <!--<option *ngFor="let groupNumber of [1,2,3,4,5,6,7,8,9,10]" [ngValue]="groupNumber">{{groupNumber}}</option>-->
+                    <!--</select>-->
+                    <input type="text" formControlName="groupNumber" name="groupNumber" class="form-control" id="groupNumber" aria-describedby="idHelp" readonly="true">
                   </td>
                   <td width="20" align="right">
                     <!--<button class="btn btn-transenix-sm" (click)="selectTerminalGroup()">+</button>-->
@@ -219,7 +224,10 @@
                     <label for="receiptTemplate">Шаблон чека</label>
                   </td>
                   <td>
-                    <input type="text" formControlName="receiptTemplate" name="receiptTemplate" class="form-control" id="receiptTemplate" aria-describedby="idHelp" placeholder="Enter your terminal's">
+                    <select formControlName="receiptTemplate" name="receiptTemplate" class="custom-select" id="receiptTemplate" aria-describedby="idHelp" style="width: 100%; padding: 8px;">
+                      <option [ngValue]="null" disabled>Не выбрано</option>
+                      <option *ngFor="let receiptTemplate of [1,2,3,4,5,6,7,8,9,10]" [ngValue]="receiptTemplate">{{receiptTemplate}}</option>
+                    </select>
                   </td>
                 </tr>
                 <!--<tr>-->
