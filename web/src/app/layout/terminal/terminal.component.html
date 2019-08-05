@@ -320,139 +320,134 @@
   <div class="content-container-card" fxLayout="column" fxLayoutAlign="stretch" fxFlex="auto">
     <perfect-scrollbar class="scroll-container" fxFlex="auto">
       <div class="col-sm-8 offset-sm-2" style="margin-left:0;">
-        <div class="info-form">
-
-            <div class="form-group">
-              <table width="340" cellpadding="2">
-                <tr>
-                  <td align="right" width="180"><label>Номер группы</label></td>
-                  <td width="130">{{ selectedTerminalGroup.groupNumber }}</td>
-                </tr>
-                <tr>
-                  <td align="right"><label>Наименование группы</label></td>
-                  <td>{{ selectedTerminalGroup.groupName }}</td>
-                </tr>
-                <tr>
-                  <td align="right"><label>Операции оплаты</label></td>
-                  <td>
-                    <div *ngFor="let takeChoice of takeChoices">
-                      <div *ngIf="takeChoice.key === selectedTerminalGroup.opPurchase"> {{ takeChoice.value }} </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="right"><label>Отмена операции</label></td>
-                  <td>
-                    <div *ngFor="let takeChoice of takeChoices">
-                      <div *ngIf="takeChoice.key === selectedTerminalGroup.opReversal"> {{ takeChoice.value }} </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="right"><label>Возврат операции</label></td>
-                  <td>
-                    <div *ngFor="let takeChoice of takeChoices">
-                      <div *ngIf="takeChoice.key === selectedTerminalGroup.opRefund"> {{ takeChoice.value }} </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="right">
-                    <label>Ручной ввод</label>
-                  </td>
-                  <td>
-                    <div *ngFor="let takeChoice of takeChoices">
-                      <div *ngIf="takeChoice.key === selectedTerminalGroup.manual"> {{ takeChoice.value }} </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="right">
-                    <label>ПИН-код</label>
-                  </td>
-                  <td>
-                    <div *ngFor="let takeChoice of takeChoices">
-                      <div *ngIf="takeChoice.key === selectedTerminalGroup.pin"> {{ takeChoice.value }} </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="right">
-                    <label>Геопозиция</label>
-                  </td>
-                  <td>
-                    <div *ngFor="let takeChoice of takeChoices">
-                      <div *ngIf="takeChoice.key === selectedTerminalGroup.geoPosition"> {{ takeChoice.value }} </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="right">
-                    <label>Лимит VISA</label>
-                  </td>
-                  <td>{{ selectedTerminalGroup.limitVisa }}</td>
-                </tr>
-                <tr>
-                  <td align="right">
-                    <label>Лимит MasterCard</label>
-                  </td>
-                  <td>{{ selectedTerminalGroup.limitMc }}</td>
-                </tr>
-                <tr>
-                  <td align="right">
-                    <label>Лимит Prostir</label>
-                  </td>
-                  <td>{{ selectedTerminalGroup.limitProstir }}</td>
-                </tr>
-                <tr>
-                  <td align="right">
-                    <label>Карты Visa</label>
-                  </td>
-                  <td>
-                    <div *ngFor="let takeChoice of takeChoices">
-                      <div *ngIf="takeChoice.key === selectedTerminalGroup.visaAccepted"> {{ takeChoice.value }} </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="right">
-                    <label>Карты MasterCard</label>
-                  </td>
-                  <td>
-                    <div *ngFor="let takeChoice of takeChoices">
-                      <div *ngIf="takeChoice.key === selectedTerminalGroup.mcAccepted"> {{ takeChoice.value }} </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="right">
-                    <label>Карты Prostir</label>
-                  </td>
-                  <td>
-                    <div *ngFor="let takeChoice of takeChoices">
-                      <div *ngIf="takeChoice.key === selectedTerminalGroup.prostirAccepted"> {{ takeChoice.value }} </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="right">
-                    <label>Шаблон чека</label>
-                  </td>
-                  <td>{{ selectedTerminalGroup.receiptTemplate }}</td>
-                </tr>
-                <tr>
-                  <td align="right">
-                    <label>Язык</label>
-                  </td>
-                  <td>
-                    <span *ngFor="let allowedLanguage of selectedTerminalGroup.allowedLanguages">
-                      {{ allowedLanguage.languageId }}
-                    </span>
-                  </td>
-                </tr>
-              </table>
-            </div>
-        </div>
+        <table width="340" cellpadding="2">
+          <tr>
+            <td align="right" width="180"><label>Номер группы</label></td>
+            <td width="130">{{ selectedTerminalGroup.groupNumber }}</td>
+          </tr>
+          <tr>
+            <td align="right"><label>Наименование группы</label></td>
+            <td>{{ selectedTerminalGroup.groupName }}</td>
+          </tr>
+          <tr>
+            <td align="right"><label>Операции оплаты</label></td>
+            <td>
+              <div *ngFor="let takeChoice of takeChoices">
+                <div *ngIf="takeChoice.key === selectedTerminalGroup.opPurchase"> {{ takeChoice.value }} </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td align="right"><label>Отмена операции</label></td>
+            <td>
+              <div *ngFor="let takeChoice of takeChoices">
+                <div *ngIf="takeChoice.key === selectedTerminalGroup.opReversal"> {{ takeChoice.value }} </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td align="right"><label>Возврат операции</label></td>
+            <td>
+              <div *ngFor="let takeChoice of takeChoices">
+                <div *ngIf="takeChoice.key === selectedTerminalGroup.opRefund"> {{ takeChoice.value }} </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td align="right">
+              <label>Ручной ввод</label>
+            </td>
+            <td>
+              <div *ngFor="let takeChoice of takeChoices">
+                <div *ngIf="takeChoice.key === selectedTerminalGroup.manual"> {{ takeChoice.value }} </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td align="right">
+              <label>ПИН-код</label>
+            </td>
+            <td>
+              <div *ngFor="let takeChoice of takeChoices">
+                <div *ngIf="takeChoice.key === selectedTerminalGroup.pin"> {{ takeChoice.value }} </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td align="right">
+              <label>Геопозиция</label>
+            </td>
+            <td>
+              <div *ngFor="let takeChoice of takeChoices">
+                <div *ngIf="takeChoice.key === selectedTerminalGroup.geoPosition"> {{ takeChoice.value }} </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td align="right">
+              <label>Лимит VISA</label>
+            </td>
+            <td>{{ selectedTerminalGroup.limitVisa }}</td>
+          </tr>
+          <tr>
+            <td align="right">
+              <label>Лимит MasterCard</label>
+            </td>
+            <td>{{ selectedTerminalGroup.limitMc }}</td>
+          </tr>
+          <tr>
+            <td align="right">
+              <label>Лимит Prostir</label>
+            </td>
+            <td>{{ selectedTerminalGroup.limitProstir }}</td>
+          </tr>
+          <tr>
+            <td align="right">
+              <label>Карты Visa</label>
+            </td>
+            <td>
+              <div *ngFor="let takeChoice of takeChoices">
+                <div *ngIf="takeChoice.key === selectedTerminalGroup.visaAccepted"> {{ takeChoice.value }} </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td align="right">
+              <label>Карты MasterCard</label>
+            </td>
+            <td>
+              <div *ngFor="let takeChoice of takeChoices">
+                <div *ngIf="takeChoice.key === selectedTerminalGroup.mcAccepted"> {{ takeChoice.value }} </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td align="right">
+              <label>Карты Prostir</label>
+            </td>
+            <td>
+              <div *ngFor="let takeChoice of takeChoices">
+                <div *ngIf="takeChoice.key === selectedTerminalGroup.prostirAccepted"> {{ takeChoice.value }} </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td align="right">
+              <label>Шаблон чека</label>
+            </td>
+            <td>{{ selectedTerminalGroup.receiptTemplate }}</td>
+          </tr>
+          <tr>
+            <td align="right">
+              <label>Язык</label>
+            </td>
+            <td>
+              <span *ngFor="let allowedLanguage of selectedTerminalGroup.allowedLanguages">
+                {{ allowedLanguage.languageId }}
+              </span>
+            </td>
+          </tr>
+        </table>
       </div>
     </perfect-scrollbar>
   </div>
