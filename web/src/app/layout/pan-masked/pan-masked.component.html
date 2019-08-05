@@ -14,10 +14,11 @@
               <table>
                 <tr>
                   <td>
-                    <table width="355" border="0">
+                    <table width="650" border="0">
                       <tr>
                         <th width="170">Идентификатор</th>
                         <th width="185">Шаблона</th>
+                        <th></th>
                       </tr>
                     </table>
                   </td>
@@ -26,12 +27,13 @@
                   <td>
                     <div class="vertical-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="100%">
                       <perfect-scrollbar class="scroll-container" fxFlex="auto">
-                        <table class="table table-striped" width="355" border="0">
+                        <table class="table table-striped" width="650" border="0">
                           <tbody>
                           <ng-container *ngFor="let panMasked of panMaskeds">
                             <tr class="found">
                               <td width="170">{{ panMasked.id }}</td>
                               <td width="185">{{ panMasked.templateMasked }}</td>
+                              <td></td>
                             </tr>
                           </ng-container>
                           </tbody>

@@ -3,16 +3,17 @@
 }
 
 .table td, .table th {
-  padding: 10px 10px 17px 10px;
+  padding: 8px 10px 8px 10px;
   vertical-align: top;
   border-top: 0;
 }
 
 .horizontal-container {
-  width: 390px;
+  width: 670px;
 }
+
 .vertical-container {
-  height: 598px;
+  height: 653px;
 }
 
 .vertical-container,
