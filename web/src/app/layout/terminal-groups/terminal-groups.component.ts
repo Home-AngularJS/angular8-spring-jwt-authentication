@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../service/data.service';
+import { DataService } from '../../core/service/data.service';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
-import {ApiService} from '../../service/api.service';
+import {ApiService} from '../../core/service/api.service';
 import {first} from 'rxjs/operators';
 
 @Component({

@@ -2,9 +2,9 @@ import {Component, OnInit, Inject} from '@angular/core';
 import {Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {first} from "rxjs/operators";
-import {User} from "../../../model/user.model";
-import {ApiService} from "../../../service/api.service";
-import {DataService} from '../../../service/data.service';
+import {User} from "../../../core/model/user.model";
+import {ApiService} from "../../../core/service/api.service";
+import {DataService} from '../../../core/service/data.service';
 
 @Component({
   selector: 'app-edit-user',

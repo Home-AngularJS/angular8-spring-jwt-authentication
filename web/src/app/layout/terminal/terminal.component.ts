@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../service/data.service';
-import {ApiService} from '../../service/api.service';
+import { DataService } from '../../core/service/data.service';
+import {ApiService} from '../../core/service/api.service';
 import {Router} from '@angular/router';
 import {first} from 'rxjs/operators';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';

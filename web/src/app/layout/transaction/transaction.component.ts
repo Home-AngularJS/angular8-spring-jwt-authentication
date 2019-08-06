@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../service/data.service';
+import { DataService } from '../../core/service/data.service';
 import {Router} from '@angular/router';
-import {ApiService} from '../../service/api.service';
+import {ApiService} from '../../core/service/api.service';
 
 @Component({
   selector: 'app-transaction',
