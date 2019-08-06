@@ -119,7 +119,7 @@
                       <!--<option [ngValue]="null" disabled>Не выбрано</option>-->
                       <!--<option *ngFor="let groupNumber of [1,2,3,4,5,6,7,8,9,10]" [ngValue]="groupNumber">{{groupNumber}}</option>-->
                     <!--</select>-->
-                    <input type="text" formControlName="groupNumber" name="groupNumber" class="form-control" id="groupNumber" aria-describedby="idHelp">
+                    <input type="text" formControlName="groupNumber" name="groupNumber" class="form-control" id="groupNumber" aria-describedby="idHelp" readonly="true">
                   </td>
                   <td width="20" align="right">
                     <a routerLink="/terminal" (click)="selectTerminalGroupByNumber(selectedTerminal.groupNumber)" style="border: solid #00275e 1px; border-radius: 3px; padding: 5px;">&rArr;</a>
@@ -264,7 +264,8 @@
                     <label for="dateTimeInit">Дата регистрации</label>
                   </td>
                   <td>
-                    <input type="text" formControlName="dateTimeInit" name="dateTimeInit" class="form-control" id="dateTimeInit" aria-describedby="idHelp">
+                    <!--<input type="text" formControlName="dateTimeInit" name="dateTimeInit" class="form-control" id="dateTimeInit" aria-describedby="idHelp">-->
+                    <input type="text" value="{{selectedTerminal.dateTimeInit | date :'medium'}}" name="dateTimeInit" class="form-control" id="dateTimeInit" aria-describedby="idHelp" readonly="true">
                   </td>
                 </tr>
                 <tr>
