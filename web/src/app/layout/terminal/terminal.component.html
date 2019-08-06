@@ -13,9 +13,9 @@
 
   <table class="table" border="1" style="width:0;">
     <thead style="background-color:#00275e; border-color:#00275e; color:#fff; width:0;">
-      <tr>
-        <th>Терминал</th>
-      </tr>
+    <tr>
+      <th>Терминал</th>
+    </tr>
     </thead>
     <tbody>
     <tr>
@@ -25,14 +25,14 @@
             <table>
               <tr>
                 <td>
-                  <table width="750" border="0">
+                  <table width="830" border="0">
                     <tr>
                       <th width="100">Номер терминала</th>
                       <th width="200">Наименование торговца</th>
                       <th width="155">Организация</th>
                       <th width="85">Номер группы</th>
                       <th width="90">Банк</th>
-                      <th width="120">Дата регистрации</th>
+                      <th width="230">Дата регистрации</th>
                       <!--<th width="100">Идентификатор устройства</th>-->
                     </tr>
                   </table>
@@ -42,7 +42,7 @@
                 <td>
                   <div class="vertical-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="100%">
                     <perfect-scrollbar class="scroll-container" fxFlex="auto">
-                      <table class="table table-striped" width="750" border="0">
+                      <table class="table table-striped" width="830" border="0">
                         <tbody>
                         <ng-container *ngFor="let terminal of terminals">
                           <tr class="found" (click)="selectTerminalId(terminal)">
@@ -52,7 +52,7 @@
                               <td width="155" style="background: rgba(70, 70, 70, 0.200);">{{ terminal.merchant.merchantLegalName }}</td>
                               <td width="85" style="background: rgba(70, 70, 70, 0.200);">{{ terminal.groupNumber }}</td>
                               <td width="90" style="background: rgba(70, 70, 70, 0.200);">{{ terminal.merchant.acquirerId }}</td>
-                              <td width="120" style="background: rgba(70, 70, 70, 0.200);"> &nbsp; </td>
+                              <td width="230" style="background: rgba(70, 70, 70, 0.200);">{{ terminal.dateTimeInit | date :'medium' }}</td>
                               <!--<td width="100" style="background: rgba(70, 70, 70, 0.200);"> &nbsp; </td>-->
                             </div>
                             <div *ngIf="terminal.terminalId != selectedTerminalId">
@@ -61,7 +61,7 @@
                               <td width="155">{{ terminal.merchant.merchantLegalName }}</td>
                               <td width="85">{{ terminal.groupNumber }}</td>
                               <td width="90">{{ terminal.merchant.acquirerId }}</td>
-                              <td width="120"> &nbsp; </td>
+                              <td width="230">{{ terminal.dateTimeInit | date :'medium' }}</td>
                               <!--<td width="100"> &nbsp; </td>-->
                             </div>
                           </tr>

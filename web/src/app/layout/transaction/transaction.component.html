@@ -56,7 +56,7 @@
                             <td width="90">{{ transaction.currency }}</td>
                             <td width="150">{{ transaction.operation }}</td>
                             <td width="150">{{ transaction.panMasked }}</td>
-                            <td width="200"><input type="text" class="form-control" value="{{ transaction.transactionDate }}" readonly="true"></td>
+                            <td width="200">{{ transaction.transactionDate | date :'medium' }}</td>
                             <td width="145">{{ transaction.formFactor }}</td>
                             <td width="130">{{ transaction.approvalCode }}</td>
                             <td width="130">{{ transaction.responseCode }}</td>

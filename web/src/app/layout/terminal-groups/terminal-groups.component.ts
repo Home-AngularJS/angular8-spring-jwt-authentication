@@ -15,6 +15,7 @@ export class TerminalGroupsComponent implements OnInit {
 
   terminalGroups;
   selectedTerminalGroup;
+  selectedTerminalGroupNumber;
   dropdownList = [];
   selectedItems = [];
   dropdownSettings = {};
@@ -112,6 +113,14 @@ export class TerminalGroupsComponent implements OnInit {
     this.selectedTerminalGroup = terminalGroup;
     console.log(terminalGroup)
     this.editForm.setValue(terminalGroup);
+  }
+
+  public selectTerminalGrouplNumber(terminalGroup) {
+    if (this.selectedTerminalGroupNumber === terminalGroup.groupNumber) {
+      this.selectTerminalGroup(terminalGroup);
+    } else {
+      this.selectedTerminalGroupNumber = terminalGroup.groupNumber;
+    }
   }
 
   onItemSelect(item: any) {

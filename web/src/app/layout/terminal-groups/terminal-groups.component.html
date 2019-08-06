@@ -54,67 +54,131 @@
                       <table class="table table-striped" width="1515" border="0">
                         <tbody>
                         <ng-container *ngFor="let terminalGroup of terminalGroups">
-                          <tr class="found" (dblclick)="selectTerminalGroup(terminalGroup)">
-                            <td width="80">{{ terminalGroup.groupNumber }}</td>
-                            <td width="130">{{ terminalGroup.groupName }}</td>
-                            <td width="95">
-                              <div *ngFor="let takeChoice of takeChoices">
-                                <div *ngIf="takeChoice.key === terminalGroup.opPurchase"> {{ takeChoice.value }} </div>
-                              </div>
-                            </td>
-                            <td width="95">
-                              <div *ngFor="let takeChoice of takeChoices">
-                                <div *ngIf="takeChoice.key === terminalGroup.opReversal"> {{ takeChoice.value }} </div>
-                              </div>
-                            </td>
-                            <td width="95">
-                              <div *ngFor="let takeChoice of takeChoices">
-                                <div *ngIf="takeChoice.key === terminalGroup.opRefund"> {{ takeChoice.value }} </div>
-                              </div>
-                            </td>
-                            <td width="75">
-                              <div *ngFor="let takeChoice of takeChoices">
-                                <div *ngIf="takeChoice.key === terminalGroup.manual"> {{ takeChoice.value }} </div>
-                              </div>
-                            </td>
-                            <td width="55">
-                              <div *ngFor="let takeChoice of takeChoices">
-                                <div *ngIf="takeChoice.key === terminalGroup.pin"> {{ takeChoice.value }} </div>
-                              </div>
-                            </td>
-                            <td width="110">
-                              <div *ngFor="let takeChoice of takeChoices">
-                                <div *ngIf="takeChoice.key === terminalGroup.geoPosition"> {{ takeChoice.value }} </div>
-                              </div>
-                            </td>
-                            <td width="100">{{ terminalGroup.limitVisa }}</td>
-                            <td width="100">{{ terminalGroup.limitMc }}</td>
-                            <td width="100">{{ terminalGroup.limitProstir }}</td>
-                            <td width="70">
-                              <div *ngFor="let takeChoice of takeChoices">
-                                <div *ngIf="takeChoice.key === terminalGroup.visaAccepted"> {{ takeChoice.value }} </div>
-                              </div>
-                            </td>
-                            <td width="100">
-                              <div *ngFor="let takeChoice of takeChoices">
-                                <div *ngIf="takeChoice.key === terminalGroup.mcAccepted"> {{ takeChoice.value }} </div>
-                              </div>
-                            </td>
-                            <td width="70">
-                              <div *ngFor="let takeChoice of takeChoices">
-                                <div *ngIf="takeChoice.key === terminalGroup.prostirAccepted"> {{ takeChoice.value }} </div>
-                              </div>
-                            </td>
-                            <td width="80">
-                              <div *ngFor="let receiptTemplate of [1,2,3,4,5,6,7,8,9,10]">
-                                <div *ngIf="receiptTemplate === terminalGroup.receiptTemplate"> {{ receiptTemplate }} </div>
-                              </div>
-                            </td>
-                            <td width="160">
-                              <span *ngFor="let allowedLanguage of terminalGroup.allowedLanguages">
-                                {{ allowedLanguage.languageId }}
-                              </span>
-                            </td>
+                          <tr class="found" (click)="selectTerminalGrouplNumber(terminalGroup)">
+                            <div *ngIf="terminalGroup.groupNumber === selectedTerminalGroupNumber">
+                              <td width="80" style="background: rgba(70, 70, 70, 0.200);">{{ terminalGroup.groupNumber }}</td>
+                              <td width="130" style="background: rgba(70, 70, 70, 0.200);">{{ terminalGroup.groupName }}</td>
+                              <td width="95" style="background: rgba(70, 70, 70, 0.200);">
+                                <div *ngFor="let takeChoice of takeChoices">
+                                  <div *ngIf="takeChoice.key === terminalGroup.opPurchase"> {{ takeChoice.value }} </div>
+                                </div>
+                              </td>
+                              <td width="95" style="background: rgba(70, 70, 70, 0.200);">
+                                <div *ngFor="let takeChoice of takeChoices">
+                                  <div *ngIf="takeChoice.key === terminalGroup.opReversal"> {{ takeChoice.value }} </div>
+                                </div>
+                              </td>
+                              <td width="95" style="background: rgba(70, 70, 70, 0.200);">
+                                <div *ngFor="let takeChoice of takeChoices">
+                                  <div *ngIf="takeChoice.key === terminalGroup.opRefund"> {{ takeChoice.value }} </div>
+                                </div>
+                              </td>
+                              <td width="75" style="background: rgba(70, 70, 70, 0.200);">
+                                <div *ngFor="let takeChoice of takeChoices">
+                                  <div *ngIf="takeChoice.key === terminalGroup.manual"> {{ takeChoice.value }} </div>
+                                </div>
+                              </td>
+                              <td width="55" style="background: rgba(70, 70, 70, 0.200);">
+                                <div *ngFor="let takeChoice of takeChoices">
+                                  <div *ngIf="takeChoice.key === terminalGroup.pin"> {{ takeChoice.value }} </div>
+                                </div>
+                              </td>
+                              <td width="110" style="background: rgba(70, 70, 70, 0.200);">
+                                <div *ngFor="let takeChoice of takeChoices">
+                                  <div *ngIf="takeChoice.key === terminalGroup.geoPosition"> {{ takeChoice.value }} </div>
+                                </div>
+                              </td>
+                              <td width="100" style="background: rgba(70, 70, 70, 0.200);">{{ terminalGroup.limitVisa }}</td>
+                              <td width="100" style="background: rgba(70, 70, 70, 0.200);">{{ terminalGroup.limitMc }}</td>
+                              <td width="100" style="background: rgba(70, 70, 70, 0.200);">{{ terminalGroup.limitProstir }}</td>
+                              <td width="70" style="background: rgba(70, 70, 70, 0.200);">
+                                <div *ngFor="let takeChoice of takeChoices">
+                                  <div *ngIf="takeChoice.key === terminalGroup.visaAccepted"> {{ takeChoice.value }} </div>
+                                </div>
+                              </td>
+                              <td width="100" style="background: rgba(70, 70, 70, 0.200);">
+                                <div *ngFor="let takeChoice of takeChoices">
+                                  <div *ngIf="takeChoice.key === terminalGroup.mcAccepted"> {{ takeChoice.value }} </div>
+                                </div>
+                              </td>
+                              <td width="70" style="background: rgba(70, 70, 70, 0.200);">
+                                <div *ngFor="let takeChoice of takeChoices">
+                                  <div *ngIf="takeChoice.key === terminalGroup.prostirAccepted"> {{ takeChoice.value }} </div>
+                                </div>
+                              </td>
+                              <td width="80" style="background: rgba(70, 70, 70, 0.200);">
+                                <div *ngFor="let receiptTemplate of [1,2,3,4,5,6,7,8,9,10]">
+                                  <div *ngIf="receiptTemplate === terminalGroup.receiptTemplate"> {{ receiptTemplate }} </div>
+                                </div>
+                              </td>
+                              <td width="160" style="background: rgba(70, 70, 70, 0.200);">
+                                <span *ngFor="let allowedLanguage of terminalGroup.allowedLanguages">
+                                  {{ allowedLanguage.languageId }}
+                                </span>
+                              </td>
+                            </div>
+                            <div *ngIf="terminalGroup.groupNumber != selectedTerminalGroupNumber">
+                              <td width="80">{{ terminalGroup.groupNumber }}</td>
+                              <td width="130">{{ terminalGroup.groupName }}</td>
+                              <td width="95">
+                                <div *ngFor="let takeChoice of takeChoices">
+                                  <div *ngIf="takeChoice.key === terminalGroup.opPurchase"> {{ takeChoice.value }} </div>
+                                </div>
+                              </td>
+                              <td width="95">
+                                <div *ngFor="let takeChoice of takeChoices">
+                                  <div *ngIf="takeChoice.key === terminalGroup.opReversal"> {{ takeChoice.value }} </div>
+                                </div>
+                              </td>
+                              <td width="95">
+                                <div *ngFor="let takeChoice of takeChoices">
+                                  <div *ngIf="takeChoice.key === terminalGroup.opRefund"> {{ takeChoice.value }} </div>
+                                </div>
+                              </td>
+                              <td width="75">
+                                <div *ngFor="let takeChoice of takeChoices">
+                                  <div *ngIf="takeChoice.key === terminalGroup.manual"> {{ takeChoice.value }} </div>
+                                </div>
+                              </td>
+                              <td width="55">
+                                <div *ngFor="let takeChoice of takeChoices">
+                                  <div *ngIf="takeChoice.key === terminalGroup.pin"> {{ takeChoice.value }} </div>
+                                </div>
+                              </td>
+                              <td width="110">
+                                <div *ngFor="let takeChoice of takeChoices">
+                                  <div *ngIf="takeChoice.key === terminalGroup.geoPosition"> {{ takeChoice.value }} </div>
+                                </div>
+                              </td>
+                              <td width="100">{{ terminalGroup.limitVisa }}</td>
+                              <td width="100">{{ terminalGroup.limitMc }}</td>
+                              <td width="100">{{ terminalGroup.limitProstir }}</td>
+                              <td width="70">
+                                <div *ngFor="let takeChoice of takeChoices">
+                                  <div *ngIf="takeChoice.key === terminalGroup.visaAccepted"> {{ takeChoice.value }} </div>
+                                </div>
+                              </td>
+                              <td width="100">
+                                <div *ngFor="let takeChoice of takeChoices">
+                                  <div *ngIf="takeChoice.key === terminalGroup.mcAccepted"> {{ takeChoice.value }} </div>
+                                </div>
+                              </td>
+                              <td width="70">
+                                <div *ngFor="let takeChoice of takeChoices">
+                                  <div *ngIf="takeChoice.key === terminalGroup.prostirAccepted"> {{ takeChoice.value }} </div>
+                                </div>
+                              </td>
+                              <td width="80">
+                                <div *ngFor="let receiptTemplate of [1,2,3,4,5,6,7,8,9,10]">
+                                  <div *ngIf="receiptTemplate === terminalGroup.receiptTemplate"> {{ receiptTemplate }} </div>
+                                </div>
+                              </td>
+                              <td width="160">
+                                <span *ngFor="let allowedLanguage of terminalGroup.allowedLanguages">
+                                  {{ allowedLanguage.languageId }}
+                                </span>
+                              </td>
+                            </div>
                           </tr>
                         </ng-container>
                         </tbody>
