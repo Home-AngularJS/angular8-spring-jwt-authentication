@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../core/service/data.service';
-import {ApiService} from '../../core/service/api.service';
-import {Router} from '@angular/router';
-import {first} from 'rxjs/operators';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { ApiService } from '../../core/service/api.service';
+import { Router } from '@angular/router';
+import { first } from 'rxjs/operators';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import {dtoToTerminal, terminalToDto} from '../../core/model/terminal.model';
 
 @Component({
   selector: 'app-terminal',
@@ -35,7 +37,7 @@ export class TerminalComponent implements OnInit {
       groupNumber: ['', Validators.required],
       configChanged: [''],
       dateTimeInit: [''],
-      legal_name: [''],
+      legalName: [''],
       geoPosition: [''],
       limitMc: [''],
       limitProstir: [''],
@@ -94,33 +96,7 @@ export class TerminalComponent implements OnInit {
     this.selectedTerminalId = terminal.terminalId;
 
     console.log(terminal);
-    const entity: any = {
-      "terminalId": terminal.terminalId,
-      "groupNumber": terminal.groupNumber,
-      "configChanged": terminal.configChanged,
-      "dateTimeInit": terminal.dateTimeInit,
-      "legal_name": null,
-      "geoPosition": terminal.geoPosition,
-      "limitMc": terminal.limitMc,
-      "limitProstir": terminal.limitProstir,
-      "limitVisa": terminal.limitVisa,
-      "manual": terminal.manual,
-      "mcAccepted": terminal.mcAccepted,
-      "opPurchase": terminal.opPurchase,
-      "opRefund": terminal.opRefund,
-      "opReversal": terminal.opRefund,
-      "pin": terminal.pin,
-      "prostirAccepted": terminal.prostirAccepted,
-      "receiptTemplate": terminal.receiptTemplate,
-      "visaAccepted": terminal.visaAccepted,
-      "merchantId": terminal.merchant.merchantId,
-      "merchantName": terminal.merchant.merchantName,
-      "merchantLocation": terminal.merchant.merchantLocation,
-      "taxId": terminal.merchant.taxId,
-      "mcc": terminal.merchant.mcc,
-      "acquirerId": terminal.merchant.acquirerId,
-      "allowedLanguages": null
-    };
+    const entity: any = dtoToTerminal(terminal);
     console.log(entity);
 
     this.editForm.setValue(entity);
@@ -171,38 +147,7 @@ export class TerminalComponent implements OnInit {
 
   onSubmit() {
     console.log(this.editForm.value);
-    const dto = {
-      "terminalId": this.editForm.value.terminalId,
-      "groupNumber": this.editForm.value.groupNumber,
-      "opPurchase": this.editForm.value.opPurchase,
-      "opReversal": this.editForm.value.opReversal,
-      "opRefund": this.editForm.value.opRefund,
-      "manual": this.editForm.value.manual,
-      "pin": this.editForm.value.pin,
-      "geoPosition": this.editForm.value.geoPosition,
-      "limitVisa": this.editForm.value.limitVisa,
-      "limitMc": this.editForm.value.limitMc,
-      "limitProstir": this.editForm.value.limitProstir,
-      "visaAccepted": this.editForm.value.visaAccepted,
-      "mcAccepted": this.editForm.value.mcAccepted,
-      "prostirAccepted": this.editForm.value.prostirAccepted,
-      "receiptTemplate": this.editForm.value.receiptTemplate,
-      "configChanged": this.editForm.value.configChanged,
-      "dateTimeInit": this.editForm.value.dateTimeInit,
-      "merchant": {
-        "merchantId": this.editForm.value.merchantId,
-        "merchantName": this.editForm.value.merchantName,
-        "merchantLocation": this.editForm.value.merchantLocation,
-        "taxId": this.editForm.value.taxId,
-        "mcc": this.editForm.value.mcc,
-        "acquirerId": this.editForm.value.acquirerId
-      },
-      "allowedLanguages": [
-        {
-          "languageId": "UKR"
-        }
-      ]
-    };
+    const dto = terminalToDto(this.editForm.value);
     console.log(dto);
 
     /*
