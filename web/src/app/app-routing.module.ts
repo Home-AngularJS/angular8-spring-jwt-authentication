@@ -8,8 +8,9 @@ import { TerminalComponent } from './layout/terminal/terminal.component';
 import { TerminalGroupsComponent } from './layout/terminal-groups/terminal-groups.component';
 import { TransactionComponent } from './layout/transaction/transaction.component';
 import { HomeComponent } from './layout/home/home.component';
-import {PanMaskedComponent} from './layout/pan-masked/pan-masked.component';
-import {AllowedLanguageComponent} from './layout/allowed-language/allowed-language.component';
+import { PanMaskedComponent } from './layout/pan-masked/pan-masked.component';
+import { AllowedLanguageComponent } from './layout/allowed-language/allowed-language.component';
+import { SettingsComponent } from './layout/settings/settings.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'transaction', component: TransactionComponent },
   { path: 'pan-masked', component: PanMaskedComponent },
   { path: 'allowed-language', component: AllowedLanguageComponent },
+  { path: 'settings', component: SettingsComponent },
 ];
 
 @NgModule({
