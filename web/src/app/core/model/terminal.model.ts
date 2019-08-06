@@ -35,7 +35,7 @@ export function dtoToTerminal(src: any) {
     "groupNumber": src.groupNumber,
     "configChanged": src.configChanged,
     "dateTimeInit": src.dateTimeInit,
-    "legalName": null,
+    "legalName": src.merchant.merchantLegalName,
     "geoPosition": src.geoPosition,
     "limitMc": src.limitMc,
     "limitProstir": src.limitProstir,
@@ -55,7 +55,10 @@ export function dtoToTerminal(src: any) {
     "taxId": src.merchant.taxId,
     "mcc": src.merchant.mcc,
     "acquirerId": src.merchant.acquirerId,
-    "allowedLanguages": src.allowedLanguages
+    "allowedLanguages": src.allowedLanguages,
+    "beginMask": src.beginMask,
+    "endMask": src.endMask,
+    "maskSymbol": src.maskSymbol,
   };
   return dest;
 }
@@ -79,10 +82,14 @@ export function terminalToDto(src: any) {
     "receiptTemplate": src.receiptTemplate,
     "configChanged": src.configChanged,
     "dateTimeInit": src.dateTimeInit,
+    "beginMask": src.beginMask,
+    "endMask": src.endMask,
+    "maskSymbol": src.maskSymbol,
     "merchant": {
       "merchantId": src.merchantId,
       "merchantName": src.merchantName,
       "merchantLocation": src.merchantLocation,
+      "merchantLegalName": src.legalName,
       "taxId": src.taxId,
       "mcc": src.mcc,
       "acquirerId": src.acquirerId

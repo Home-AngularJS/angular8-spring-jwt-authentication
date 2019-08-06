@@ -15,16 +15,16 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router, private apiService: ApiService) { }
 
   ngOnInit() {
-    this.apiService.getUserById(1)
-      .subscribe( data => {
-        console.log(data)
-        const anyData: any = data
-        const user = anyData
-        this.user = user;
-      },
-        error => {
-          alert( JSON.stringify(error) );
-        });
+    // this.apiService.getUserById(1)
+    //   .subscribe( data => {
+    //     console.log(data)
+    //     const anyData: any = data
+    //     const user = anyData
+    //     this.user = user;
+    //   },
+    //     error => {
+    //       alert( JSON.stringify(error) );
+    //     });
   }
 
   editUser(user: User): void {

@@ -57,7 +57,10 @@ export class TerminalComponent implements OnInit {
       taxId: [''],
       mcc: [''],
       acquirerId: [''],
-      allowedLanguages: ['']
+      allowedLanguages: [''],
+      beginMask: ['', Validators.required],
+      endMask: ['', Validators.required],
+      maskSymbol: ['', Validators.required]
     });
 
     /**
@@ -93,7 +96,6 @@ export class TerminalComponent implements OnInit {
 
   public selectTerminal(terminal) {
     this.selectedTerminal = terminal;
-    this.selectedTerminalId = terminal.terminalId;
 
     console.log(terminal);
     const entity: any = dtoToTerminal(terminal);
@@ -102,37 +104,49 @@ export class TerminalComponent implements OnInit {
     this.editForm.setValue(entity);
   }
 
-  public createTerminal() {
-    const entity: any = {
-      "terminalId": null,
-      "groupNumber": null,
-      "configChanged": null,
-      "dateTimeInit": null,
-      "legal_name": null,
-      "geoPosition": null,
-      "limitMc": null,
-      "limitProstir": null,
-      "limitVisa": null,
-      "manual": null,
-      "mcAccepted": null,
-      "opPurchase": null,
-      "opRefund": null,
-      "opReversal": null,
-      "pin": null,
-      "prostirAccepted": null,
-      "receiptTemplate": null,
-      "visaAccepted": null,
-      "merchantId": null,
-      "merchantName": null,
-      "merchantLocation": null,
-      "taxId": null,
-      "mcc": null,
-      "acquirerId": null,
-      "allowedLanguages": []
-    };
-
-    this.editForm.setValue(entity);
+  public selectTerminalId(terminal) {
+    if (this.selectedTerminalId === terminal.terminalId) {
+      this.selectTerminal(terminal);
+    } else {
+      this.selectedTerminalId = terminal.terminalId;
+    }
   }
+
+  public closeTerminal() {
+    this.selectedTerminal = null;
+  }
+
+  // public createTerminal() {
+  //   const entity: any = {
+  //     "terminalId": null,
+  //     "groupNumber": null,
+  //     "configChanged": null,
+  //     "dateTimeInit": null,
+  //     "legal_name": null,
+  //     "geoPosition": null,
+  //     "limitMc": null,
+  //     "limitProstir": null,
+  //     "limitVisa": null,
+  //     "manual": null,
+  //     "mcAccepted": null,
+  //     "opPurchase": null,
+  //     "opRefund": null,
+  //     "opReversal": null,
+  //     "pin": null,
+  //     "prostirAccepted": null,
+  //     "receiptTemplate": null,
+  //     "visaAccepted": null,
+  //     "merchantId": null,
+  //     "merchantName": null,
+  //     "merchantLocation": null,
+  //     "taxId": null,
+  //     "mcc": null,
+  //     "acquirerId": null,
+  //     "allowedLanguages": []
+  //   };
+  //
+  //   this.editForm.setValue(entity);
+  // }
 
   public selectTerminalGroupByNumber(groupNumber) {
     for (let i = 0; i < this.terminalGroups.length; i++) {
@@ -150,43 +164,15 @@ export class TerminalComponent implements OnInit {
     const dto = terminalToDto(this.editForm.value);
     console.log(dto);
 
-    /*
-     * if (dto.terminalId != null) {
-     *    this.apiService.updateTerminal(dto)
-     * } else {
-     *     this.apiService.createTerminal(dto)
-     * }
-     */
-    if (dto.terminalId != null) {
-      this.apiService.updateTerminal(dto)
-        .pipe(first())
-        .subscribe(
-          data => {
-            // if (data.status === 200) {
-            location.reload(); // updated successfully.
-            // } else {
-            //   alert(data.message);
-            // }
-          },
-          error => {
-            alert( JSON.stringify(error) );
-          });
-    } else {
-      this.apiService.createTerminal(dto)
-        .pipe(first())
-        .subscribe(
-          data => {
-            // if (data.status === 200) {
-            location.reload(); // updated successfully.
-            // } else {
-            //   alert(data.message);
-            // }
-          },
-          error => {
-            alert( JSON.stringify(error) );
-          });
-    }
-
+    this.apiService.updateTerminal(dto)
+    .pipe(first())
+    .subscribe(
+      data => {
+        location.reload(); // updated successfully.
+      },
+      error => {
+        alert( JSON.stringify(error) );
+      });
   }
 
   public pageRefresh() {
