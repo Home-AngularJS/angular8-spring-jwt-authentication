@@ -115,7 +115,7 @@ export class TerminalGroupsComponent implements OnInit {
     this.editForm.setValue(terminalGroup);
   }
 
-  public selectTerminalGrouplNumber(terminalGroup) {
+  public selectTerminalGroupNumber(terminalGroup) {
     if (this.selectedTerminalGroupNumber === terminalGroup.groupNumber) {
       this.selectTerminalGroup(terminalGroup);
     } else {
@@ -136,12 +136,7 @@ export class TerminalGroupsComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          // if (data.status === 200) {
-          //   alert('User updated successfully.');
-          location.reload();
-          // } else {
-          //   alert(data.message);
-          // }
+          location.reload(); // updated successfully.
         },
         error => {
           alert( JSON.stringify(error) );

@@ -188,7 +188,7 @@ export class TerminalComponent implements OnInit {
     .pipe(first())
     .subscribe(
       data => {
-        // location.reload(); // updated successfully.
+        location.reload(); // updated successfully.
       },
       error => {
         alert( JSON.stringify(error) );

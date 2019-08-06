@@ -5,7 +5,7 @@
       <tr>
         <td><button disabled>&#x2714;</button></td>
         <td><button (click)="pageRefresh()" title="Обновить">&#x21bb;</button></td>
-        <td><button (click)="selectTerminalId(null)" title="Отфильтровать">&fnof;</button></td>
+        <td><button (click)="selectTerminalGroup(null)" title="Отфильтровать">&fnof;</button></td>
         <td><button (click)="createTerminalGroup()" title="Создать">+</button></td>
       </tr>
     </table>
@@ -54,7 +54,7 @@
                       <table class="table table-striped" width="1515" border="0">
                         <tbody>
                         <ng-container *ngFor="let terminalGroup of terminalGroups">
-                          <tr class="found" (click)="selectTerminalGrouplNumber(terminalGroup)">
+                          <tr class="found" (click)="selectTerminalGroupNumber(terminalGroup)">
                             <div *ngIf="terminalGroup.groupNumber === selectedTerminalGroupNumber">
                               <td width="80" style="background: rgba(70, 70, 70, 0.200);">{{ terminalGroup.groupNumber }}</td>
                               <td width="130" style="background: rgba(70, 70, 70, 0.200);">{{ terminalGroup.groupName }}</td>

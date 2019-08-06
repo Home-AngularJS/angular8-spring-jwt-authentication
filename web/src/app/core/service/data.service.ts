@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {Validators} from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -696,15 +697,24 @@ export class DataService {
   panMaskeds = [
     {
       "id": "001",
-      "templateMasked": "************NNNN"
+      "templateMasked": "************NNNN",
+      "beginMask": 1,
+      "endMask": 1,
+      "maskSymbol": 1
     },
     {
       "id": "002",
-      "templateMasked": "NNNN************"
+      "templateMasked": "NNNN************",
+      "beginMask": 2,
+      "endMask": 2,
+      "maskSymbol": 1
     },
     {
       "id": "003",
-      "templateMasked": "NNNN********NNNN"
+      "templateMasked": "NNNN********NNNN",
+      "beginMask": 3,
+      "endMask": 3,
+      "maskSymbol": 1
     }
     ];
 
@@ -746,7 +756,7 @@ export class DataService {
     return this.transactions;
   }
 
-  public getPanMaskeds():Array<{id, templateMasked}> {
+  public getPanMaskeds():Array<{id, templateMasked, beginMask, endMask, maskSymbol}> {
     return this.panMaskeds;
   }
 
