@@ -21,6 +21,9 @@ export class TerminalComponent implements OnInit {
   editForm: FormGroup;
   takeChoices: any;
   selectedTerminalGroup;
+  dropdownList = [];
+  selectedItems = [];
+  dropdownSettings = {};
 
   constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService, public dataService: DataService) { }
 
@@ -31,6 +34,23 @@ export class TerminalComponent implements OnInit {
     }
 
     this.takeChoices = this.dataService.getTakeChoices();
+
+    this.dropdownList = [
+      'UKR',
+      'RUS',
+      'ENG'
+    ];
+
+    this.selectedItems = [
+      'UKR',
+      'RUS',
+      'ENG'
+    ];
+
+    this.dropdownSettings = {
+      itemsShowLimit: 1,
+      noDataAvailablePlaceholderText: 'нет данных'
+    };
 
     this.editForm = this.formBuilder.group({
       terminalId: ['', Validators.required],

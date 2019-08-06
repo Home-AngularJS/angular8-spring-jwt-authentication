@@ -102,10 +102,10 @@
             <div class="form-group">
               <table width="340" cellpadding="2">
                 <tr>
-                  <td align="right" width="180">
+                  <td align="right" width="160">
                     <label for="terminalId">Номер терминала</label>
                   </td>
-                  <td width="130">
+                  <td width="140">
                     <!--<input type="text" formControlName="terminalId" name="terminalId" class="form-control" id="terminalId" aria-describedby="idHelp" placeholder="Enter your terminal's">-->
                     <input type="text" formControlName="terminalId" name="terminalId" class="form-control" id="terminalId" aria-describedby="idHelp" readonly="true">
                   </td>
@@ -274,6 +274,20 @@
                   </td>
                   <td>
                     <input type="text" formControlName="legalName" name="legalName" class="form-control" id="legalName" aria-describedby="idHelp">
+                  </td>
+                </tr>
+                <tr>
+                  <td align="right">
+                    <label for="allowedLanguages">Язык</label>
+                  </td>
+                  <td>
+                    <ng-multiselect-dropdown [placeholder]="'Не выбрано'"
+                                             [data]="dropdownList"
+                                             [settings]="dropdownSettings"
+                                             (onSelect)="onItemSelect($event)"
+                                             (onSelectAll)="onSelectAll($event)"
+                                             name="allowedLanguages" id="allowedLanguages">
+                    </ng-multiselect-dropdown>
                   </td>
                 </tr>
                 <tr>
