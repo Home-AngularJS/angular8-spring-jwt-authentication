@@ -43,13 +43,24 @@
                       <table class="table table-striped" width="650" border="0">
                         <tbody>
                         <ng-container *ngFor="let terminal of terminals">
-                          <tr class="found" (dblclick)="selectTerminal(terminal)">
-                            <td width="100">{{ terminal.terminalId }}</td>
-                            <td width="200">{{ terminal.merchant.merchantName }}</td>
-                            <td width="150"></td> <!--<td width="150">{{ terminal.merchant.legal_name }}</td>-->
-                            <td width="80">{{ terminal.groupNumber }}</td>
-                            <td width="90">Aval</td>
-                          </tr>
+                            <tr class="found" (dblclick)="selectTerminal(terminal)">
+                              <div *ngIf="terminal.terminalId === selectedTerminalId">
+                                <td width="100" style="background: #0000aa34;">{{ terminal.terminalId }}</td>
+                                <td width="200" style="background: #0000aa34;">{{ terminal.merchant.merchantName }}</td>
+                                <td width="150" style="background: #0000aa34;"></td> <!--<td width="150">{{ terminal.merchant.legal_name }}</td>-->
+                                <td width="80" style="background: #0000aa34;">{{ terminal.groupNumber }}</td>
+                                <td width="90" style="background: #0000aa34;">Aval</td>
+                                <td width="30" style="background: #0000aa34;"></td>
+                              </div>
+                              <div *ngIf="terminal.terminalId != selectedTerminalId">
+                                <td width="100">{{ terminal.terminalId }}</td>
+                                <td width="200">{{ terminal.merchant.merchantName }}</td>
+                                <td width="150"></td> <!--<td width="150">{{ terminal.merchant.legal_name }}</td>-->
+                                <td width="80">{{ terminal.groupNumber }}</td>
+                                <td width="90">Aval</td>
+                                <td width="30"></td>
+                              </div>
+                            </tr>
                         </ng-container>
                         </tbody>
                       </table>

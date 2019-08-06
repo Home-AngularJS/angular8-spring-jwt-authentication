@@ -14,10 +14,10 @@ export class TerminalComponent implements OnInit {
 
   terminals;
   selectedTerminal;
+  selectedTerminalId;
   terminalGroups;
   editForm: FormGroup;
   takeChoices: any;
-  // newTerminal: any;
   selectedTerminalGroup;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService, public dataService: DataService) { }
@@ -29,27 +29,6 @@ export class TerminalComponent implements OnInit {
     }
 
     this.takeChoices = this.dataService.getTakeChoices();
-
-    // this.newTerminal = {
-    //   "terminalId": null,
-    //   "groupNumber": null,
-    //   "opPurchase": null,
-    //   "opReversal": null,
-    //   "opRefund": null,
-    //   "manual": null,
-    //   "pin": null,
-    //   "geoPosition": null,
-    //   "limitVisa": null,
-    //   "limitMc": null,
-    //   "limitProstir": null,
-    //   "visaAccepted": null,
-    //   "mcAccepted": null,
-    //   "prostirAccepted": null,
-    //   "receiptTemplate": null,
-    //   "configChanged": null,
-    //   "dateTimeInit": null,
-    //   "allowedLanguages": []
-    // };
 
     this.editForm = this.formBuilder.group({
       terminalId: ['', Validators.required],
@@ -112,6 +91,7 @@ export class TerminalComponent implements OnInit {
 
   public selectTerminal(terminal) {
     this.selectedTerminal = terminal;
+    this.selectedTerminalId = terminal.terminalId;
 
     console.log(terminal);
     const entity: any = {
@@ -267,10 +247,4 @@ export class TerminalComponent implements OnInit {
   public pageRefresh() {
     location.reload();
   }
-
-  // public createTerminal() {
-  //   this.selectedTerminal = this.newTerminal;
-  //   console.log(this.newTerminal)
-  //   this.editForm.setValue(this.newTerminal);
-  // }
 }
