@@ -20,6 +20,11 @@ Navigate to `http://192.168.1.124:4200/`. The app will automatically reload if y
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 
+## API Documentation
+
+* [http://map1.mobo.cards:8093/swagger-ui.html](http://map1.mobo.cards:8093/swagger-ui.html)
+
+
 ## Support
 
 - [Angular Reactive Form Setup for Select Dropdown](https://www.positronx.io/angular-7-select-dropdown-examples-with-reactive-forms/)
