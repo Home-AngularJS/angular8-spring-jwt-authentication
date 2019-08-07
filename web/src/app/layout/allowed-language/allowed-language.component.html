@@ -16,8 +16,9 @@
                 <td>
                   <table width="650" border="0">
                     <tr>
-                      <th width="355">Идентификатор</th>
-                      <th></th>
+                      <th width="80">Номер</th>
+                      <th width="140">Идентификатор</th>
+                      <th width="430"></th>
                     </tr>
                   </table>
                 </td>
@@ -30,8 +31,9 @@
                         <tbody>
                         <ng-container *ngFor="let allowedLanguage of allowedLanguages">
                           <tr class="found">
-                            <td width="355">{{ allowedLanguage.languageId }}</td>
-                            <td></td>
+                            <td width="80">{{ allowedLanguage.number }}</td>
+                            <td width="140">{{ allowedLanguage.languageId }}</td>
+                            <td width="430"></td>
                           </tr>
                         </ng-container>
                         </tbody>
