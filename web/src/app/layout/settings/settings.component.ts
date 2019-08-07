@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../core/service/api.service';
+import { DataService } from '../../core/service/data.service';
 import { Router } from '@angular/router';
+import { ApiService } from '../../core/service/api.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-settings',
@@ -9,11 +12,12 @@ import { Router } from '@angular/router';
 })
 export class SettingsComponent implements OnInit {
 
-  // dropdownList = [];
-  // selectedItems = [];
-  // dropdownSettings = {};
+  settings;
+  editForm: FormGroup;
+  takeChoices: any;
+  allowedLanguages: any;
 
-  constructor(private router: Router, private apiService: ApiService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService, public dataService: DataService) { }
 
   ngOnInit() {
     if (!window.localStorage.getItem('token')) {
@@ -21,28 +25,57 @@ export class SettingsComponent implements OnInit {
       return;
     }
 
-    // this.dropdownList = [
-    //   'Mumbai',
-    //   'Bangaluru',
-    //   'Pune',
-    //   'Navsari',
-    //   'New Delhi'
-    // ];
-    // this.selectedItems = [
-    //   'Bangaluru',
-    //   'Pune'
-    // ];
-    // this.dropdownSettings = {
-    //   itemsShowLimit: 2,
-    //   noDataAvailablePlaceholderText: 'нет данных'
-    // };
+    this.takeChoices = this.dataService.getTakeChoices();
+
+    this.allowedLanguages = this.dataService.getAllowedLanguages();
+
+    this.editForm = this.formBuilder.group({
+      appActiveTime: [''],
+      changeDevice: [''],
+      currency: [''],
+      dtPinInput: [''],
+      hostId: [''],
+      language: [''],
+      limitMcStandard: [''],
+      limitVisaStandard: [''],
+      maxReceiptNumber: [''],
+      pendingNumber: [''],
+      pendingTime: [''],
+      receiptNumber: [''],
+      timeZReport: ['']
+    });
+
+    /**
+     * PROD. Profile
+     */
+    this.apiService.getGeneralConfiguration()
+      .subscribe( data => {
+          console.log(data)
+          this.settings = data;
+          this.editForm.setValue(data);
+        },
+        error => {
+          alert( JSON.stringify(error) );
+        });
+
+    /**
+     * DEV. Profile
+     */
   }
 
-  onItemSelect(item: any) {
-    console.log(item);
+  onSubmit() {
+    this.apiService.updateGeneralConfiguration(this.editForm.value)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.pageRefresh(); // updated successfully.
+        },
+        error => {
+          alert( JSON.stringify(error) );
+        });
   }
 
-  onSelectAll(items: any) {
-    console.log(items);
+  public pageRefresh() {
+    location.reload();
   }
 }

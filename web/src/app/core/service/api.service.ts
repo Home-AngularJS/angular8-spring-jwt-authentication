@@ -17,6 +17,7 @@ export class ApiService {
   transactionUrl: string = 'http://map1.mobo.cards:8093/api/v1/transactions';
   cardMaskGroupsUrl: string = 'http://map1.mobo.cards:8093/api/v1/card-mask-groups';
   deviceUrl: string = 'http://map1.mobo.cards:8093/api/v1/devices';
+  settingsUrl: string = 'http://map1.mobo.cards:8093/api/v1/general-configuration';
 
   /**
    * @CTS
@@ -123,5 +124,18 @@ export class ApiService {
    */
   findDeviceByTerminalId(terminalId: any): Observable<any> {
     return this.http.get<any>(this.deviceUrl + '?terminalId=' + terminalId);
+  }
+
+  /**
+   * Settings API
+   */
+  getGeneralConfiguration(): Observable<any> {
+    return this.http.get<any>(this.settingsUrl );
+  }
+
+  updateGeneralConfiguration(anySettings: any): Observable<any> {
+    console.log(anySettings);
+    const settings = anySettings;
+    return this.http.put<any>(this.settingsUrl, settings);
   }
 }

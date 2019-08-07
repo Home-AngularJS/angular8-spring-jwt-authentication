@@ -723,13 +723,20 @@ export class DataService {
 
   allowedLanguages = [
     {
+      "number": 1,
       "languageId": "UKR"
     },
     {
+      "number": 2,
       "languageId": "RUS"
     },
     {
+      "number": 3,
       "languageId": "ENG"
+    },
+    {
+      "number": 4,
+      "languageId": "GEO"
     }
   ];
 
@@ -883,7 +890,7 @@ export class DataService {
     return this.panMaskeds;
   }
 
-  public getAllowedLanguages():Array<{languageId}> {
+  public getAllowedLanguages():Array<{number, languageId}> {
     return this.allowedLanguages;
   }
 
