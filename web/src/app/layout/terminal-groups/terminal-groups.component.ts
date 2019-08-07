@@ -64,9 +64,8 @@ export class TerminalGroupsComponent implements OnInit {
     this.apiService.findAllServiceGroups()
       .subscribe( data => {
         console.log(data)
-        const anyData: any = data
-        const terminalGroups = anyData
-        this.terminalGroups = terminalGroups;
+        const terminalGroups: any = data
+        this.terminalGroups = terminalGroups.content;
         },
         error => {
           alert( JSON.stringify(error) );

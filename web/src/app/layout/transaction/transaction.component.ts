@@ -26,10 +26,9 @@ export class TransactionComponent implements OnInit {
      */
     this.apiService.findAllTransactions()
       .subscribe( data => {
-        console.log(data)
-        const anyData: any = data
-        const transactions = anyData
-        this.transactions = transactions.content;
+          console.log(data)
+          const transactions: any = data
+          this.transactions = transactions.content;
         },
         error => {
           alert( JSON.stringify(error) );
@@ -37,10 +36,9 @@ export class TransactionComponent implements OnInit {
 
     this.apiService.findAllServiceGroups()
       .subscribe( data => {
-        console.log(data)
-        const anyData: any = data
-        const terminalGroups = anyData
-        this.terminalGroups = terminalGroups;
+          console.log(data)
+          const terminalGroups: any = data
+          this.terminalGroups = terminalGroups.content;
         },
         error => {
           alert( JSON.stringify(error) );
