@@ -16,6 +16,7 @@ export class ApiService {
   serviceGroupsUrl: string = 'http://map1.mobo.cards:8093/api/v1/service-groups';
   transactionUrl: string = 'http://map1.mobo.cards:8093/api/v1/transactions';
   cardMaskGroupsUrl: string = 'http://map1.mobo.cards:8093/api/v1/card-mask-groups';
+  deviceUrl: string = 'http://map1.mobo.cards:8093/api/v1/devices';
 
   /**
    * @CTS
@@ -115,5 +116,12 @@ export class ApiService {
     console.log(anyPanMasked);
     const panMasked = anyPanMasked;
     return this.http.put<any>(this.cardMaskGroupsUrl + '/' + panMasked.id, panMasked);
+  }
+
+  /**
+   * Device API
+   */
+  findDeviceByTerminalId(terminalId: any): Observable<any> {
+    return this.http.get<any>(this.deviceUrl + '?terminalId=' + terminalId);
   }
 }

@@ -23,6 +23,8 @@ export class TerminalComponent implements OnInit {
   selectedTerminalGroup;
   allAllowedLanguages = [];
   allowedLanguagesSettings = {};
+  findDevice: any;
+  devices;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService, public dataService: DataService) { }
 
@@ -40,6 +42,8 @@ export class TerminalComponent implements OnInit {
       itemsShowLimit: 1,
       noDataAvailablePlaceholderText: 'нет данных'
     };
+
+    this.devices = this.dataService.getDevices();
 
     this.editForm = this.formBuilder.group({
       terminalId: ['', Validators.required],
@@ -77,10 +81,16 @@ export class TerminalComponent implements OnInit {
      */
     this.apiService.findAllTerminals()
       .subscribe( data => {
-        console.log(data)
-        const anyData: any = data
-        const terminals = anyData
-        this.terminals = terminals.content;
+          const anyData: any = data;
+          const terminals = anyData.content;
+          //TODO deviceName
+          for (let i = 0; i < terminals.length; i++) {
+            const randomDevice = this.getRandomInt(0, this.devices.length-1);
+            const device = this.devices[randomDevice];
+            terminals[i].deviceName = device.deviceName;
+          }
+          //TODO deviceName
+          this.terminals = terminals;
         },
         error => {
           alert( JSON.stringify(error) );
@@ -130,6 +140,19 @@ export class TerminalComponent implements OnInit {
     }
   }
 
+  findDeviceByTerminalId(terminalId: any) {
+    this.apiService.findDeviceByTerminalId(terminalId)
+      .subscribe( data => {
+          console.log(data);
+          const anyData: any = data;
+          const device = anyData;
+          this.findDevice = device;
+        },
+        error => {
+          alert( JSON.stringify(error) );
+        });
+  }
+
   onSubmit() {
     const dto = terminalToDto(this.editForm.value);
     this.apiService.updateTerminal(dto)
@@ -153,5 +176,9 @@ export class TerminalComponent implements OnInit {
 
   public pageRefresh() {
     location.reload();
+  }
+
+  getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 }

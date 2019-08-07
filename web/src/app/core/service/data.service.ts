@@ -733,6 +733,126 @@ export class DataService {
     }
   ];
 
+  devices = [
+    {
+      "appId": null,
+      "appStatus": "A",
+      "appVersion": null,
+      "deviceFingerprint": "73eddb6a-0d20-4716-9456-bf808ffb",
+      "deviceName": "Pixel 2",
+      "deviceSn": "4d5a3179978449d39ec47f02704be7fe",
+      "deviceStatus": 4,
+      "imei": "86160979ae1c0564",
+      "initDate": "2019-08-02T09:56:31.828+0000",
+      "osVersion": "28",
+      "serialNumber": "unknown"
+    },
+    {
+      "appId": null,
+      "appStatus": "A",
+      "appVersion": null,
+      "deviceFingerprint": "21263c2a9b0d49c29b477eb78142b3d9",
+      "deviceName": "MySamsung",
+      "deviceSn": "efa97ee669ad4913b14f7586466d2575",
+      "deviceStatus": 4,
+      "imei": "352712098456841",
+      "initDate": "2019-07-26T12:15:48.603+0000",
+      "osVersion": "9.1",
+      "serialNumber": "R58K30XV5ZN"
+    },
+    {
+      "appId": null,
+      "appStatus": "A",
+      "appVersion": null,
+      "deviceFingerprint": "5a0ed3b3-fa56-433a-9966-5f044f42",
+      "deviceName": "Pixel 2",
+      "deviceSn": "ffee8a16efdb4ca0ac324c2736c1916a",
+      "deviceStatus": 4,
+      "imei": "86160979ae1c0564",
+      "initDate": "2019-08-02T08:57:45.962+0000",
+      "osVersion": "28",
+      "serialNumber": "unknown"
+    },
+    {
+      "appId": null,
+      "appStatus": "A",
+      "appVersion": null,
+      "deviceFingerprint": "8ddc8543-e49b-4831-8bb0-a057b220",
+      "deviceName": "Pixel 2",
+      "deviceSn": "5c084b7baca04f26becc7e7f532073cd",
+      "deviceStatus": 4,
+      "imei": "86160979ae1c0564",
+      "initDate": "2019-08-02T08:57:45.962+0000",
+      "osVersion": "28",
+      "serialNumber": "unknown"
+    },
+    {
+      "appId": null,
+      "appStatus": "A",
+      "appVersion": null,
+      "deviceFingerprint": "3357839b-c96c-4ee6-8d0f-ac4e3e41",
+      "deviceName": "Pixel 3",
+      "deviceSn": "40f4ba2e03c348148c81406f84d73e1c",
+      "deviceStatus": 4,
+      "imei": "084aadfafebfefa1",
+      "initDate": "2019-08-02T13:36:40.445+0000",
+      "osVersion": "28",
+      "serialNumber": "unknown"
+    },
+    {
+      "appId": null,
+      "appStatus": "A",
+      "appVersion": null,
+      "deviceFingerprint": "82818406-eb4b-4093-b9c3-f04012a0",
+      "deviceName": "Pixel 2",
+      "deviceSn": "2b3982e9f4ba4cb0a743e7b9cfc30b8f",
+      "deviceStatus": 4,
+      "imei": "86160979ae1c0564",
+      "initDate": "2019-08-02T12:03:27.858+0000",
+      "osVersion": "28",
+      "serialNumber": "unknown"
+    },
+    {
+      "appId": null,
+      "appStatus": "A",
+      "appVersion": null,
+      "deviceFingerprint": "49b1f3f7-6dbe-484c-8117-76cf9542",
+      "deviceName": "Pixel 2",
+      "deviceSn": "c208b430a0e34537a553b1fd20841635",
+      "deviceStatus": 4,
+      "imei": "86160979ae1c0564",
+      "initDate": "2019-08-02T12:24:33.146+0000",
+      "osVersion": "28",
+      "serialNumber": "unknown"
+    },
+    {
+      "appId": null,
+      "appStatus": "A",
+      "appVersion": null,
+      "deviceFingerprint": "054ec441-3de9-413f-835f-822a228e",
+      "deviceName": "Pixel 2",
+      "deviceSn": "24ba33136aa7474fa43a06500e8a31c4",
+      "deviceStatus": 4,
+      "imei": "86160979ae1c0564",
+      "initDate": "2019-08-02T10:56:55.821+0000",
+      "osVersion": "28",
+      "serialNumber": "unknown"
+    },
+    {
+      "appId": null,
+      "appStatus": "A",
+      "appVersion": null,
+      "deviceFingerprint": "56a3651b-4214-4095-aa8c-6aa13d7a",
+      "deviceName": "Pixel 2",
+      "deviceSn": "9f653ceab4c94e278d3333707894af0a",
+      "deviceStatus": 4,
+      "imei": "86160979ae1c0564",
+      "initDate": "2019-08-05T09:21:13.460+0000",
+      "osVersion": "28",
+      "serialNumber": "unknown"
+    }
+  ];
+
   constructor(private http: HttpClient) { }
 
   public findAllTerminals(): {content, pageable, totalElements, last, totalPages, first, sort, numberOfElements, size, number, empty} {
@@ -777,5 +897,9 @@ export class DataService {
 
   public getAllAllowedLanguages() {
     return this.allAllowedLanguages;
+  }
+
+  public getDevices():Array<{appId, appStatus, appVersion, deviceFingerprint, deviceName, deviceSn, deviceStatus, imei, initDate, osVersion, serialNumber}> {
+    return this.devices;
   }
 }
