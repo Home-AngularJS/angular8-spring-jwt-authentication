@@ -30,6 +30,11 @@ export class Terminal {
 
 
 export function dtoToTerminal(src: any) {
+  const allowedLanguages: any = [];
+  for (let i = 0; i < src.allowedLanguages.length; i++) {
+    allowedLanguages.push(src.allowedLanguages[i].languageId);
+  }
+
   const dest: any = {
     "terminalId": src.terminalId,
     "groupNumber": src.groupNumber,
@@ -55,7 +60,7 @@ export function dtoToTerminal(src: any) {
     "taxId": src.merchant.taxId,
     "mcc": src.merchant.mcc,
     "acquirerId": src.merchant.acquirerId,
-    "allowedLanguages": src.allowedLanguages,
+    "allowedLanguages": allowedLanguages,
     "beginMask": src.beginMask,
     "endMask": src.endMask,
     "maskSymbol": src.maskSymbol,
@@ -64,6 +69,11 @@ export function dtoToTerminal(src: any) {
 }
 
 export function terminalToDto(src: any) {
+  const allowedLanguages: any = [];
+  for (let i = 0; i < src.allowedLanguages.length; i++) {
+    allowedLanguages.push({"languageId": src.allowedLanguages[i]});
+  }
+
   const dest = {
     "terminalId": src.terminalId,
     "groupNumber": src.groupNumber,
@@ -82,9 +92,6 @@ export function terminalToDto(src: any) {
     "receiptTemplate": src.receiptTemplate,
     "configChanged": src.configChanged,
     "dateTimeInit": src.dateTimeInit,
-    "beginMask": src.beginMask,
-    "endMask": src.endMask,
-    "maskSymbol": src.maskSymbol,
     "merchant": {
       "merchantId": src.merchantId,
       "merchantName": src.merchantName,
@@ -94,14 +101,10 @@ export function terminalToDto(src: any) {
       "mcc": src.mcc,
       "acquirerId": src.acquirerId
     },
-    "allowedLanguages": [
-      {
-        "languageId": "UKR"
-      },
-      {
-        "languageId": "RUS"
-      }
-    ]
+    "allowedLanguages": allowedLanguages,
+    "beginMask": src.beginMask,
+    "endMask": src.endMask,
+    "maskSymbol": src.maskSymbol
   };
   return dest;
 }

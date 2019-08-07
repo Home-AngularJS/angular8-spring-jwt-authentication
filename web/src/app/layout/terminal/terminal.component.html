@@ -283,6 +283,7 @@
                   <td>
                     <ng-multiselect-dropdown [placeholder]="'Не выбрано'"
                                              [data]="dropdownList"
+                                             formControlName="allowedLanguages"
                                              [settings]="dropdownSettings"
                                              (onSelect)="onItemSelect($event)"
                                              (onSelectAll)="onSelectAll($event)"
