@@ -21,6 +21,7 @@ import { HeaderComponent } from './layout/components/header/header.component';
 import { FooterComponent } from './layout/components/footer/footer.component';
 import { HomeComponent } from './layout/home/home.component';
 import { SettingsComponent } from './layout/settings/settings.component';
+import { BankComponent } from './layout/bank/bank.component';
 import { ApiService } from "./core/service/api.service";
 import { SidebarComponent } from './layout/components/sidebar/sidebar.component';
 
@@ -44,7 +45,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     FooterComponent,
     SidebarComponent,
     HomeComponent,
-    SettingsComponent
+    SettingsComponent,
+    BankComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { HomeComponent } from './layout/home/home.component';
 import { PanMaskedComponent } from './layout/pan-masked/pan-masked.component';
 import { AllowedLanguageComponent } from './layout/allowed-language/allowed-language.component';
 import { SettingsComponent } from './layout/settings/settings.component';
+import { BankComponent } from './layout/bank/bank.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'card-mask-group', component: PanMaskedComponent },
   { path: 'allowed-language', component: AllowedLanguageComponent },
   { path: 'settings', component: SettingsComponent },
+  { path: 'bank', component: BankComponent },
 ];
 
 @NgModule({
