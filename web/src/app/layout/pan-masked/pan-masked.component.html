@@ -27,11 +27,11 @@
                   <td>
                     <table width="650" border="0">
                       <tr>
-                        <th width="140">Идентификатор</th>
+                        <th width="70">Шаблон</th>
                         <th width="110">Количество символов в начале</th>
                         <th width="110">Количество символов в конце</th>
                         <th width="110">Символ маски</th>
-                        <th width="200"></th>
+                        <th width="270"></th>
                       </tr>
                     </table>
                   </td>
@@ -45,18 +45,18 @@
                           <ng-container *ngFor="let panMasked of panMaskeds">
                             <tr class="found" (click)="selectPanMaskedId(panMasked)">
                               <div *ngIf="panMasked.id === selectedPanMaskedId">
-                                <td width="140" style="background: rgba(70, 70, 70, 0.200);">{{ panMasked.id }}</td>
+                                <td width="70" style="background: rgba(70, 70, 70, 0.200);">{{ panMasked.id }}</td>
                                 <td width="110" style="background: rgba(70, 70, 70, 0.200);">{{ panMasked.beginMask }}</td>
                                 <td width="110" style="background: rgba(70, 70, 70, 0.200);">{{ panMasked.endMask }}</td>
                                 <td width="110" style="background: rgba(70, 70, 70, 0.200);">{{ panMasked.maskSymbol }}</td>
-                                <td width="200" style="background: rgba(70, 70, 70, 0.200);"></td>
+                                <td width="270" style="background: rgba(70, 70, 70, 0.200);"></td>
                               </div>
                               <div *ngIf="panMasked.id != selectedPanMaskedId">
-                                <td width="140">{{ panMasked.id }}</td>
+                                <td width="70">{{ panMasked.id }}</td>
                                 <td width="110">{{ panMasked.beginMask }}</td>
                                 <td width="110">{{ panMasked.endMask }}</td>
                                 <td width="110">{{ panMasked.maskSymbol }}</td>
-                                <td width="200"></td>
+                                <td width="270"></td>
                               </div>
                             </tr>
                           </ng-container>
@@ -98,7 +98,7 @@
                 <table width="340" cellpadding="2">
                   <tr>
                     <td align="right" width="160">
-                      <label for="id">Идентификатор</label>
+                      <label for="id">Шаблон</label>
                     </td>
                     <td width="140">
                       <input type="text" formControlName="id" name="id" class="form-control" id="id" aria-describedby="idHelp" readonly="true">
