@@ -1,5 +1,7 @@
-export class Terminal {
-
+/**
+ * @see https://youtu.be/1doIL1bPp5Q?t=448
+ */
+interface Terminal {
   terminalId: any;
   groupNumber: any;
   configChanged: any;
@@ -25,7 +27,6 @@ export class Terminal {
   mcc: any;
   acquirerId: any;
   allowedLanguages: any;
-
 }
 
 

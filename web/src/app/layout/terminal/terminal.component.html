@@ -282,9 +282,9 @@
                   </td>
                   <td>
                     <ng-multiselect-dropdown [placeholder]="'Не выбрано'"
-                                             [data]="dropdownList"
+                                             [data]="allAllowedLanguages"
                                              formControlName="allowedLanguages"
-                                             [settings]="dropdownSettings"
+                                             [settings]="allowedLanguagesSettings"
                                              (onSelect)="onItemSelect($event)"
                                              (onSelectAll)="onSelectAll($event)"
                                              name="allowedLanguages" id="allowedLanguages">
@@ -345,6 +345,17 @@
                   </td>
                   <td>
                     <input type="text" formControlName="maskSymbol" name="maskSymbol" class="form-control" id="maskSymbol" aria-describedby="idHelp" placeholder="Enter your terminal's">
+                  </td>
+                </tr>
+                <tr>
+                  <td align="right">
+                    <label for="configChanged">Смена настроек</label>
+                  </td>
+                  <td>
+                    <select formControlName="configChanged" name="configChanged" class="custom-select" id="configChanged" aria-describedby="idHelp" style="width: 100%; padding: 8px;">
+                      <option [ngValue]="null" disabled>Не выбрано</option>
+                      <option *ngFor="let configChanged of takeChoices" [ngValue]="configChanged.key">{{configChanged.value}}</option>
+                    </select>
                   </td>
                 </tr>
               </table>

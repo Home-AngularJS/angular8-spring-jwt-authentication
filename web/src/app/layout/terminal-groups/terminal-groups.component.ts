@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 import {ApiService} from '../../core/service/api.service';
 import {first} from 'rxjs/operators';
+import {dtoToTerminalGroups, terminalGroupsNew, terminalGroupsToDto} from '../../core/model/terminal-groups.model';
 
 @Component({
   selector: 'app-terminal-groups',
@@ -16,13 +17,10 @@ export class TerminalGroupsComponent implements OnInit {
   terminalGroups;
   selectedTerminalGroup;
   selectedTerminalGroupNumber;
-  dropdownList = [];
-  selectedItems = [];
-  dropdownSettings = {};
+  allAllowedLanguages = [];
+  allowedLanguagesSettings = {};
   editForm: FormGroup;
   takeChoices: any;
-  newTerminalGroup: any;
-
 
   constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService, public dataService: DataService) { }
 
@@ -34,44 +32,15 @@ export class TerminalGroupsComponent implements OnInit {
 
     this.takeChoices = this.dataService.getTakeChoices();
 
-    this.dropdownList = [
-      'UKR',
-      'RUS',
-      'ENG'
-    ];
+    this.allAllowedLanguages = this.dataService.getAllAllowedLanguages();
 
-    this.selectedItems = [
-      'UKR',
-      'RUS',
-      'ENG'
-    ];
-
-    this.dropdownSettings = {
+    this.allowedLanguagesSettings = {
       itemsShowLimit: 1,
       noDataAvailablePlaceholderText: 'нет данных'
     };
 
-    this.newTerminalGroup = {
-      "groupNumber": null,
-      "groupName": null,
-      "opPurchase": null,
-      "opReversal": null,
-      "opRefund": null,
-      "manual": null,
-      "pin": null,
-      "geoPosition": null,
-      "limitVisa": null,
-      "limitMc": null,
-      "limitProstir": null,
-      "visaAccepted": null,
-      "mcAccepted": null,
-      "prostirAccepted": null,
-      "receiptTemplate": null,
-      "allowedLanguages": []
-    };
-
     this.editForm = this.formBuilder.group({
-      groupNumber: ['', Validators.required],
+      groupNumber: [''],
       groupName: ['', Validators.required],
       opPurchase: [''],
       opReversal: [''],
@@ -109,10 +78,18 @@ export class TerminalGroupsComponent implements OnInit {
     // this.terminalGroups = this.dataService.findAllServiceGroups();
   }
 
+  public createTerminalGroup() {
+    const entity: any = terminalGroupsNew();
+    console.log(entity)
+    this.selectedTerminalGroup = entity;
+    this.editForm.setValue(entity);
+  }
+
   public selectTerminalGroup(terminalGroup) {
+    console.log(terminalGroup);
     this.selectedTerminalGroup = terminalGroup;
-    console.log(terminalGroup)
-    this.editForm.setValue(terminalGroup);
+    const entity: any = dtoToTerminalGroups(terminalGroup);
+    this.editForm.setValue(entity);
   }
 
   public selectTerminalGroupNumber(terminalGroup) {
@@ -124,71 +101,37 @@ export class TerminalGroupsComponent implements OnInit {
   }
 
   onItemSelect(item: any) {
-    console.log(item);
   }
 
   onSelectAll(items: any) {
-    console.log(items);
   }
 
   onSubmit() {
-    this.apiService.updateServiceGroup(this.editForm.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          location.reload(); // updated successfully.
-        },
-        error => {
-          alert( JSON.stringify(error) );
-        });
-  }
+    const dto = terminalGroupsToDto(this.editForm.value);
+    if (dto.groupNumber === null) {
+      this.apiService.createServiceGroup(dto)
+        .pipe(first())
+        .subscribe(
+          data => {
+            this.pageRefresh(); // created successfully.
+          },
+          error => {
+            alert( JSON.stringify(error) );
+          });
+    } else {
+      this.apiService.updateServiceGroup(dto)
+        .pipe(first())
+        .subscribe(
+          data => {
+            this.pageRefresh(); // updated successfully.
+          },
+          error => {
+            alert( JSON.stringify(error) );
+          });
+      }
+    }
 
   public pageRefresh() {
     location.reload();
   }
-
-  public createTerminalGroup() {
-    this.selectedTerminalGroup = this.newTerminalGroup;
-    console.log(this.newTerminalGroup)
-    this.editForm.setValue(this.newTerminalGroup);
-  }
 }
-
-/**
- * @see https://youtu.be/1doIL1bPp5Q?t=448
- */
-
-// interface Language {
-//   languageId:string
-// }
-//
-// interface Merchant {
-//   merchantId:string,
-//   legal_name:string,
-//   merchantName:string,
-//   merchantLocation:string,
-//   taxId:number,
-//   mcc:number,
-//   acquirerId:number
-// }
-
-// interface Terminal {
-//   terminalId:string,
-//   groupNumber:number,
-//   opPurchase:string,
-//   opReversal:string,
-//   opRefund:string,
-//   manual:string,
-//   pin:string,
-//   geoPosition:string,
-//   limitVisa:number,
-//   limitMc:number,
-//   limitProstir:number,
-//   visaAccepted:string,
-//   mcAccepted:string,
-//   prostirAccepted:string,
-//   receiptTemplate:string,
-//   configChanged:string,
-//   merchant:Merchant,
-//   allowedLanguages:[Language]
-// }

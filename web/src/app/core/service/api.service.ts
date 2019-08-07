@@ -71,12 +71,6 @@ export class ApiService {
     return this.http.put<any>(this.terminalUrl + '/' + terminal.terminalId, terminal);
   }
 
-  createTerminal(anyTerminal: any): Observable<any> {
-    console.log(anyTerminal);
-    const terminal = anyTerminal;
-    return this.http.post<any>(this.terminalUrl, terminal);
-  }
-
   /**
    * Service-Group API
    */
@@ -88,6 +82,12 @@ export class ApiService {
     console.log(anyTerminalGroup);
     const terminalGroup = anyTerminalGroup;
     return this.http.put<any>(this.serviceGroupsUrl + '/' + terminalGroup.groupNumber, terminalGroup);
+  }
+
+  createServiceGroup(anyTerminalGroup: any): Observable<any> {
+    console.log(anyTerminalGroup);
+    const terminal = anyTerminalGroup;
+    return this.http.post<any>(this.serviceGroupsUrl, anyTerminalGroup);
   }
 
   /**

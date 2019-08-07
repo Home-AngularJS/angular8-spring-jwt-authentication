@@ -19,6 +19,13 @@ export class DataService {
     {'key':'N', 'value':'Нет'}
   ];
 
+  allAllowedLanguages: any = [
+    'UKR',
+    'RUS',
+    'ENG',
+    'GEO'
+  ];
+
   terminals = {
     "content": [
       {
@@ -770,44 +777,8 @@ export class DataService {
   public getTakeChoices():Array<{key, value}> {
     return this.takeChoices;
   }
+
+  public getAllAllowedLanguages() {
+    return this.allAllowedLanguages;
+  }
 }
-
-/**
- * @see https://youtu.be/1doIL1bPp5Q?t=448
- */
-
-// interface Language {
-//   languageId:string
-// }
-//
-// interface Merchant {
-//   merchantId:string,
-//   legal_name:string,
-//   merchantName:string,
-//   merchantLocation:string,
-//   taxId:number,
-//   mcc:number,
-//   acquirerId:number
-// }
-
-// interface Terminal {
-//   terminalId:string,
-//   groupNumber:number,
-//   opPurchase:string,
-//   opReversal:string,
-//   opRefund:string,
-//   manual:string,
-//   pin:string,
-//   geoPosition:string,
-//   limitVisa:number,
-//   limitMc:number,
-//   limitProstir:number,
-//   visaAccepted:string,
-//   mcAccepted:string,
-//   prostirAccepted:string,
-//   receiptTemplate:string,
-//   configChanged:string,
-//   merchant:Merchant,
-//   allowedLanguages:[Language]
-// }
-

@@ -21,9 +21,8 @@ export class TerminalComponent implements OnInit {
   editForm: FormGroup;
   takeChoices: any;
   selectedTerminalGroup;
-  dropdownList = [];
-  selectedItems = [];
-  dropdownSettings = {};
+  allAllowedLanguages = [];
+  allowedLanguagesSettings = {};
 
   constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService, public dataService: DataService) { }
 
@@ -35,19 +34,9 @@ export class TerminalComponent implements OnInit {
 
     this.takeChoices = this.dataService.getTakeChoices();
 
-    this.dropdownList = [
-      'UKR',
-      'RUS',
-      'ENG'
-    ];
+    this.allAllowedLanguages = this.dataService.getAllAllowedLanguages();
 
-    this.selectedItems = [
-      'UKR',
-      'RUS',
-      'ENG'
-    ];
-
-    this.dropdownSettings = {
+    this.allowedLanguagesSettings = {
       itemsShowLimit: 1,
       noDataAvailablePlaceholderText: 'нет данных'
     };
@@ -115,12 +104,9 @@ export class TerminalComponent implements OnInit {
   }
 
   public selectTerminal(terminal) {
-    this.selectedTerminal = terminal;
-
     console.log(terminal);
+    this.selectedTerminal = terminal;
     const entity: any = dtoToTerminal(terminal);
-    console.log(entity);
-
     this.editForm.setValue(entity);
   }
 
@@ -132,77 +118,40 @@ export class TerminalComponent implements OnInit {
     }
   }
 
-  public closeTerminal() {
-    this.selectedTerminal = null;
+  onItemSelect(item: any) {
   }
 
-  // public createTerminal() {
-  //   const entity: any = {
-  //     "terminalId": null,
-  //     "groupNumber": null,
-  //     "configChanged": null,
-  //     "dateTimeInit": null,
-  //     "legal_name": null,
-  //     "geoPosition": null,
-  //     "limitMc": null,
-  //     "limitProstir": null,
-  //     "limitVisa": null,
-  //     "manual": null,
-  //     "mcAccepted": null,
-  //     "opPurchase": null,
-  //     "opRefund": null,
-  //     "opReversal": null,
-  //     "pin": null,
-  //     "prostirAccepted": null,
-  //     "receiptTemplate": null,
-  //     "visaAccepted": null,
-  //     "merchantId": null,
-  //     "merchantName": null,
-  //     "merchantLocation": null,
-  //     "taxId": null,
-  //     "mcc": null,
-  //     "acquirerId": null,
-  //     "allowedLanguages": []
-  //   };
-  //
-  //   this.editForm.setValue(entity);
-  // }
+  onSelectAll(items: any) {
+  }
 
   public selectTerminalGroupByNumber(groupNumber) {
     for (let i = 0; i < this.terminalGroups.length; i++) {
-      console.log(JSON.stringify(this.terminalGroups[i]));
       if (this.terminalGroups[i].groupNumber==groupNumber) this.selectedTerminalGroup = this.terminalGroups[i];
     }
+  }
+
+  onSubmit() {
+    const dto = terminalToDto(this.editForm.value);
+    this.apiService.updateTerminal(dto)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.pageRefresh(); // updated successfully.
+        },
+        error => {
+          alert( JSON.stringify(error) );
+        });
+  }
+
+  public closeTerminal() {
+    this.selectedTerminal = null;
   }
 
   public closeTerminalGroupByNumber() {
     this.selectedTerminalGroup = null;
   }
 
-  onSubmit() {
-    console.log(this.editForm.value);
-    const dto = terminalToDto(this.editForm.value);
-    console.log(dto);
-
-    this.apiService.updateTerminal(dto)
-    .pipe(first())
-    .subscribe(
-      data => {
-        // location.reload(); // updated successfully.
-      },
-      error => {
-        alert( JSON.stringify(error) );
-      });
-  }
-
   public pageRefresh() {
     location.reload();
-  }
-
-
-  onItemSelect(item: any) {
-  }
-
-  onSelectAll(items: any) {
   }
 }
