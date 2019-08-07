@@ -47,7 +47,7 @@ export class TransactionComponent implements OnInit {
     /**
      * DEV. Profile
      */
-    this.transactions = this.dataService.findAllTransactions();
+    // this.transactions = this.dataService.findAllTransactions();
     // this.terminalGroups = this.dataService.findAllServiceGroups();
   }
 

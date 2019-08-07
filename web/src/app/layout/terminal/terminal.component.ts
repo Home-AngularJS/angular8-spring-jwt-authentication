@@ -99,8 +99,7 @@ export class TerminalComponent implements OnInit {
     this.apiService.findAllServiceGroups()
       .subscribe( data => {
           console.log(data)
-          const anyData: any = data
-          const terminalGroups = anyData
+          const terminalGroups: any = data.content
           this.terminalGroups = terminalGroups;
         },
         error => {
@@ -135,9 +134,11 @@ export class TerminalComponent implements OnInit {
   }
 
   public selectTerminalGroupByNumber(groupNumber) {
+    console.log(groupNumber)
     for (let i = 0; i < this.terminalGroups.length; i++) {
-      if (this.terminalGroups[i].groupNumber==groupNumber) this.selectedTerminalGroup = this.terminalGroups[i];
+      if (this.terminalGroups[i].groupNumber === groupNumber) this.selectedTerminalGroup = this.terminalGroups[i];
     }
+    console.log(this.selectedTerminalGroup);
   }
 
   findDeviceByTerminalId(terminalId: any) {
