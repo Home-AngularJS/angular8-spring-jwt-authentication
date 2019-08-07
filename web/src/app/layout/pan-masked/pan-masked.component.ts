@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../core/service/data.service';
-import {Router} from '@angular/router';
-import {ApiService} from '../../core/service/api.service';
+import { Router } from '@angular/router';
+import { ApiService } from '../../core/service/api.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {first} from 'rxjs/operators';
-import {terminalToDto} from '../../core/model/terminal.model';
+import { first } from 'rxjs/operators';
+import { dtoToPanMasked, panMaskedGroupsToDto, panMaskedNew } from '../../core/model/pan-masked.model';
 
 @Component({
   selector: 'app-pan-masked',
@@ -17,7 +17,6 @@ export class PanMaskedComponent implements OnInit {
   editForm: FormGroup;
   selectedPanMasked;
   selectedPanMaskedId;
-  newPanMasked: any;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService, public dataService: DataService) { }
 
@@ -27,17 +26,8 @@ export class PanMaskedComponent implements OnInit {
       return;
     }
 
-    this.newPanMasked = {
-      "id": null,
-      "templateMasked": null,
-      "beginMask": null,
-      "endMask": null,
-      "maskSymbol": null
-    };
-
     this.editForm = this.formBuilder.group({
-      id: ['', Validators.required],
-      templateMasked: ['', Validators.required],
+      id: [''],
       beginMask: ['', Validators.required],
       endMask: ['', Validators.required],
       maskSymbol: ['', Validators.required]
@@ -46,20 +36,35 @@ export class PanMaskedComponent implements OnInit {
     /**
      * PROD. Profile
      */
-
+    this.apiService.findAllCardMaskGroups()
+      .subscribe( data => {
+          console.log(data)
+          const anyData: any = data
+          const panMaskeds = anyData
+          this.panMaskeds = panMaskeds.content;
+        },
+        error => {
+          alert( JSON.stringify(error) );
+        });
 
     /**
      * DEV. Profile
      */
-    this.panMaskeds = this.dataService.getPanMaskeds();
+    // this.panMaskeds = this.dataService.getPanMaskeds();
+  }
+
+  public createPanMasked() {
+    const entity: any = panMaskedNew();
+    console.log(entity)
+    this.selectedPanMasked = entity;
+    this.editForm.setValue(entity);
   }
 
   public selectPanMasked(panMasked) {
-    this.selectedPanMasked = panMasked;
-
     console.log(panMasked);
-
-    this.editForm.setValue(panMasked);
+    this.selectedPanMasked = panMasked;
+    const entity: any = dtoToPanMasked(panMasked);
+    this.editForm.setValue(entity);
   }
 
   public selectPanMaskedId(panMasked) {
@@ -74,29 +79,32 @@ export class PanMaskedComponent implements OnInit {
     this.selectedPanMasked = null;
   }
 
+  public onSubmit() {
+    const dto = panMaskedGroupsToDto(this.editForm.value);
+    if (dto.id === null) {
+      this.apiService.createCardMaskGroup(dto)
+        .pipe(first())
+        .subscribe(
+          data => {
+            this.pageRefresh(); // created successfully.
+          },
+          error => {
+            alert( JSON.stringify(error) );
+          });
+    } else {
+      this.apiService.updateCardMaskGroup(dto)
+        .pipe(first())
+        .subscribe(
+          data => {
+            this.pageRefresh(); // updated successfully.
+          },
+          error => {
+            alert( JSON.stringify(error) );
+          });
+    }
+  }
+
   public pageRefresh() {
     location.reload();
-  }
-
-  public createPanMasked() {
-    this.selectedPanMasked = this.newPanMasked;
-    console.log(this.newPanMasked)
-    this.editForm.setValue(this.newPanMasked);
-  }
-
-  onSubmit() {
-    console.log(this.editForm.value);
-    // const dto = terminalToDto(this.editForm.value);
-    // console.log(dto);
-    //
-    // this.apiService.updateTerminal(dto)
-    //   .pipe(first())
-    //   .subscribe(
-    //     data => {
-          location.reload(); // updated successfully.
-        // },
-        // error => {
-        //   alert( JSON.stringify(error) );
-        // });
   }
 }

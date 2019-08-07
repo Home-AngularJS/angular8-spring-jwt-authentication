@@ -27,9 +27,11 @@
                   <td>
                     <table width="650" border="0">
                       <tr>
-                        <th width="170">Идентификатор</th>
-                        <th width="185">Шаблон</th>
-                        <th></th>
+                        <th width="140">Идентификатор</th>
+                        <th width="110">Количество символов в начале</th>
+                        <th width="110">Количество символов в конце</th>
+                        <th width="110">Символ маски</th>
+                        <th width="200"></th>
                       </tr>
                     </table>
                   </td>
@@ -43,14 +45,18 @@
                           <ng-container *ngFor="let panMasked of panMaskeds">
                             <tr class="found" (click)="selectPanMaskedId(panMasked)">
                               <div *ngIf="panMasked.id === selectedPanMaskedId">
-                                <td width="170" style="background: rgba(70, 70, 70, 0.200);">{{ panMasked.id }}</td>
-                                <td width="185" style="background: rgba(70, 70, 70, 0.200);">{{ panMasked.templateMasked }}</td>
-                                <td width="300" style="background: rgba(70, 70, 70, 0.200);"></td>
+                                <td width="140" style="background: rgba(70, 70, 70, 0.200);">{{ panMasked.id }}</td>
+                                <td width="110" style="background: rgba(70, 70, 70, 0.200);">{{ panMasked.beginMask }}</td>
+                                <td width="110" style="background: rgba(70, 70, 70, 0.200);">{{ panMasked.endMask }}</td>
+                                <td width="110" style="background: rgba(70, 70, 70, 0.200);">{{ panMasked.maskSymbol }}</td>
+                                <td width="200" style="background: rgba(70, 70, 70, 0.200);"></td>
                               </div>
                               <div *ngIf="panMasked.id != selectedPanMaskedId">
-                                <td width="170">{{ panMasked.id }}</td>
-                                <td width="185">{{ panMasked.templateMasked }}</td>
-                                <td width="300"></td>
+                                <td width="140">{{ panMasked.id }}</td>
+                                <td width="110">{{ panMasked.beginMask }}</td>
+                                <td width="110">{{ panMasked.endMask }}</td>
+                                <td width="110">{{ panMasked.maskSymbol }}</td>
+                                <td width="200"></td>
                               </div>
                             </tr>
                           </ng-container>
@@ -100,14 +106,6 @@
                   </tr>
                   <tr>
                     <td align="right" width="160">
-                      <label for="templateMasked">Шаблон</label>
-                    </td>
-                    <td width="140">
-                      <input type="text" formControlName="templateMasked" name="templateMasked" class="form-control" id="templateMasked" aria-describedby="idHelp" placeholder="Enter your Pan-Masked's">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td align="right" width="160">
                       <label for="beginMask">Количество символов в начале</label>
                     </td>
                     <td width="140">
@@ -124,10 +122,10 @@
                   </tr>
                   <tr>
                     <td align="right" width="160">
-                      <label for="maskSymbol">Немаскиремый текст</label>
+                      <label for="maskSymbol">Символ маски</label>
                     </td>
                     <td width="140">
-                      <input type="number" formControlName="maskSymbol" name="endMask" class="form-control" id="maskSymbol" aria-describedby="idHelp" placeholder="Enter your Pan-Masked's">
+                      <input type="text" formControlName="maskSymbol" name="endMask" class="form-control" id="maskSymbol" aria-describedby="idHelp" placeholder="Enter your Pan-Masked's">
                     </td>
                   </tr>
                 </table>

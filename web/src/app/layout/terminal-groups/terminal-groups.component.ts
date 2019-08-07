@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../core/service/data.service';
-import {Router} from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
-import {ApiService} from '../../core/service/api.service';
-import {first} from 'rxjs/operators';
-import {dtoToTerminalGroups, terminalGroupsNew, terminalGroupsToDto} from '../../core/model/terminal-groups.model';
+import { ApiService } from '../../core/service/api.service';
+import { first } from 'rxjs/operators';
+import { dtoToTerminalGroups, terminalGroupsNew, terminalGroupsToDto } from '../../core/model/terminal-groups.model';
 
 @Component({
   selector: 'app-terminal-groups',
@@ -100,13 +100,13 @@ export class TerminalGroupsComponent implements OnInit {
     }
   }
 
-  onItemSelect(item: any) {
+  public onItemSelect(item: any) {
   }
 
-  onSelectAll(items: any) {
+  public onSelectAll(items: any) {
   }
 
-  onSubmit() {
+  public onSubmit() {
     const dto = terminalGroupsToDto(this.editForm.value);
     if (dto.groupNumber === null) {
       this.apiService.createServiceGroup(dto)

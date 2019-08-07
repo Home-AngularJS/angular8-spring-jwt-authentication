@@ -703,24 +703,21 @@ export class DataService {
   panMaskeds = [
     {
       "id": "001",
-      "templateMasked": "************NNNN",
       "beginMask": 1,
       "endMask": 1,
-      "maskSymbol": 1
+      "maskSymbol": "*"
     },
     {
       "id": "002",
-      "templateMasked": "NNNN************",
       "beginMask": 2,
       "endMask": 2,
-      "maskSymbol": 1
+      "maskSymbol": "X"
     },
     {
       "id": "003",
-      "templateMasked": "NNNN********NNNN",
       "beginMask": 3,
       "endMask": 3,
-      "maskSymbol": 1
+      "maskSymbol": "#"
     }
     ];
 
@@ -738,23 +735,23 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  public findAllTerminals():{content, pageable, totalElements, last, totalPages, first, sort, numberOfElements, size, number, empty}{
+  public findAllTerminals(): {content, pageable, totalElements, last, totalPages, first, sort, numberOfElements, size, number, empty} {
     return this.terminals;
   }
 
-  public updateTerminal(terminal: {content, pageable, totalElements, last, totalPages, first, sort, numberOfElements, size, number, empty}){
+  public updateTerminal(terminal: {content, pageable, totalElements, last, totalPages, first, sort, numberOfElements, size, number, empty}) {
     //   this.terminals.push(terminal);
   }
 
-  public findAllServiceGroups():Array<{groupNumber, groupName, opPurchase, opReversal, opRefund, manual, pin, geoPosition, limitVisa, limitMc, limitProstir, visaAccepted, mcAccepted, prostirAccepted, receiptTemplate, allowedLanguages}>{
+  public findAllServiceGroups():Array<{groupNumber, groupName, opPurchase, opReversal, opRefund, manual, pin, geoPosition, limitVisa, limitMc, limitProstir, visaAccepted, mcAccepted, prostirAccepted, receiptTemplate, allowedLanguages}> {
     return this.terminalGroups;
   }
 
-  public createServiceGroup(terminalGroup: {groupNumber, groupName, opPurchase, opReversal, opRefund, manual, pin, geoPosition, limitVisa, limitMc, limitProstir, visaAccepted, mcAccepted, prostirAccepted, receiptTemplate, allowedLanguages}){
+  public createServiceGroup(terminalGroup: {groupNumber, groupName, opPurchase, opReversal, opRefund, manual, pin, geoPosition, limitVisa, limitMc, limitProstir, visaAccepted, mcAccepted, prostirAccepted, receiptTemplate, allowedLanguages}) {
     // this.terminals.push(terminalGroup);
   }
 
-  updateServiceGroup(terminalGroup: {groupNumber, groupName, opPurchase, opReversal, opRefund, manual, pin, geoPosition, limitVisa, limitMc, limitProstir, visaAccepted, mcAccepted, prostirAccepted, receiptTemplate, allowedLanguages}){
+  updateServiceGroup(terminalGroup: {groupNumber, groupName, opPurchase, opReversal, opRefund, manual, pin, geoPosition, limitVisa, limitMc, limitProstir, visaAccepted, mcAccepted, prostirAccepted, receiptTemplate, allowedLanguages}) {
     // this.terminals.push(terminalGroup);
   }
 
@@ -762,7 +759,7 @@ export class DataService {
     return this.transactions;
   }
 
-  public getPanMaskeds():Array<{id, templateMasked, beginMask, endMask, maskSymbol}> {
+  public getPanMaskeds():Array<{id, beginMask, endMask, maskSymbol}> {
     return this.panMaskeds;
   }
 

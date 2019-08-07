@@ -15,6 +15,7 @@ export class ApiService {
   terminalUrl: string = 'http://map1.mobo.cards:8093/api/v1/terminals';
   serviceGroupsUrl: string = 'http://map1.mobo.cards:8093/api/v1/service-groups';
   transactionUrl: string = 'http://map1.mobo.cards:8093/api/v1/transactions';
+  cardMaskGroupsUrl: string = 'http://map1.mobo.cards:8093/api/v1/card-mask-groups';
 
   /**
    * @CTS
@@ -78,16 +79,16 @@ export class ApiService {
     return this.http.get<any>(this.serviceGroupsUrl);
   }
 
+  createServiceGroup(anyTerminalGroup: any): Observable<any> {
+    console.log(anyTerminalGroup);
+    const terminalGroup = anyTerminalGroup;
+    return this.http.post<any>(this.serviceGroupsUrl, terminalGroup);
+  }
+
   updateServiceGroup(anyTerminalGroup: any): Observable<any> {
     console.log(anyTerminalGroup);
     const terminalGroup = anyTerminalGroup;
     return this.http.put<any>(this.serviceGroupsUrl + '/' + terminalGroup.groupNumber, terminalGroup);
-  }
-
-  createServiceGroup(anyTerminalGroup: any): Observable<any> {
-    console.log(anyTerminalGroup);
-    const terminal = anyTerminalGroup;
-    return this.http.post<any>(this.serviceGroupsUrl, anyTerminalGroup);
   }
 
   /**
@@ -95,5 +96,24 @@ export class ApiService {
    */
   findAllTransactions(): Observable<any> {
     return this.http.get<any>(this.transactionUrl);
+  }
+
+  /**
+   * Card-Mask-Group API
+   */
+  findAllCardMaskGroups(): Observable<any> {
+    return this.http.get<any>(this.cardMaskGroupsUrl);
+  }
+
+  createCardMaskGroup(anyPanMasked: any): Observable<any> {
+    console.log(anyPanMasked);
+    const panMasked = anyPanMasked;
+    return this.http.post<any>(this.cardMaskGroupsUrl, panMasked);
+  }
+
+  updateCardMaskGroup(anyPanMasked: any): Observable<any> {
+    console.log(anyPanMasked);
+    const panMasked = anyPanMasked;
+    return this.http.put<any>(this.cardMaskGroupsUrl + '/' + panMasked.id, panMasked);
   }
 }

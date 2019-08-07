@@ -19,10 +19,10 @@ const routes: Routes = [
   { path: 'edit-user', component: EditUserComponent },
   { path : '', component : HomeComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'terminal-groups', component: TerminalGroupsComponent} ,
+  { path: 'service-groups', component: TerminalGroupsComponent} ,
   { path: 'terminal', component: TerminalComponent },
   { path: 'transaction', component: TransactionComponent },
-  { path: 'pan-masked', component: PanMaskedComponent },
+  { path: 'card-mask-group', component: PanMaskedComponent },
   { path: 'allowed-language', component: AllowedLanguageComponent },
   { path: 'settings', component: SettingsComponent },
 ];
