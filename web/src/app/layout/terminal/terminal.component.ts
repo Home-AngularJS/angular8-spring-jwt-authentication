@@ -25,6 +25,7 @@ export class TerminalComponent implements OnInit {
   allowedLanguagesSettings = {};
   findDevice: any;
   devices;
+  products;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService, public dataService: DataService) { }
 
@@ -42,8 +43,6 @@ export class TerminalComponent implements OnInit {
       itemsShowLimit: 1,
       noDataAvailablePlaceholderText: 'нет данных'
     };
-
-    this.devices = this.dataService.getDevices();
 
     this.editForm = this.formBuilder.group({
       terminalId: ['', Validators.required],
@@ -73,7 +72,8 @@ export class TerminalComponent implements OnInit {
       allowedLanguages: [''],
       beginMask: ['', Validators.required],
       endMask: ['', Validators.required],
-      maskSymbol: ['', Validators.required]
+      maskSymbol: ['', Validators.required],
+      productId: ['']
     });
 
     /**
@@ -89,7 +89,12 @@ export class TerminalComponent implements OnInit {
             const device = this.devices[randomDevice];
             terminals[i].deviceName = device.deviceName;
           }
-          //TODO deviceName
+          //TODO productID
+          for (let i = 0; i < terminals.length; i++) {
+            const randomProduct = this.getRandomInt(0, this.products.length-1);
+            const product = this.products[randomProduct];
+            terminals[i].productId = product.productId;
+          }
           this.terminals = terminals;
         },
         error => {
@@ -110,6 +115,8 @@ export class TerminalComponent implements OnInit {
      * DEV. Profile
      */
     // this.terminals = this.dataService.findAllTerminals().content;
+    this.devices = this.dataService.getDevices();
+    this.products = this.dataService.findAllProducts();
   }
 
   public selectTerminal(terminal) {

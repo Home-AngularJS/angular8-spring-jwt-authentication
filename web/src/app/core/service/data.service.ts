@@ -860,6 +860,32 @@ export class DataService {
     }
   ];
 
+  mpsCards = [
+    {
+      "mpsId": "MPS01",
+      "mpsName": "VISA",
+      "firsNumber": 4,
+      "symbol": "V"
+    },
+    {
+      "mpsId": "MPS02",
+      "mpsName": "MASTERCARD",
+      "firsNumber": 5,
+      "symbol": "M"
+    }
+  ];
+
+  products = [
+    {
+      "productId": "P01",
+      "idMps": "MPS01",
+      "startRange": 400000000000000,
+      "endRange": 499999999999999,
+      "description": "прием всех карт",
+      "host": "0.0.0.0"
+    }
+  ];
+
   constructor(private http: HttpClient) { }
 
   public findAllTerminals(): {content, pageable, totalElements, last, totalPages, first, sort, numberOfElements, size, number, empty} {
@@ -908,5 +934,52 @@ export class DataService {
 
   public getDevices():Array<{appId, appStatus, appVersion, deviceFingerprint, deviceName, deviceSn, deviceStatus, imei, initDate, osVersion, serialNumber}> {
     return this.devices;
+  }
+
+  public findAllMpsCards():Array<{mpsId, mpsName, firsNumber, symbol}> {
+    return this.mpsCards;
+  }
+
+  public createMpsCard(mpsCard: {mpsId, mpsName, firsNumber, symbol}) {
+    mpsCard.mpsId = 'MPS0' + this.randomString(1, '123456789');
+    this.mpsCards.push(mpsCard);
+  }
+
+  public updateMpsCard(mpsCard: {mpsId, mpsName, firsNumber, symbol}) {
+    for (let i = 0; i < this.mpsCards.length; i++) {
+      if (this.mpsCards[i].mpsId === mpsCard.mpsId) {
+        this.mpsCards[i].mpsName = mpsCard.mpsName;
+        this.mpsCards[i].firsNumber = mpsCard.firsNumber;
+        this.mpsCards[i].symbol = mpsCard.symbol;
+      }
+    }
+  }
+
+  public findAllProducts():Array<{productId, idMps, startRange, endRange, description, host}> {
+    return this.products;
+  }
+
+  public createProduct(product: {productId, idMps, startRange, endRange, description, host}) {
+    product.productId = 'P0' + this.randomString(1, '123456789');
+    console.log(product);
+    this.products.push(product);
+  }
+
+  public updateProduct(product: {productId, idMps, startRange, endRange, description, host}) {
+    for (let i = 0; i < this.products.length; i++) {
+      if (this.products[i].productId === product.productId) {
+        this.products[i].idMps = product.idMps;
+        this.products[i].startRange = product.startRange;
+        this.products[i].endRange = product.endRange;
+        this.products[i].description = product.description;
+        this.products[i].host = product.host;
+      }
+    }
+  }
+
+  randomString(length, chars) {
+    var result = '';
+    for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+    return result;
   }
 }
